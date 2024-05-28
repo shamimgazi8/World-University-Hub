@@ -1,0 +1,168 @@
+[
+  {
+    "displayName": "Bachelor of Business Administration, International Business",
+    "id": 13,
+    "duration": "1 Years",
+    "location": "Helsinki",
+    "campusId": "7565",
+    "courseLevel": {
+      "name": "Associate's degree",
+      "slug": "associate-s-degree"
+    },
+    "courseTitle": {
+      "name": "Bachelor of Business Administration, International Business",
+      "slug": "bachelor-of-business-administration-international-business",
+      "searchKeywords": "Business ,Administration"
+    },
+    "deliveryMethods": [
+      {
+        "deliveryMethod": {
+          "name": "On Campus"
+        }
+      }
+    ],
+    "specialization": {
+      "name": "Business Administration",
+      "slug": "business-administration"
+    },
+    "university": {
+      "name": "Lingnan University, Hong Kong",
+      "slug": "lingnan-university-hong-kong"
+    },
+    "campuses": [
+      {
+        "title": "Lingnan University, Hong Kong SAR"
+      }
+    ]
+  },
+
+  {
+    "displayName": "Computer Science Fundamentals",
+    "id": 62,
+    "duration": "3 months",
+    "location": "Online",
+    "campusId": null,
+    "courseLevel": {
+      "name": "Undergraduate",
+      "slug": "undergraduate"
+    },
+    "courseTitle": {
+      "name": "Computer Science",
+      "slug": "computer-science",
+      "searchKeywords": null
+    },
+    "deliveryMethods": [],
+    "specialization": null,
+    "university": {
+      "name": "University of Oxford",
+      "slug": "university-oxford"
+    },
+    "campuses": null
+  },
+  {
+    "displayName": "Business Management Essentials",
+    "id": 63,
+    "duration": "2 months",
+    "location": "City B",
+    "campusId": null,
+    "courseLevel": {
+      "name": "Postgraduate",
+      "slug": "postgraduate"
+    },
+    "courseTitle": {
+      "name": "Mathematics",
+      "slug": "mathematics",
+      "searchKeywords": null
+    },
+    "deliveryMethods": [],
+    "specialization": null,
+    "university": {
+      "name": "University of Melbourne",
+      "slug": "university-melbourne"
+    },
+    "campuses": null
+  },
+  {
+    "displayName": "Bachelor of Business Administration, International Business",
+    "id": 13,
+    "duration": "1 Years",
+    "location": "Helsinki",
+    "campusId": "7565",
+    "courseLevel": {
+      "name": "Associate's degree",
+      "slug": "associate-s-degree"
+    },
+    "courseTitle": {
+      "name": "Bachelor of Business Administration, International Business",
+      "slug": "bachelor-of-business-administration-international-business",
+      "searchKeywords": "Business ,Administration"
+    },
+    "deliveryMethods": [
+      {
+        "deliveryMethod": {
+          "name": "On Campus"
+        }
+      }
+    ],
+    "specialization": {
+      "name": "Business Administration",
+      "slug": "business-administration"
+    },
+    "university": {
+      "name": "Lingnan University, Hong Kong",
+      "slug": "lingnan-university-hong-kong"
+    },
+    "campuses": [
+      {
+        "title": "Lingnan University, Hong Kong SAR"
+      }
+    ]
+  },
+
+  {
+    "displayName": "Computer Science Fundamentals",
+    "id": 62,
+    "duration": "3 months",
+    "location": "Online",
+    "campusId": null,
+    "courseLevel": {
+      "name": "Undergraduate",
+      "slug": "undergraduate"
+    },
+    "courseTitle": {
+      "name": "Computer Science",
+      "slug": "computer-science",
+      "searchKeywords": null
+    },
+    "deliveryMethods": [],
+    "specialization": null,
+    "university": {
+      "name": "University of Oxford",
+      "slug": "university-oxford"
+    },
+    "campuses": null
+  },
+  {
+    "displayName": "Business Management Essentials",
+    "id": 63,
+    "duration": "2 months",
+    "location": "City B",
+    "campusId": null,
+    "courseLevel": {
+      "name": "Postgraduate",
+      "slug": "postgraduate"
+    },
+    "courseTitle": {
+      "name": "Mathematics",
+      "slug": "mathematics",
+      "searchKeywords": null
+    },
+    "deliveryMethods": [],
+    "specialization": null,
+    "university": {
+      "name": "University of Melbourne",
+      "slug": "university-melbourne"
+    },
+    "campuses": null
+  }
+]

@@ -1,0 +1,638 @@
+[
+  {
+    "courseId": "350",
+    "courseName": "Master of Industrial Engineering",
+    "slug": "master-of-industrial-engineering",
+    "courseDuration": 36,
+    "courseDurationType": "month",
+    "totalView": "3411",
+    "level": {
+      "levelId": "2",
+      "levelName": "Postgraduate",
+      "slug": "postgraduate"
+    },
+    "specialization": {
+      "specializationId": "31",
+      "specializationName": "Mechanical, Aeronautical & Manufacturing Engineering",
+      "slug": "mechanical-aeronautical-manufacturing-engineering",
+      "shortName": "M,A&M Engineering",
+      "parentId": "26"
+    },
+    "specialization_parent": {
+      "status": "Active",
+      "specializationId": "26",
+      "specializationName": "Engineering & Science",
+      "slug": "engineering-and-science",
+      "shortName": " Engineering & Science",
+      "tags": null,
+      "description": "",
+      "parentId": "0",
+      "iconId": "284",
+      "featureImageId": "89"
+    },
+    "courseExam": [
+      {
+        "score": "58.00",
+        "exam": {
+          "examId": "2",
+          "examName": "PTE",
+          "slug": "pte"
+        }
+      },
+      {
+        "score": "79.00",
+        "exam": {
+          "examId": "3",
+          "examName": "TOEFL",
+          "slug": "toefl"
+        }
+      },
+      {
+        "score": "6.50",
+        "exam": {
+          "examId": "1",
+          "examName": "IELTS",
+          "slug": "ielts"
+        }
+      }
+    ],
+    "tuition": {
+      "amountFrom": "50272",
+      "amountTo": "0"
+    },
+    "ranking": {
+      "courseRankingId": "3333",
+      "rankingType": " Engineering",
+      "courseRankFrom": 67
+    },
+    "intake": [
+      {
+        "intakeMonth": "February",
+        "intakeMonthTo": null,
+        "admissionSessionName": "Winter",
+        "intakeYear": 2024
+      },
+      {
+        "intakeMonth": "July",
+        "intakeMonthTo": null,
+        "admissionSessionName": "Summer",
+        "intakeYear": 2024
+      }
+    ]
+  },
+  {
+    "courseId": "349",
+    "courseName": "Master of Finance",
+    "slug": "master-of-finance-GLtz",
+    "courseDuration": 18,
+    "courseDurationType": "month",
+    "totalView": "3411",
+    "level": {
+      "levelId": "2",
+      "levelName": "Postgraduate",
+      "slug": "postgraduate"
+    },
+    "specialization": {
+      "specializationId": "11",
+      "specializationName": "Finance",
+      "slug": "finance",
+      "shortName": "Finance",
+      "parentId": "8"
+    },
+    "specialization_parent": {
+      "status": "Active",
+      "specializationId": "8",
+      "specializationName": "Business & Administration",
+      "slug": "business-and-administration",
+      "shortName": "Business",
+      "tags": ["Business & Administration", "BBA"],
+      "description": "",
+      "parentId": "0",
+      "iconId": "276",
+      "featureImageId": "52"
+    },
+    "courseExam": [
+      {
+        "score": "58.00",
+        "exam": {
+          "examId": "2",
+          "examName": "PTE",
+          "slug": "pte"
+        }
+      },
+      {
+        "score": "79.00",
+        "exam": {
+          "examId": "3",
+          "examName": "TOEFL",
+          "slug": "toefl"
+        }
+      },
+      {
+        "score": "6.50",
+        "exam": {
+          "examId": "1",
+          "examName": "IELTS",
+          "slug": "ielts"
+        }
+      }
+    ],
+    "tuition": {
+      "amountFrom": "50432",
+      "amountTo": "0"
+    },
+    "ranking": {
+      "courseRankingId": "3293",
+      "rankingType": "Accounting and Finance",
+      "courseRankFrom": 35
+    },
+    "intake": [
+      {
+        "intakeMonth": "February",
+        "intakeMonthTo": null,
+        "admissionSessionName": "Spring",
+        "intakeYear": 2024
+      },
+      {
+        "intakeMonth": "July",
+        "intakeMonthTo": null,
+        "admissionSessionName": "Summer",
+        "intakeYear": 2024
+      }
+    ]
+  },
+  {
+    "courseId": "347",
+    "courseName": "Master of Film and Television",
+    "slug": "master-of-film-and-television",
+    "courseDuration": 24,
+    "courseDurationType": "month",
+    "totalView": "3411",
+    "level": {
+      "levelId": "2",
+      "levelName": "Postgraduate",
+      "slug": "postgraduate"
+    },
+    "specialization": {
+      "specializationId": "42",
+      "specializationName": "Communication & Media",
+      "slug": "communication-and-media",
+      "shortName": "Communication & Media",
+      "parentId": "34"
+    },
+    "specialization_parent": {
+      "status": "Active",
+      "specializationId": "34",
+      "specializationName": "Humanities & Culture ",
+      "slug": "humanities-and-culture",
+      "shortName": "Humanities & Culture",
+      "tags": null,
+      "description": "",
+      "parentId": "0",
+      "iconId": "292",
+      "featureImageId": "103"
+    },
+    "courseExam": [
+      {
+        "score": "58.00",
+        "exam": {
+          "examId": "2",
+          "examName": "PTE",
+          "slug": "pte"
+        }
+      },
+      {
+        "score": "79.00",
+        "exam": {
+          "examId": "3",
+          "examName": "TOEFL",
+          "slug": "toefl"
+        }
+      },
+      {
+        "score": "6.50",
+        "exam": {
+          "examId": "1",
+          "examName": "IELTS",
+          "slug": "ielts"
+        }
+      }
+    ],
+    "tuition": {
+      "amountFrom": "41760",
+      "amountTo": "0"
+    },
+    "ranking": {
+      "courseRankingId": "3349",
+      "rankingType": "Arts & Humanities",
+      "courseRankFrom": 39
+    },
+    "intake": [
+      {
+        "intakeMonth": "February",
+        "intakeMonthTo": null,
+        "admissionSessionName": "Winter",
+        "intakeYear": 2024
+      }
+    ]
+  },
+  {
+    "courseId": "346",
+    "courseName": " Master of Electrical Engineering",
+    "slug": "master-of-electrical-engineering-0Nwb",
+    "courseDuration": 36,
+    "courseDurationType": "month",
+    "totalView": "3411",
+    "level": {
+      "levelId": "2",
+      "levelName": "Postgraduate",
+      "slug": "postgraduate"
+    },
+    "specialization": {
+      "specializationId": "88",
+      "specializationName": "Electrical Engineering",
+      "slug": "electrical-engineering",
+      "shortName": "EE",
+      "parentId": "26"
+    },
+    "specialization_parent": {
+      "status": "Active",
+      "specializationId": "26",
+      "specializationName": "Engineering & Science",
+      "slug": "engineering-and-science",
+      "shortName": " Engineering & Science",
+      "tags": null,
+      "description": "",
+      "parentId": "0",
+      "iconId": "284",
+      "featureImageId": "89"
+    },
+    "courseExam": [
+      {
+        "score": "58.00",
+        "exam": {
+          "examId": "2",
+          "examName": "PTE",
+          "slug": "pte"
+        }
+      },
+      {
+        "score": "79.00",
+        "exam": {
+          "examId": "3",
+          "examName": "TOEFL",
+          "slug": "toefl"
+        }
+      },
+      {
+        "score": "6.50",
+        "exam": {
+          "examId": "1",
+          "examName": "IELTS",
+          "slug": "ielts"
+        }
+      }
+    ],
+    "tuition": {
+      "amountFrom": "50272",
+      "amountTo": "0"
+    },
+    "ranking": {
+      "courseRankingId": "3321",
+      "rankingType": "Engineering",
+      "courseRankFrom": 67
+    },
+    "intake": [
+      {
+        "intakeMonth": "February",
+        "intakeMonthTo": null,
+        "admissionSessionName": "Winter",
+        "intakeYear": 2024
+      },
+      {
+        "intakeMonth": "July",
+        "intakeMonthTo": null,
+        "admissionSessionName": "Summer",
+        "intakeYear": 2024
+      }
+    ]
+  },
+  {
+    "courseId": "344",
+    "courseName": " Master of Economics",
+    "slug": "master-of-economics",
+    "courseDuration": 24,
+    "courseDurationType": "month",
+    "totalView": "3411",
+    "level": {
+      "levelId": "2",
+      "levelName": "Postgraduate",
+      "slug": "postgraduate"
+    },
+    "specialization": {
+      "specializationId": "58",
+      "specializationName": "Economics",
+      "slug": "economics",
+      "shortName": "Economics",
+      "parentId": "57"
+    },
+    "specialization_parent": {
+      "status": "Active",
+      "specializationId": "57",
+      "specializationName": "Economics & Econometrics",
+      "slug": "economics-and-econometrics",
+      "shortName": "Economics",
+      "tags": ["Economics & Econometrics", "Economics", "Econometrics"],
+      "description": "",
+      "parentId": "0",
+      "iconId": "283",
+      "featureImageId": "150"
+    },
+    "courseExam": [
+      {
+        "score": "58.00",
+        "exam": {
+          "examId": "2",
+          "examName": "PTE",
+          "slug": "pte"
+        }
+      },
+      {
+        "score": "79.00",
+        "exam": {
+          "examId": "3",
+          "examName": "TOEFL",
+          "slug": "toefl"
+        }
+      },
+      {
+        "score": "6.50",
+        "exam": {
+          "examId": "1",
+          "examName": "IELTS",
+          "slug": "ielts"
+        }
+      }
+    ],
+    "tuition": {
+      "amountFrom": "47712",
+      "amountTo": "0"
+    },
+    "ranking": {
+      "courseRankingId": "3287",
+      "rankingType": "Business & Economics",
+      "courseRankFrom": 35
+    },
+    "intake": [
+      {
+        "intakeMonth": "February",
+        "intakeMonthTo": null,
+        "admissionSessionName": "Winter",
+        "intakeYear": 2024
+      }
+    ]
+  },
+  {
+    "courseId": "343",
+    "courseName": "Master of Digital Marketing",
+    "slug": "master-of-digital-marketing",
+    "courseDuration": 18,
+    "courseDurationType": "month",
+    "totalView": "3411",
+    "level": {
+      "levelId": "2",
+      "levelName": "Postgraduate",
+      "slug": "postgraduate"
+    },
+    "specialization": {
+      "specializationId": "13",
+      "specializationName": "Marketing",
+      "slug": "marketing",
+      "shortName": "Marketing",
+      "parentId": "8"
+    },
+    "specialization_parent": {
+      "status": "Active",
+      "specializationId": "8",
+      "specializationName": "Business & Administration",
+      "slug": "business-and-administration",
+      "shortName": "Business",
+      "tags": ["Business & Administration", "BBA"],
+      "description": "",
+      "parentId": "0",
+      "iconId": "276",
+      "featureImageId": "52"
+    },
+    "courseExam": [
+      {
+        "score": "58.00",
+        "exam": {
+          "examId": "2",
+          "examName": "PTE",
+          "slug": "pte"
+        }
+      },
+      {
+        "score": "79.00",
+        "exam": {
+          "examId": "3",
+          "examName": "TOEFL",
+          "slug": "toefl"
+        }
+      },
+      {
+        "score": "6.50",
+        "exam": {
+          "examId": "1",
+          "examName": "IELTS",
+          "slug": "ielts"
+        }
+      }
+    ],
+    "tuition": {
+      "amountFrom": "47712",
+      "amountTo": "0"
+    },
+    "ranking": {
+      "courseRankingId": "3306",
+      "rankingType": "Business & Economics",
+      "courseRankFrom": 35
+    },
+    "intake": [
+      {
+        "intakeMonth": "February",
+        "intakeMonthTo": null,
+        "admissionSessionName": "Winter",
+        "intakeYear": 2024
+      },
+      {
+        "intakeMonth": "July",
+        "intakeMonthTo": null,
+        "admissionSessionName": "Summer",
+        "intakeYear": 2024
+      }
+    ]
+  },
+  {
+    "courseId": "342",
+    "courseName": "Master of Computer Science",
+    "slug": "master-of-computer-science-h5ly",
+    "courseDuration": 24,
+    "courseDurationType": "month",
+    "totalView": "3413",
+    "level": {
+      "levelId": "2",
+      "levelName": "Postgraduate",
+      "slug": "postgraduate"
+    },
+    "specialization": {
+      "specializationId": "86",
+      "specializationName": "Computer Science",
+      "slug": "computer-science",
+      "shortName": "Computer Science",
+      "parentId": "1"
+    },
+    "specialization_parent": {
+      "status": "Active",
+      "specializationId": "1",
+      "specializationName": "Computer Science and Information Systems",
+      "slug": "computer-science-and-information-systems",
+      "shortName": "Computer Science",
+      "tags": ["CSE", "CS", "IT", "ICT", "AI", "IoT"],
+      "description": "",
+      "parentId": "0",
+      "iconId": "280",
+      "featureImageId": "37"
+    },
+    "courseExam": [
+      {
+        "score": "58.00",
+        "exam": {
+          "examId": "2",
+          "examName": "PTE",
+          "slug": "pte"
+        }
+      },
+      {
+        "score": "79.00",
+        "exam": {
+          "examId": "3",
+          "examName": "TOEFL",
+          "slug": "toefl"
+        }
+      },
+      {
+        "score": "6.50",
+        "exam": {
+          "examId": "1",
+          "examName": "IELTS",
+          "slug": "ielts"
+        }
+      }
+    ],
+    "tuition": {
+      "amountFrom": "48320",
+      "amountTo": "0"
+    },
+    "ranking": {
+      "courseRankingId": "3278",
+      "rankingType": "Computer Science",
+      "courseRankFrom": 51
+    },
+    "intake": [
+      {
+        "intakeMonth": "February",
+        "intakeMonthTo": null,
+        "admissionSessionName": "Winter",
+        "intakeYear": 2024
+      },
+      {
+        "intakeMonth": "July",
+        "intakeMonthTo": null,
+        "admissionSessionName": "Summer",
+        "intakeYear": 2024
+      }
+    ]
+  },
+  {
+    "courseId": "341",
+    "courseName": "Master of Civil Engineering",
+    "slug": "master-of-civil-engineering-z1PY",
+    "courseDuration": 36,
+    "courseDurationType": "month",
+    "totalView": "3411",
+    "level": {
+      "levelId": "2",
+      "levelName": "Postgraduate",
+      "slug": "postgraduate"
+    },
+    "specialization": {
+      "specializationId": "28",
+      "specializationName": "Civil Structural Engineering",
+      "slug": "civil-structural-engineering",
+      "shortName": "Civil Engineering",
+      "parentId": "26"
+    },
+    "specialization_parent": {
+      "status": "Active",
+      "specializationId": "26",
+      "specializationName": "Engineering & Science",
+      "slug": "engineering-and-science",
+      "shortName": " Engineering & Science",
+      "tags": null,
+      "description": "",
+      "parentId": "0",
+      "iconId": "284",
+      "featureImageId": "89"
+    },
+    "courseExam": [
+      {
+        "score": "58.00",
+        "exam": {
+          "examId": "2",
+          "examName": "PTE",
+          "slug": "pte"
+        }
+      },
+      {
+        "score": "79.00",
+        "exam": {
+          "examId": "3",
+          "examName": "TOEFL",
+          "slug": "toefl"
+        }
+      },
+      {
+        "score": "6.50",
+        "exam": {
+          "examId": "1",
+          "examName": "IELTS",
+          "slug": "ielts"
+        }
+      }
+    ],
+    "tuition": {
+      "amountFrom": "50272",
+      "amountTo": "0"
+    },
+    "ranking": {
+      "courseRankingId": "3330",
+      "rankingType": " Engineering",
+      "courseRankFrom": 67
+    },
+    "intake": [
+      {
+        "intakeMonth": "February",
+        "intakeMonthTo": null,
+        "admissionSessionName": "Winter",
+        "intakeYear": 2024
+      },
+      {
+        "intakeMonth": "July",
+        "intakeMonthTo": null,
+        "admissionSessionName": "Summer",
+        "intakeYear": 2024
+      }
+    ]
+  }
+]

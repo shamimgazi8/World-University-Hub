@@ -1,0 +1,22 @@
+[
+  {
+    "label": "British Degree",
+    "value": "British Degree"
+  },
+  {
+    "label": "CGPA /10",
+    "value": "CGPA - 10"
+  },
+  {
+    "label": "CGPA /4",
+    "value": "CGPA - 4"
+  },
+  {
+    "label": "CGPA /5",
+    "value": "CGPA - 5"
+  },
+  {
+    "label": "Percentage",
+    "value": "Percentage"
+  }
+]

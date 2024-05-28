@@ -1,0 +1,18 @@
+[
+  {
+    "label": "First Class",
+    "value": "1st"
+  },
+  {
+    "label": "Upper Second Class (2:1)",
+    "value": "2.1"
+  },
+  {
+    "label": "Lower Second Class (2:2)",
+    "value": "2.2"
+  },
+  {
+    "label": "Third Class",
+    "value": "3rd"
+  }
+]

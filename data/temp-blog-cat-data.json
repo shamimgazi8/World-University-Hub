@@ -1,0 +1,47 @@
+[
+  {
+    "name": "Technology",
+    "slug": "technology",
+    "featuredImage": "https://api.worldunihub.com/uploads/media/blog-img-2-a675904515373da5.jpg"
+  },
+  {
+    "name": "Travel",
+    "slug": "travel",
+    "featuredImage": "https://api.worldunihub.com/uploads/media/blog-news-2-109788d5aaedb1c64.jpg"
+  },
+  {
+    "name": "Health & Wellness",
+    "slug": "health-wellness",
+    "featuredImage": "https://api.worldunihub.com/uploads/media/blog-img-test-2-0cc0ce78597874c6.jpg"
+  },
+  {
+    "name": "Food & Cooking",
+    "slug": "food-cooking",
+    "featuredImage": "https://api.worldunihub.com/uploads/media/blog-img-3-c2e21b0055f8aacc.jpg"
+  },
+  {
+    "name": "Fashion",
+    "slug": "fashion",
+    "featuredImage": "https://api.worldunihub.com/uploads/media/blog-img-5-ae471c7e81d6853f.jpg"
+  },
+  {
+    "name": "Sports",
+    "slug": "sports",
+    "featuredImage": "https://api.worldunihub.com/uploads/media/blog-img-44-10ee710464987c248e.jpg"
+  },
+  {
+    "name": "Business",
+    "slug": "business",
+    "featuredImage": "https://api.worldunihub.com/uploads/media/blog-img-7-cbbdb53992c2fa7c.jpg"
+  },
+  {
+    "name": "Lifestyle",
+    "slug": "lifestyle",
+    "featuredImage": "https://api.worldunihub.com/uploads/media/blog-img-8-b108b368e984d5afa.jpg"
+  },
+  {
+    "name": "Art & Culture",
+    "slug": "art-culture",
+    "featuredImage": "https://api.worldunihub.com/uploads/media/blog-img-9-9afdebb9c3592f92.jpg"
+  }
+]

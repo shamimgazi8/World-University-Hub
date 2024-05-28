@@ -1,0 +1,117 @@
+[
+  {
+    "title": "Discover",
+    "link": "#",
+    "children": [
+      {
+        "title": "Course Matching Tools",
+        "link": "/course-matching-tool"
+      },
+      {
+        "title": "University Search",
+        "link": "/universities/search"
+      },
+      {
+        "title": "Program Search",
+        "link": "/programs/search"
+      },
+
+      {
+        "title": "Subject Guide",
+        "link": "/subject-guide"
+      }
+    ]
+  },
+  {
+    "title": "Ranking",
+    "link": "/top-universities",
+    "children": [
+      {
+        "title": "World University Ranking",
+        "link": "/top-universities"
+      },
+      {
+        "title": "By Region",
+        "link": "/study-abroad",
+        "children": [
+          {
+            "title": "Africa",
+            "link": "/study-abroad/africa"
+          },
+          {
+            "title": "Asia",
+            "link": "/study-abroad/asia"
+          },
+          {
+            "title": "Europe",
+            "link": "/study-abroad/europe"
+          },
+          {
+            "title": "Latin America",
+            "link": "/study-abroad/latin-america"
+          },
+          {
+            "title": "North America",
+            "link": "/study-abroad/nort-america"
+          },
+          {
+            "title": "Oceania",
+            "link": "/study-abroad/oceania"
+          }
+        ]
+      },
+      {
+        "title": "World University Ranking by Subject",
+        "link": "/programs/search"
+      },
+      {
+        "title": "Best Student Cities in the World",
+        "link": "/best-student-cities"
+      }
+    ]
+  },
+
+  {
+    "title": "Destination",
+    "link": "/study-abroad",
+    "children": [
+      {
+        "title": "United Kingdom",
+        "link": "/study-abroad/europe/united-kingdom"
+      },
+      {
+        "title": "Germany",
+        "link": "/study-abroad/europe/germany"
+      },
+      {
+        "title": "Europe",
+        "link": "/study-abroad/europe"
+      },
+      {
+        "title": "France",
+        "link": "/study-abroad/europe/france"
+      },
+      {
+        "title": "Australia",
+        "link": "/study-abroad/oceania/australia"
+      },
+      {
+        "title": "New Zealand",
+        "link": "/study-abroad/oceania/new-zealand"
+      }
+    ]
+  },
+
+  {
+    "title": "Jobs",
+    "link": "/jobs"
+  },
+  {
+    "title": "Community",
+    "link": "/community"
+  },
+  {
+    "title": "Wings",
+    "link": "/blog"
+  }
+]

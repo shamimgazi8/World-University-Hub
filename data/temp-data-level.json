@@ -1,0 +1,38 @@
+[
+  {
+    "title": "Bachelor's Degree",
+    "slug": "bachelor-degree"
+  },
+  {
+    "title": "MBA",
+    "slug": "bachelor-degree"
+  },
+  {
+    "title": "Summer/Short Course",
+    "slug": "Summer/Short Course"
+  },
+  {
+    "title": "Master's Degree",
+    "slug": "Master's Degree"
+  },
+  {
+    "title": "Graduate Diploma",
+    "slug": "Graduate Diploma"
+  },
+  {
+    "title": "Foundation Program",
+    "slug": "Foundation Program"
+  },
+  {
+    "title": "Doctorate/Phd",
+    "slug": "Doctorate/Phd"
+  },
+  {
+    "title": "Diploma/Certificate",
+    "slug": "Diploma/Certificate"
+  },
+  {
+    "title": "Associate’s Degree",
+    "slug": "Associate’s Degree"
+  }
+]

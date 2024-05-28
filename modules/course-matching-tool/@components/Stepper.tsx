@@ -1,0 +1,38 @@
+import React from "react";
+import { FaCheck } from "react-icons/fa";
+
+const Stepper = () => {
+  return (
+    <div className="container mt-8">
+      <div className="flex items-center lg:flex-row flex-col lg:gap-0 gap-5 justify-evenly relative">
+        <div className="flex flex-col items-center">
+          <div className="lg:w-[80px] lg:h-[80px] w-[40px] h-[40px] flex items-center justify-center bg-gradient-to-r from-purple-500 to-blue-500 text-white rounded-full">
+            <span className=" lg:text-[32px] text-[22px]  font-bold">01</span>
+            {/* <FaCheck className=" text-[32px] font-bold" /> */}
+          </div>
+          <span className="text-sm font-semibold mt-4">STUDY PREFERENCE</span>
+        </div>
+        <div className="h-[1px] lg:block hidden bg-gray-200  w-[52%] -z-50 absolute translate-y-[-14px]"></div>
+        <div className="flex flex-col items-center">
+          <div className="lg:w-[80px] lg:h-[80px] w-[40px] h-[40px] flex items-center justify-center bg-[#F8F9FD] rounded-full">
+            <span className=" lg:text-[32px] text-[22px]  text-gradient font-bold">
+              02
+            </span>
+          </div>
+          <span className="text-sm mt-4 font-semibold">ACADEMIC PROFILE</span>
+        </div>
+
+        <div className="flex flex-col items-center">
+          <div className="lg:w-[80px] lg:h-[80px] w-[40px] h-[40px] flex items-center justify-center bg-[#F8F9FD] rounded-full">
+            <span className=" lg:text-[32px] text-[22px]  text-gradient font-bold">
+              03
+            </span>
+          </div>
+          <span className="text-sm mt-4 font-semibold">RESULTS</span>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+export default Stepper;

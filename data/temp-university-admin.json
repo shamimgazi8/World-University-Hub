@@ -1,0 +1,540 @@
+[
+  {
+    "name": "University of Melbourne",
+    "slug": "university-melbourne",
+    "featureImage": "https://api.worldunihub.com/uploads/media/melbourne-university-unisearch-1633587805818-a7cb8030-7986-45a7-92dc-16d60db00573-ece6522234538ec7.webp",
+    "isTop": false,
+    "positionOrder": 10,
+    "viewCount": 3601,
+    "tuitionFee": null,
+    "type": "PUBLIC",
+    "estd": 1853,
+    "logo": "https://api.worldunihub.com/uploads/media/melbourne-university-logo-unisearch-1633592750171-90baf0ff-2164-40c9-a7c4-f32110b2392f-c35d6324ff6bfdda.jpg",
+    "ranking": [
+      {
+        "rankDisplay": "1",
+        "year": 2024,
+        "company": {
+          "name": "Quacquarelli Symonds",
+          "shortName": "QS",
+          "logoSource": "https://www.topuniversities.com/themes/custom/tu_d8/images/cmt-ranking-banner-logo.svg",
+          "slug": "qs",
+          "website": "https://www.topuniversities.com/"
+        }
+      },
+      {
+        "rankDisplay": "27",
+        "year": 2023,
+        "company": {
+          "name": "US Rank",
+          "shortName": "US",
+          "logoSource": "https://news.fsu.edu/wp-content/uploads/2014/09/Florida-State-ranked-among-top-public-universities.png",
+          "slug": "us",
+          "website": "https://www.usnews.com"
+        }
+      },
+      {
+        "rankDisplay": "32",
+        "year": 2022,
+        "company": {
+          "name": "Academic Ranking of World Universities",
+          "shortName": "ARWU",
+          "logoSource": "https://pbs.twimg.com/profile_images/1277107555391557632/zyLEy5AI_400x400.jpg",
+          "slug": "arwu",
+          "website": "https://www.shanghairanking.com"
+        }
+      },
+      {
+        "rankDisplay": "=32",
+        "year": 2020,
+        "company": {
+          "name": "Higher education",
+          "shortName": "THE",
+          "logoSource": "https://www.timeshighereducation.com/sites/default/files/styles/the_breaking_news_image_style/public/the_logo.jpg",
+          "slug": "the",
+          "website": "https://www.timeshighereducation.com/"
+        }
+      }
+    ],
+    "city": {
+      "name": "Parkville",
+      "slug": "parkville"
+    },
+    "_count": {
+      "reviews": 0,
+      "compare": 0,
+      "campus": 0
+    }
+  },
+
+  {
+    "name": "The University of Sydney",
+    "slug": "university-sydney",
+    "featureImage": "https://www.topuniversities.com/sites/default/files/profiles-slideshow/main-profile-picture-uni-of-sydney.jpg",
+    "isTop": false,
+    "positionOrder": 999,
+    "viewCount": 7,
+    "tuitionFee": null,
+    "type": "PUBLIC",
+    "estd": null,
+    "logo": "https://www.topuniversities.com/sites/default/files/profiles/logos/the-university-of-sydney_592560cf2aeae70239af4cd0_large.jpg",
+    "ranking": [
+      {
+        "rankDisplay": "28",
+        "year": 2023,
+        "company": {
+          "name": "US Rank",
+          "shortName": "US",
+          "logoSource": "https://news.fsu.edu/wp-content/uploads/2014/09/Florida-State-ranked-among-top-public-universities.png",
+          "slug": "us",
+          "website": "https://www.usnews.com"
+        }
+      },
+      {
+        "rankDisplay": "=37",
+        "year": 2015,
+        "company": {
+          "name": "Quacquarelli Symonds",
+          "shortName": "QS",
+          "logoSource": "https://www.topuniversities.com/themes/custom/tu_d8/images/cmt-ranking-banner-logo.svg",
+          "slug": "qs",
+          "website": "https://www.topuniversities.com/"
+        }
+      },
+      {
+        "rankDisplay": "60",
+        "year": 2022,
+        "company": {
+          "name": "Academic Ranking of World Universities",
+          "shortName": "ARWU",
+          "logoSource": "https://pbs.twimg.com/profile_images/1277107555391557632/zyLEy5AI_400x400.jpg",
+          "slug": "arwu",
+          "website": "https://www.shanghairanking.com"
+        }
+      },
+      {
+        "rankDisplay": "60",
+        "year": 2020,
+        "company": {
+          "name": "Higher education",
+          "shortName": "THE",
+          "logoSource": "https://www.timeshighereducation.com/sites/default/files/styles/the_breaking_news_image_style/public/the_logo.jpg",
+          "slug": "the",
+          "website": "https://www.timeshighereducation.com/"
+        }
+      }
+    ],
+    "city": {
+      "name": "Sydney",
+      "slug": "sydney"
+    },
+    "_count": {
+      "reviews": 0,
+      "compare": 0,
+      "campus": 13
+    }
+  },
+  {
+    "name": "Monash University Australia",
+    "slug": "monash-university",
+    "featureImage": null,
+    "isTop": false,
+    "positionOrder": 999,
+    "viewCount": 0,
+    "tuitionFee": null,
+    "type": "PUBLIC",
+    "estd": null,
+    "logo": "https://www.topuniversities.com/sites/default/files/profiles/logos/monash-university_412_large.jpg",
+    "ranking": [
+      {
+        "rankDisplay": "37",
+        "year": 2023,
+        "company": {
+          "name": "US Rank",
+          "shortName": "US",
+          "logoSource": "https://news.fsu.edu/wp-content/uploads/2014/09/Florida-State-ranked-among-top-public-universities.png",
+          "slug": "us",
+          "website": "https://www.usnews.com"
+        }
+      },
+      {
+        "rankDisplay": "60",
+        "year": 2018,
+        "company": {
+          "name": "Quacquarelli Symonds",
+          "shortName": "QS",
+          "logoSource": "https://www.topuniversities.com/themes/custom/tu_d8/images/cmt-ranking-banner-logo.svg",
+          "slug": "qs",
+          "website": "https://www.topuniversities.com/"
+        }
+      },
+      {
+        "rankDisplay": "73",
+        "year": 2019,
+        "company": {
+          "name": "Academic Ranking of World Universities",
+          "shortName": "ARWU",
+          "logoSource": "https://pbs.twimg.com/profile_images/1277107555391557632/zyLEy5AI_400x400.jpg",
+          "slug": "arwu",
+          "website": "https://www.shanghairanking.com"
+        }
+      },
+      {
+        "rankDisplay": "=75",
+        "year": 2020,
+        "company": {
+          "name": "Higher education",
+          "shortName": "THE",
+          "logoSource": "https://www.timeshighereducation.com/sites/default/files/styles/the_breaking_news_image_style/public/the_logo.jpg",
+          "slug": "the",
+          "website": "https://www.timeshighereducation.com/"
+        }
+      }
+    ],
+    "city": {
+      "name": "Melbourne",
+      "slug": "melbourne"
+    },
+    "_count": {
+      "reviews": 0,
+      "compare": 0,
+      "campus": 13
+    }
+  },
+  {
+    "name": "The University of Western Australia",
+    "slug": "university-western-australia",
+    "featureImage": null,
+    "isTop": false,
+    "positionOrder": 999,
+    "viewCount": 0,
+    "tuitionFee": null,
+    "type": "PUBLIC",
+    "estd": null,
+    "logo": "https://www.topuniversities.com/sites/default/files/profiles/logos/the-university-of-western-australia_673_large.jpg",
+    "ranking": [
+      {
+        "rankDisplay": "79",
+        "year": 2012,
+        "company": {
+          "name": "Quacquarelli Symonds",
+          "shortName": "QS",
+          "logoSource": "https://www.topuniversities.com/themes/custom/tu_d8/images/cmt-ranking-banner-logo.svg",
+          "slug": "qs",
+          "website": "https://www.topuniversities.com/"
+        }
+      },
+      {
+        "rankDisplay": "83",
+        "year": 2023,
+        "company": {
+          "name": "US Rank",
+          "shortName": "US",
+          "logoSource": "https://news.fsu.edu/wp-content/uploads/2014/09/Florida-State-ranked-among-top-public-universities.png",
+          "slug": "us",
+          "website": "https://www.usnews.com"
+        }
+      },
+      {
+        "rankDisplay": "85",
+        "year": 2020,
+        "company": {
+          "name": "Academic Ranking of World Universities",
+          "shortName": "ARWU",
+          "logoSource": "https://pbs.twimg.com/profile_images/1277107555391557632/zyLEy5AI_400x400.jpg",
+          "slug": "arwu",
+          "website": "https://www.shanghairanking.com"
+        }
+      },
+      {
+        "rankDisplay": "=131",
+        "year": 2020,
+        "company": {
+          "name": "Higher education",
+          "shortName": "THE",
+          "logoSource": "https://www.timeshighereducation.com/sites/default/files/styles/the_breaking_news_image_style/public/the_logo.jpg",
+          "slug": "the",
+          "website": "https://www.timeshighereducation.com/"
+        }
+      }
+    ],
+    "city": {
+      "name": "Perth",
+      "slug": "perth"
+    },
+    "_count": {
+      "reviews": 0,
+      "compare": 0,
+      "campus": 2
+    }
+  },
+  {
+    "name": "University of Melbourne",
+    "slug": "university-melbourne",
+    "featureImage": "https://api.worldunihub.com/uploads/media/melbourne-university-unisearch-1633587805818-a7cb8030-7986-45a7-92dc-16d60db00573-ece6522234538ec7.webp",
+    "isTop": false,
+    "positionOrder": 10,
+    "viewCount": 3601,
+    "tuitionFee": null,
+    "type": "PUBLIC",
+    "estd": 1853,
+    "logo": "https://api.worldunihub.com/uploads/media/melbourne-university-logo-unisearch-1633592750171-90baf0ff-2164-40c9-a7c4-f32110b2392f-c35d6324ff6bfdda.jpg",
+    "ranking": [
+      {
+        "rankDisplay": "1",
+        "year": 2024,
+        "company": {
+          "name": "Quacquarelli Symonds",
+          "shortName": "QS",
+          "logoSource": "https://www.topuniversities.com/themes/custom/tu_d8/images/cmt-ranking-banner-logo.svg",
+          "slug": "qs",
+          "website": "https://www.topuniversities.com/"
+        }
+      },
+      {
+        "rankDisplay": "27",
+        "year": 2023,
+        "company": {
+          "name": "US Rank",
+          "shortName": "US",
+          "logoSource": "https://news.fsu.edu/wp-content/uploads/2014/09/Florida-State-ranked-among-top-public-universities.png",
+          "slug": "us",
+          "website": "https://www.usnews.com"
+        }
+      },
+      {
+        "rankDisplay": "32",
+        "year": 2022,
+        "company": {
+          "name": "Academic Ranking of World Universities",
+          "shortName": "ARWU",
+          "logoSource": "https://pbs.twimg.com/profile_images/1277107555391557632/zyLEy5AI_400x400.jpg",
+          "slug": "arwu",
+          "website": "https://www.shanghairanking.com"
+        }
+      },
+      {
+        "rankDisplay": "=32",
+        "year": 2020,
+        "company": {
+          "name": "Higher education",
+          "shortName": "THE",
+          "logoSource": "https://www.timeshighereducation.com/sites/default/files/styles/the_breaking_news_image_style/public/the_logo.jpg",
+          "slug": "the",
+          "website": "https://www.timeshighereducation.com/"
+        }
+      }
+    ],
+    "city": {
+      "name": "Parkville",
+      "slug": "parkville"
+    },
+    "_count": {
+      "reviews": 0,
+      "compare": 0,
+      "campus": 0
+    }
+  },
+
+  {
+    "name": "The University of Sydney",
+    "slug": "university-sydney",
+    "featureImage": "https://www.topuniversities.com/sites/default/files/profiles-slideshow/main-profile-picture-uni-of-sydney.jpg",
+    "isTop": false,
+    "positionOrder": 999,
+    "viewCount": 7,
+    "tuitionFee": null,
+    "type": "PUBLIC",
+    "estd": null,
+    "logo": "https://www.topuniversities.com/sites/default/files/profiles/logos/the-university-of-sydney_592560cf2aeae70239af4cd0_large.jpg",
+    "ranking": [
+      {
+        "rankDisplay": "28",
+        "year": 2023,
+        "company": {
+          "name": "US Rank",
+          "shortName": "US",
+          "logoSource": "https://news.fsu.edu/wp-content/uploads/2014/09/Florida-State-ranked-among-top-public-universities.png",
+          "slug": "us",
+          "website": "https://www.usnews.com"
+        }
+      },
+      {
+        "rankDisplay": "=37",
+        "year": 2015,
+        "company": {
+          "name": "Quacquarelli Symonds",
+          "shortName": "QS",
+          "logoSource": "https://www.topuniversities.com/themes/custom/tu_d8/images/cmt-ranking-banner-logo.svg",
+          "slug": "qs",
+          "website": "https://www.topuniversities.com/"
+        }
+      },
+      {
+        "rankDisplay": "60",
+        "year": 2022,
+        "company": {
+          "name": "Academic Ranking of World Universities",
+          "shortName": "ARWU",
+          "logoSource": "https://pbs.twimg.com/profile_images/1277107555391557632/zyLEy5AI_400x400.jpg",
+          "slug": "arwu",
+          "website": "https://www.shanghairanking.com"
+        }
+      },
+      {
+        "rankDisplay": "60",
+        "year": 2020,
+        "company": {
+          "name": "Higher education",
+          "shortName": "THE",
+          "logoSource": "https://www.timeshighereducation.com/sites/default/files/styles/the_breaking_news_image_style/public/the_logo.jpg",
+          "slug": "the",
+          "website": "https://www.timeshighereducation.com/"
+        }
+      }
+    ],
+    "city": {
+      "name": "Sydney",
+      "slug": "sydney"
+    },
+    "_count": {
+      "reviews": 0,
+      "compare": 0,
+      "campus": 13
+    }
+  },
+  {
+    "name": "Monash University Australia",
+    "slug": "monash-university",
+    "featureImage": null,
+    "isTop": false,
+    "positionOrder": 999,
+    "viewCount": 0,
+    "tuitionFee": null,
+    "type": "PUBLIC",
+    "estd": null,
+    "logo": "https://www.topuniversities.com/sites/default/files/profiles/logos/monash-university_412_large.jpg",
+    "ranking": [
+      {
+        "rankDisplay": "37",
+        "year": 2023,
+        "company": {
+          "name": "US Rank",
+          "shortName": "US",
+          "logoSource": "https://news.fsu.edu/wp-content/uploads/2014/09/Florida-State-ranked-among-top-public-universities.png",
+          "slug": "us",
+          "website": "https://www.usnews.com"
+        }
+      },
+      {
+        "rankDisplay": "60",
+        "year": 2018,
+        "company": {
+          "name": "Quacquarelli Symonds",
+          "shortName": "QS",
+          "logoSource": "https://www.topuniversities.com/themes/custom/tu_d8/images/cmt-ranking-banner-logo.svg",
+          "slug": "qs",
+          "website": "https://www.topuniversities.com/"
+        }
+      },
+      {
+        "rankDisplay": "73",
+        "year": 2019,
+        "company": {
+          "name": "Academic Ranking of World Universities",
+          "shortName": "ARWU",
+          "logoSource": "https://pbs.twimg.com/profile_images/1277107555391557632/zyLEy5AI_400x400.jpg",
+          "slug": "arwu",
+          "website": "https://www.shanghairanking.com"
+        }
+      },
+      {
+        "rankDisplay": "=75",
+        "year": 2020,
+        "company": {
+          "name": "Higher education",
+          "shortName": "THE",
+          "logoSource": "https://www.timeshighereducation.com/sites/default/files/styles/the_breaking_news_image_style/public/the_logo.jpg",
+          "slug": "the",
+          "website": "https://www.timeshighereducation.com/"
+        }
+      }
+    ],
+    "city": {
+      "name": "Melbourne",
+      "slug": "melbourne"
+    },
+    "_count": {
+      "reviews": 0,
+      "compare": 0,
+      "campus": 13
+    }
+  },
+  {
+    "name": "The University of Western Australia",
+    "slug": "university-western-australia",
+    "featureImage": null,
+    "isTop": false,
+    "positionOrder": 999,
+    "viewCount": 0,
+    "tuitionFee": null,
+    "type": "PUBLIC",
+    "estd": null,
+    "logo": "https://www.topuniversities.com/sites/default/files/profiles/logos/the-university-of-western-australia_673_large.jpg",
+    "ranking": [
+      {
+        "rankDisplay": "79",
+        "year": 2012,
+        "company": {
+          "name": "Quacquarelli Symonds",
+          "shortName": "QS",
+          "logoSource": "https://www.topuniversities.com/themes/custom/tu_d8/images/cmt-ranking-banner-logo.svg",
+          "slug": "qs",
+          "website": "https://www.topuniversities.com/"
+        }
+      },
+      {
+        "rankDisplay": "83",
+        "year": 2023,
+        "company": {
+          "name": "US Rank",
+          "shortName": "US",
+          "logoSource": "https://news.fsu.edu/wp-content/uploads/2014/09/Florida-State-ranked-among-top-public-universities.png",
+          "slug": "us",
+          "website": "https://www.usnews.com"
+        }
+      },
+      {
+        "rankDisplay": "85",
+        "year": 2020,
+        "company": {
+          "name": "Academic Ranking of World Universities",
+          "shortName": "ARWU",
+          "logoSource": "https://pbs.twimg.com/profile_images/1277107555391557632/zyLEy5AI_400x400.jpg",
+          "slug": "arwu",
+          "website": "https://www.shanghairanking.com"
+        }
+      },
+      {
+        "rankDisplay": "=131",
+        "year": 2020,
+        "company": {
+          "name": "Higher education",
+          "shortName": "THE",
+          "logoSource": "https://www.timeshighereducation.com/sites/default/files/styles/the_breaking_news_image_style/public/the_logo.jpg",
+          "slug": "the",
+          "website": "https://www.timeshighereducation.com/"
+        }
+      }
+    ],
+    "city": {
+      "name": "Perth",
+      "slug": "perth"
+    },
+    "_count": {
+      "reviews": 0,
+      "compare": 0,
+      "campus": 2
+    }
+  }
+]
