@@ -13,15 +13,20 @@ import AvailableProgram from "./availablePrograms";
 import AdmissionReq from "./Admission";
 import ToutionFees from "./ToutionFees";
 import QuestionForm from "./QuestionForm";
-
-import { IoIosArrowRoundBack } from "react-icons/io";
-import Link from "next/link";
 import { useState } from "react";
+import { generateQueryString } from "@/helpers/utils";
+import { useGetUniversityRankingQuery } from "@/appstore/university/university-api";
 
 interface propTypes {
   data: any;
 }
+
 const UniversityOverview = ({ data }: propTypes) => {
+  const queryString = generateQueryString({
+    uniSlug: data?.slug,
+  });
+  const { data: dataRank } = useGetUniversityRankingQuery(queryString);
+  const dataRankArr: any = dataRank && dataRank?.data;
   useHeading();
   const [color, setColor] = useState(true);
   const colorChange = () => {
@@ -47,22 +52,27 @@ const UniversityOverview = ({ data }: propTypes) => {
                 <Sidebar isShowActive data={data} />
               </div>
 
-              <KeyInfo data={data} id="overview" />
+              <KeyInfo data={data} rank={dataRankArr} id="overview" />
               <UniversityOverviewDescription
                 className="uni-section mt-[40px]"
                 data={data}
               />
               <AvailableProgram />
-              <AdmissionReq id="admission-req" data={data} />
-              <ToutionFees id="fees" />
+              <AdmissionReq
+                id="admission-req"
+                data={data}
+                testScore={data?.testScore}
+              />
+              <ToutionFees data={data?.tuitionFee} id="fees" />
 
               <ShowRanking
                 className={{ rootDetail: "uni-section" }}
                 id="ranking"
                 isDetail={true}
+                dataArr={dataRankArr}
                 universitySlug={data?.slug}
               />
-              <ProgramByLevel universitySlug={data?.slug} />
+              {/* <ProgramByLevel universitySlug={data?.slug} /> */}
               <SectionUniversityCampus
                 className="uni-section"
                 id="contact"

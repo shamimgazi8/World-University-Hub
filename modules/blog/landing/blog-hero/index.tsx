@@ -50,8 +50,8 @@ const BlogLandingHero = ({ data, loading }: any) => {
                         : "lg:col-span-2"
                     }`,
                     imageWrapper: isFeature
-                      ? "!mb-0 lg:!h-[360px]  "
-                      : "!mb-0 lg:!h-[171px]",
+                      ? "!mb-0 lg:!h-[360px] !h-[210px]  "
+                      : "!mb-0 lg:!h-[171px] !h-[210px] ",
                     imageStyle: "!mb-0 !h-full object-cover",
                     category: ` text-[#3378FE] font-medium  ${
                       isFeature ? "text-c3" : "text-c5"
@@ -62,14 +62,13 @@ const BlogLandingHero = ({ data, loading }: any) => {
                         ? "lg:text-h2-sm text-c2  mt-2 leading-[1.2] "
                         : " text-c2 mt-[6px] !mb-0 leading-[1.28] overflow-hidden"
                     }`,
-                    description: ` hidden ${
-                      isFeature
-                        ? " lg:block  lg:text-p3  leading-[1.6] !line-clamp-2"
-                        : ""
+                    description: ` !hidden  ${
+                      isFeature ? "  lg:!block lg:text-p3  leading-[1.6] " : ""
                     }`,
+                    descStyle: " !line-clamp-2",
                     date: isFeature ? "text-p3 " : "text-p5 mt-[8px]",
-                    cardBody: `bg-white  border-b-[1px] border-l-[1px] border-r-[1px] border-[#E7E7E7] p-4 rounded-b-[6px] ${
-                      isFeature ? "!p-6" : ""
+                    cardBody: `bg-white   border-b-[1px] border-l-[1px] border-r-[1px] border-[#E7E7E7] p-4 rounded-b-[6px] ${
+                      isFeature ? "!p-6 lg:h-[43%]" : ""
                     }`,
                   }}
                 />

@@ -11,15 +11,15 @@ const data = [
     children: [
       {
         title: "About",
-        link: "/study-abroad/europe/the-uk",
+        link: "/about-us",
       },
       {
         title: "Contact",
-        link: "/study-abroad/north-america/the-usa",
+        link: "/contact-us",
       },
       {
         title: "Privacy",
-        link: "/study-abroad/oceania/australia",
+        link: "/privacy-policy",
       },
       {
         title: "Users",
@@ -35,7 +35,7 @@ const data = [
       },
       {
         title: "Terms & Conditions",
-        link: "/study-abroad/europe/germany",
+        link: "/terms-and-conditions",
       },
     ],
   },
@@ -65,7 +65,7 @@ const data = [
 
 const Footer = () => {
   return (
-    <footer className="mt-auto bg-footer text-footertext pt-[80px]">
+    <footer className="mt-auto bg-footer text-footertext lg:pt-[80px] py-[40px]">
       <div className="container">
         <div className="lg:pb-8 grid grid-cols-1 lg:grid-cols-[2.43fr_1fr] gap-5 lg:gap-[143px] text-grey text-sm">
           <div className="flex flex-col gap-6">
@@ -96,7 +96,9 @@ const Footer = () => {
             <SocialLinks classes={{ root: "!mb-0" }} />
             <div className="container px-0">
               Copyright {new Date().getFullYear()} World University Hub |
-              Developed By M4YOURS IT. All Rights Reserved
+              Developed By{" "}
+              <Link href={"https://m4yours.com/"}>M4YOURS IT.</Link> All Rights
+              Reserved
             </div>
           </div>
 

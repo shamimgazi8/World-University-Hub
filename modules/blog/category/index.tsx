@@ -44,11 +44,13 @@ const BlogCategory = ({ data, catSlug, total, excludeBlogIds }: any) => {
                       data={item}
                       classes={{
                         root: `self-start ${
-                          isFeature ? " col-span-4 row-span-2 " : "col-span-2"
+                          isFeature
+                            ? " col-span-4 row-span-2 "
+                            : "lg:col-span-2 col-span-4 "
                         }`,
                         imageWrapper: isFeature
-                          ? "!mb-0 !h-[360px]"
-                          : "!mb-0 !h-[171px]",
+                          ? "!mb-0 lg:!h-[360px] !h-[210px]"
+                          : "!mb-0 lg:!h-[171px] !h-[210px]",
                         imageStyle: "!mb-0 !h-full object-cover",
                         category: ` text-[#3378FE] font-medium  ${
                           isFeature ? "text-c3" : "text-c5"
@@ -56,8 +58,8 @@ const BlogCategory = ({ data, catSlug, total, excludeBlogIds }: any) => {
                         tag: "!hidden",
                         title: `!line-clamp-2 leading-[1.3]    ${
                           isFeature
-                            ? "text-h2-sm !mb-4 mt-2 "
-                            : " lg:text-c2 text-[8px] mt-[8px] !mb-0"
+                            ? "lg:text-h2-sm text-h5 !mb-4 mt-2 "
+                            : " lg:text-c2 text-h5  mt-[8px] !mb-0"
                         }`,
                         description: isFeature
                           ? " text-p3 mb-4 !line-clamp-2"

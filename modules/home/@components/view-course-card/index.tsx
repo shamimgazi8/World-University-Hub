@@ -42,7 +42,7 @@ const ViewCourseCard = ({ classes, data }: propTypes) => {
         </h3>
         <div className="">
           <div className="flex datas-center justify-start gap-4">
-            <div className="cursor-pointer hover:text-primary">
+            {/* <div className="cursor-pointer hover:text-primary">
               <span className="block relative">
                 <CompareButton
                   reference={"COURSE"}
@@ -50,7 +50,7 @@ const ViewCourseCard = ({ classes, data }: propTypes) => {
                   courseTitleSlug={data?.courseTitle?.slug}
                 />
               </span>
-            </div>
+            </div> */}
             <div className="cursor-pointer hover:text-primary">
               <span className="block relative">
                 <ShortListButton

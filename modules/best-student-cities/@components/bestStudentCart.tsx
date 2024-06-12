@@ -8,7 +8,6 @@ interface propTypes {
 
 const BestStudentCitiesCart = ({ data, key }: propTypes) => {
   const link = `/universities/${data?.slug}`;
-  console.log(data, "key");
 
   const uniqueNames: any = {};
   const uniqueArray: any = [];

@@ -29,7 +29,7 @@ const SearchBar = () => {
   }
 
   return (
-    <div className="rounded-md  mb-[30px] flex flex-col gap-[26px]">
+    <div className="rounded-md  lg:mb-[30px] mb-4 flex flex-col lg:gap-[26px] gap-4">
       <span className="h5 mb-0">Search Here</span>
       <form onSubmit={submitHandler}>
         <div className="relative">

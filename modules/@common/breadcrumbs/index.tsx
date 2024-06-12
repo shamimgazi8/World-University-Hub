@@ -9,6 +9,11 @@ interface propTypes {
     last?: string;
   };
 }
+const truncateTo20Words = (text: any) => {
+  if (!text) return "";
+  const words = text.split(" ");
+  return words.length > 8 ? words.slice(0, 8).join(" ") + "..." : text;
+};
 
 const Breadcrumbs = ({ data, classes }: propTypes) => {
   return (
@@ -27,7 +32,7 @@ const Breadcrumbs = ({ data, classes }: propTypes) => {
                 item?.elipsis ? item?.elipsis : ""
               } ${classes?.last ? classes.last : ""}`}
             >
-              <span>{last?.title}</span>
+              <span>{truncateTo20Words(last?.title)}</span>
             </li>
           );
         } else {

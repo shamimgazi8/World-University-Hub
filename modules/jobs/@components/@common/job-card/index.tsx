@@ -78,7 +78,7 @@ const JobCardtwo = ({ classes, data }: propTypes) => {
                       className="shrink-0"
                     />
                     <p className="text-c3 text-heading font-medium mb-0">
-                      London (Greater) (GB), Hybrid
+                      {data?.location}
                     </p>
                     {/* <span>{data?.recruiter?.name}</span> */}
                   </div>
@@ -95,7 +95,7 @@ const JobCardtwo = ({ classes, data }: propTypes) => {
                   className="shrink-0"
                 />
                 <p className="text-c3 text-heading font-medium mb-0">
-                  London (Greater) (GB), Hybrid
+                  {data?.location}
                 </p>
               </div>
             ) : null}
@@ -110,7 +110,7 @@ const JobCardtwo = ({ classes, data }: propTypes) => {
                   className="shrink-0"
                 />
                 <p className="text-c3 text-heading font-medium mb-0">
-                  £35,000 - £40,000
+                  {data?.salary}
                 </p>
                 {/* <div>{data?.salary}</div> */}
               </div>
@@ -124,24 +124,17 @@ const JobCardtwo = ({ classes, data }: propTypes) => {
                   className="shrink-0"
                 />
                 <p className="text-c3 text-heading font-medium mb-0">
-                  £35,000 - £40,000
+                  Negotiable
                 </p>
                 {/* <div>{data?.salary}</div> */}
               </div>
             )}
           </div>
           {data?.description ? (
-            // <div className="flex items-center gap-3 sm:gap-5 mt-3 flex-wrap">
-            //   <span className="bg-[#DDE8F8] text-primary px-4 inline-block py-1 rounded-full capitalize">
-            //     {/* {hourLower} */}
-            //   </span>
-            // </div>
             <div className="flex items-center gap-3 sm:gap-5 mt-3 flex-wrap">
-              <p className="mb-0 text-p4 text-[#BF210E]">
+              <p className="mb-0 text-p4 text-[#BF210E] line-clamp-2">
                 {" "}
-                This pivotal role offers comprehensive administrative and
-                organisational support to the Head of Department and faculty,
-                facilitating ...
+                {data?.description}
               </p>
             </div>
           ) : (

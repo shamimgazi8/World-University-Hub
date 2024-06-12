@@ -23,10 +23,6 @@ const AdminHeader = () => {
       title: "Profile",
       link: "/user/profile",
     },
-    {
-      title: "Blogs",
-      link: "/blog",
-    },
   ];
   return (
     <div className="bg-gray-200">

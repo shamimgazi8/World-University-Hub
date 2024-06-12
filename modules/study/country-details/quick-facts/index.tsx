@@ -76,7 +76,7 @@ const CountryQuickFacts = ({ data, classes }: propTypes) => {
   return (
     <div className={`my-6 text-center ${classes?.root ? classes?.root : ""}`}>
       <h3 className="text-center h4">{`${data?.name} - Quick facts & figures`}</h3>
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-7 mt-1">
+      <div className="grid lg:grid-cols-3 grid-cols-2 md:grid-cols-3 gap-7 mt-1">
         {dataQuicFact?.map((item: any, i: number) => {
           return (
             <div key={i} className="flex items-center flex-col shadow-one p-4">
@@ -112,7 +112,7 @@ const CountryQuickFacts = ({ data, classes }: propTypes) => {
                         )}
                       </>
                     ) : (
-                      <span>
+                      <span className=" line-clamp-2">
                         {item?.des && item?.des != 0 ? item.des : "N/A"}
                       </span>
                     )}

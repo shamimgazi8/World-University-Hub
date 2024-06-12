@@ -5,7 +5,7 @@ interface propsType {
   breadcrumb?: any;
 }
 
-const ToolsHero = ({
+const ToolsHeroTwo = ({
   title,
   shortDescription,
   placeholder,
@@ -20,14 +20,10 @@ const ToolsHero = ({
           {breadcrumb ? (
             <div className="flex justify-center">{breadcrumb}</div>
           ) : null}
-
-          {/* <div className="mt-8 lg:w-[90%] mx-auto">
-              <TopUniSearchByName placeholder={placeholder} />
-            </div> */}
         </div>
       </div>
     </section>
   );
 };
 
-export default ToolsHero;
+export default ToolsHeroTwo;

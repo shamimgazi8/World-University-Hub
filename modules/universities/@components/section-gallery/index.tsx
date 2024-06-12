@@ -2,14 +2,11 @@ import { useGetUniversityGalleryQuery } from "@/appstore/university/university-a
 import { generateQueryString, shuffledArray } from "@/helpers/utils";
 import Skeleton from "@/modules/@common/skeleton";
 import Image from "next/image";
-import Slider from "react-slick";
-
 interface propTypes {
   universitySlug: string;
   id?: string;
   className?: string;
 }
-
 const SectionUniversityGallery = ({
   id,
   className,
@@ -22,32 +19,6 @@ const SectionUniversityGallery = ({
   const dataArr = dataArr1 && shuffledArray([...dataArr1]);
   const len = data && dataArr?.length;
 
-  const settings = {
-    slidesToShow: len < 3 ? len : 3,
-    slidesToScroll: 3,
-    dots: false,
-    arrow: true,
-    responsive: [
-      {
-        breakpoint: 1200,
-        settings: {
-          slidesToShow: 2,
-          slidesToScroll: 2,
-          arrow: true,
-          dots: false,
-        },
-      },
-      {
-        breakpoint: 480,
-        settings: {
-          slidesToShow: 1,
-          slidesToScroll: 1,
-          dots: false,
-          arrow: true,
-        },
-      },
-    ],
-  };
   return (
     <>
       {!isError && isLoading ? (
@@ -63,44 +34,52 @@ const SectionUniversityGallery = ({
           {len > 1 && (
             <section id={id} className={`pb-0 ${className ? className : ""}`}>
               <div className="border-b mb-5">
-                <h3 className="h5">Gallery</h3>
+                <h3 className="h5">Videos & media</h3>
               </div>
-              <Slider {...settings}>
+              <div className=" grid grid-cols-4 gap-5">
                 {dataArr?.map((glry: any, i: any) => {
                   let src = "";
                   if (glry?.linkType === "YOUTUBE") {
-                    src = `https://www.youtube.com/embed/${
-                      glry?.link?.split("v=")[1]
-                    }`;
+                    src = `https://www.youtube.com/embed/${glry?.link}`;
                   } else if (glry?.linkType === "VIMEO") {
                     src = `https://player.vimeo.com/video/${
                       glry?.link?.split(".com/")[1]
                     }`;
                   }
                   return (
-                    <div key={i} className="px-3">
+                    <div
+                      key={i}
+                      className={` grid  ${
+                        i > 0 ? "col-span-1" : "col-span-4"
+                      }`}
+                    >
                       {glry?.type === "VIDEO" ? (
                         <iframe
-                          className={`w-full h-[200px] rounded-lg aspect-video ${
-                            glry?.linkType == "VIMEO"
-                              ? "bg-[rgba(0,0,0,0.8)]"
-                              : ""
-                          }`}
-                          src={src}
+                          className={`object-cover ${
+                            i != 0 ? "h-[113px]" : "h-[500px]"
+                          }  w-full rounded-md`}
+                          width="560"
+                          height="315"
+                          src={`https://www.youtube.com/embed/${glry?.source}`}
+                          title="YouTube video player"
+                          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                          allowFullScreen
                         ></iframe>
                       ) : (
                         <Image
                           src={`${glry?.source}`}
                           width={350}
-                          height={200}
+                          height={500}
                           alt="Testimonial"
-                          className="object-cover h-[200px] w-full rounded-md"
+                          className={`object-cover ${
+                            i != 0 ? "h-[113px]" : "h-[500px]"
+                          }  w-full rounded-md`}
                         />
                       )}
                     </div>
                   );
                 })}
-              </Slider>
+              </div>
             </section>
           )}
         </>

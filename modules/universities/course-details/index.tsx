@@ -12,11 +12,19 @@ import MorePrograms from "../overview/availablePrograms/indexCourse";
 import { useState } from "react";
 import { IoIosArrowRoundBack } from "react-icons/io";
 import Link from "next/link";
+import ToutionFeesCourse from "../overview/ToutionFees/indexCourse";
+import { generateQueryString } from "@/helpers/utils";
+import { useGetUniversityRankingQuery } from "@/appstore/university/university-api";
 interface propTypes {
   data?: any;
   dataCourse?: any;
 }
 const UniversityCourseDetails = ({ data, dataCourse }: propTypes) => {
+  const queryString = generateQueryString({
+    uniSlug: data?.slug,
+  });
+  const { data: dataRank } = useGetUniversityRankingQuery(queryString);
+  const dataRankArr: any = dataRank && dataRank?.data;
   useHeading();
   const [color, setColor] = useState(true);
   const colorChange = () => {
@@ -49,47 +57,21 @@ const UniversityCourseDetails = ({ data, dataCourse }: propTypes) => {
                   </Link>
                 </div>
                 <h4 className=" mb-0 ">{dataCourse?.displayName}</h4>
-                <KeyInfoCourse id="key-info" />
+                <KeyInfoCourse data={dataCourse} id="key-info" />
                 <CourseOverviewDescription
                   className="uni-section mt-[40px]"
                   data={data}
                 />
-                <AdmissionReqCourse id="admission-req" />
-                <ToutionFees id="tuition-fee" />
+                <AdmissionReqCourse data={dataCourse} id="admission-req" />
+                <ToutionFeesCourse id="tuition-fee" data={dataCourse} />
                 <ShowRankingCourse
                   className={{ rootDetail: "uni-section" }}
                   id="ranking"
                   isDetail={true}
+                  dataArr={dataRankArr}
                   universitySlug={data?.slug}
                 />
                 <MorePrograms data={dataCourse} id="more-programs" />
-                {/* <div>
-                  <ProgramOverview
-                    id="program-overview"
-                    data={data}
-                    dataCourse={dataCourse}
-                  />
-                  <div className="grid grid-cols-1 lg:grid-cols-[1fr_300px] gap-8">
-                    <div>
-                      <ProgramAbout data={dataCourse} />
-                      <ProgramDescription
-                        id="program-description"
-                        data={dataCourse}
-                      />
-                      <ProgramAdmissionRequirements
-                        id="admission-requirements"
-                        data={dataCourse}
-                      />
-                      <ProgramContent id="program-content" data={dataCourse} />
-                      <TutionFeesAndScholarships
-                        id="tuition-fees-and-scholarships"
-                        data={dataCourse}
-                      />
-                      <ContinuingStudies data={dataCourse} />
-                      <CareerPaths data={dataCourse} />
-                    </div>
-                  </div>
-                </div> */}
               </div>
               <div>
                 <QuestionForm />

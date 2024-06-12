@@ -111,7 +111,7 @@ const Sidebar = ({
 
   const Side = () => {
     return (
-      <div className="px-3  rounded-md sticky  lg:overflow-hidden ">
+      <div className="px-3  rounded-md   lg:overflow-hidden ">
         {isCoursePage ? (
           <ul className=" flex  gap-4">
             {courseSecData

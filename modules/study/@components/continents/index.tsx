@@ -5,7 +5,6 @@ import { excerpt, generateQueryString } from "@/helpers/utils";
 import Skeleton from "@/modules/@common/skeleton";
 import Image from "next/image";
 import Link from "next/link";
-import CountryCard from "../country-card";
 import { HiArrowRight } from "react-icons/hi";
 
 interface propTypes {
@@ -24,8 +23,6 @@ const Continents = ({
 }: propTypes) => {
   const countryLimit = 5;
   const queryParams: any = {
-    withCountries: withCountries,
-    // topCountries: true,
     countryLimit,
   };
   const queryString = generateQueryString(queryParams);
@@ -77,18 +74,6 @@ const Continents = ({
                           );
                         })}
                       </div>
-
-                      {/* {item?.length > 3 && (
-                        <Link
-                          href={`/study-abroad/${item?.slug}`}
-                          className="font-medium inline-flex flex-col text-sm pt-6 group/countrylink"
-                        >
-                          <span className="group-hover/countrylink:text-gradient">
-                            View All Country
-                          </span>
-                          <span className="w-full h-[2px] inline-block invisible bg-gradient-to-r from-primary to-secondary group-hover/countrylink:visible"></span>
-                        </Link>
-                      )} */}
                     </div>
                   );
                 })}
@@ -118,73 +103,13 @@ const Continents = ({
                       const len = item?.countries?.length;
                       return (
                         <>
-                          {/* <div key={i} className="rounded-lg text-center">
-                            <Link
-                              href={`/study-abroad/${item?.slug}`}
-                              className="group"
-                            >
-                              <Image
-                                src={
-                                  item?.featuredImage ||
-                                  "/misc/placeholder-continent.webp"
-                                }
-                                alt={item?.name}
-                                width={1000}
-                                height={200}
-                                className="rounded-lg w-full h-[250px] sm:h-auto object-cover sm:object-contain"
-                              />
-                              {item?.name && (
-                                <h3 className="h4 pt-4 mb-1">
-                                  <span className="group-hover:text-gradient transition-all">
-                                    {item?.name}
-                                  </span>
-                                </h3>
-                              )}
-                            </Link>
-                            {item?.content && (
-                              <div className="max-w-[640px] mx-auto line-clamp-3">
-                                {excerpt(item?.content, 500)}
-                              </div>
-                            )}
-
-                            {len > 0 && (
-                              <div className=" mt-8 flex items-center justify-center flex-wrap gap-4">
-                                {item?.countries?.map((itm: any, i: any) => {
-                                  return (
-                                    <div key={i}>
-                                      <CountryCard
-                                        classes={{
-                                          root: `w-[160px]`,
-                                        }}
-                                        data={itm}
-                                        regionSlug={item?.slug}
-                                      />
-                                    </div>
-                                  );
-                                })}
-                              </div>
-                            )}
-
-                            {len >= countryLimit && (
-                              <Link
-                                href={`/study-abroad/${item?.slug}`}
-                                className="font-medium inline-flex flex-col text-sm pt-6 group/countrylink "
-                              >
-                                <span className="group-hover/countrylink:text-gradient transition-all">
-                                  View All Country
-                                </span>
-                                <span className="w-0 h-[2px] inline-block invisible bg-gradient-to-r from-primary to-secondary group-hover/countrylink:visible group-hover/countrylink:w-full transition-all"></span>
-                              </Link>
-                            )}
-                          </div> */}
-
-                          <div className="grid grid-cols-[1.565fr_1fr] items-center gap-[60px]">
+                          <div className="grid lg:grid-cols-[1.565fr_1fr] items-center lg:gap-[60px] gap-[20px] group cursor-pointer ">
                             <div>
                               <Link
                                 href={`/study-abroad/${item?.slug}`}
                                 className="group"
                               >
-                                <div className="w-full h-[588px]">
+                                <div className="w-full lg:h-[588px] h-[210px]">
                                   <Image
                                     src={
                                       item?.featuredImage ||
@@ -236,7 +161,7 @@ const Continents = ({
                                     <div>
                                       <Link
                                         href={`${`/study-abroad/${item?.slug}`}`}
-                                        className="text-p1 text-gradient font-medium border-b border-b-[2px] border-primary pb-1"
+                                        className="text-p1 text-gradient font-medium  border-b-[2px] border-primary pb-1"
                                       >
                                         Explore More
                                       </Link>

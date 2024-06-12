@@ -12,13 +12,16 @@ const CountryPageHero = ({ data, classes }: propTypes) => {
   const LeftSide = ({ className }: any) => {
     return (
       <div
-        className={`flex flex-col lg:items-start items-center text-center lg:text-left ${
+        className={`flex  flex-col   lg:items-start items-center text-center lg:text-left ${
           className ? className : ""
         }`}
       >
         {data?.title ? <h1 className="h3 mb-4">{data?.title}</h1> : null}
         {data?.breadcrumbData ? (
-          <Breadcrumbs data={data?.breadcrumbData} classes={{ root: "mb-4" }} />
+          <Breadcrumbs
+            data={data?.breadcrumbData}
+            classes={{ root: "mb-4 flex flex-wrap justify-center item-center" }}
+          />
         ) : null}
         {data?.description ? (
           <p className="text-p2">{data?.description}</p>

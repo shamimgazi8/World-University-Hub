@@ -1,5 +1,4 @@
 "use client";
-import { htmlParse } from "@/helpers/utils";
 import React from "react";
 
 const KeyInfoCourse = ({ data, id }: any) => {
@@ -14,55 +13,88 @@ const KeyInfoCourse = ({ data, id }: any) => {
           <div className=" grid lg:grid-cols-4 lg:gap-0 gap-4 ">
             <div className=" grid gap-1 ">
               <p className=" mb-0  text-[14px]">Intake</p>
-              <h6 className=" mb-0 ">March, June, Nov</h6>
+              <h6 className=" mb-0 ">
+                {data?.importantDates
+                  ? data?.importantDates?.startingMonth.join(", ")
+                  : ""}
+              </h6>
             </div>
             <div className=" grid gap-1">
               <p className=" mb-0 text-[14px]">Duration</p>
-              <h6 className=" mb-0 ">4 Years</h6>
+              <h6 className=" mb-0 ">
+                {data?.duration ? `${data?.duration} Years` : "N/A"}{" "}
+              </h6>
             </div>
-            <div className=" grid gap-1">
+            <div className=" grid gap-1 overflow-ellipsis">
               <p className=" mb-0 text-[14px]">Attendance</p>
-              <h6 className=" mb-0 ">On Campus</h6>
+              <h6 className=" mb-0 ">
+                {data?.deliveryMethods
+                  ? data?.deliveryMethods?.map((item: any, i: any) => {
+                      return (
+                        <>{`${item?.deliveryMethod?.name} ${
+                          i == 0 ? "," : ""
+                        } `}</>
+                      );
+                    })
+                  : ""}
+              </h6>
             </div>
             <div className=" grid gap-1">
               <p className=" mb-0 text-[14px]">Intensity</p>
-              <h6 className=" mb-0 ">Full Time</h6>
+              <h6 className=" mb-0 ">
+                {data?.studyPace
+                  ? data?.studyPace == "FULL_TIME"
+                    ? "Full Time"
+                    : data?.studyPace == "PART_TIME"
+                    ? "Part Time"
+                    : ""
+                  : ""}
+              </h6>
             </div>
           </div>
           <div className=" grid lg:grid-cols-4  lg:gap-0 gap-4">
             <div className=" grid gap-1">
-              <p className=" mb-0 text-[14px]">Tuition Fees/Year</p>
-              <h6 className=" mb-0 ">$320-$250</h6>
+              <p className=" mb-0 text-[14px]">Domestic Tuition Fees</p>
+              <h6 className=" mb-0 ">
+                {data?.tuitionFees
+                  ? data?.tuitionFees?.domesticStudents
+                  : "N/A"}{" "}
+                {data?.tuitionFees?.currencyCode
+                  ? data?.tuitionFees?.currencyCode
+                  : ""}
+              </h6>
             </div>
             <div className=" grid gap-1">
               <p className=" mb-0 text-[14px]">Scholarship</p>
-              <h6 className=" mb-0 ">Yesv</h6>
+              <h6 className=" mb-0 ">{data?.hasScholarship ? "YES" : "NO"}</h6>
             </div>
             <div className=" grid gap-1">
               <p className=" mb-0 text-[14px]">Application Deadline</p>
-              <h6 className=" mb-0 ">May 20, 2015</h6>
+              <h6 className=" mb-0 ">
+                {data?.importantDates?.applicationDeadline
+                  ? data?.importantDates?.applicationDeadline
+                  : "N/A"}
+              </h6>
             </div>
-            {/* <div className=" grid gap-1">
-            <p className=" mb-0 text-[14px]">Intake</p>
-            <h6 className=" mb-0 ">March, June, Nov</h6>
-          </div> */}
+            <div className=" grid gap-1">
+              <p className=" mb-0 text-[14px]">Internationl Tuition Fees</p>
+              <h6 className=" mb-0 ">
+                {" "}
+                {data?.tuitionFees
+                  ? data?.tuitionFees?.internationalStudents
+                  : "N/A"}{" "}
+                {data?.tuitionFees?.currencyCode
+                  ? data?.tuitionFees?.currencyCode
+                  : ""}
+              </h6>
+            </div>
           </div>
           <div className=" grid lg:grid-cols-4   lg:gap-0 gap-4">
             <div className=" grid gap-1">
               <p className=" mb-0 text-[14px]">Ranking</p>
-              <h6 className=" mb-0 ">$320-$250</h6>
-            </div>
-            <div className=" grid gap-1">
-              <p className=" mb-0 text-[14px]">Undergraduate Program</p>
-              <h6 className=" mb-0 ">109</h6>
-            </div>
-            <div className=" grid gap-1">
-              <p className=" mb-0 text-[14px]">Post Graduate Program</p>
-              <h6 className=" mb-0 ">108</h6>
-            </div>
-            <div className=" grid gap-1">
-              <p className=" mb-0 text-[14px]">Tuition Fees</p>
-              <h6 className=" mb-0 ">300000 AUD</h6>
+              <h6 className=" mb-0 ">
+                {data?.ranks[0] ? `#${data?.ranks[0]?.displayRank}` : ""}
+              </h6>
             </div>
           </div>
         </div>

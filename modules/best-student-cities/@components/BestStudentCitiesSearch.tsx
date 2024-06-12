@@ -28,7 +28,7 @@ const BestStudentCitiesSearch = ({
       ) : null}
       <div className="relative">
         <input
-          className={`py-[12px] px-[15px]   rounded-md w-full shadow ${
+          className={`py-[12px] px-[15px]   rounded-md w-full shadow   focus:outline-gray-300 ${
             isBorder ? "border" : ""
           }`}
           type="text"

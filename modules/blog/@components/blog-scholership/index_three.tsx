@@ -138,82 +138,84 @@ const BlogApplicationProcess = ({ data, loading }: propTypes) => {
   const { data: ApplicationLatestData } =
     useGetBlogByCategoryQuery(queryStringLatest);
   return (
-    <section className="pt-[30px]">
-      <div className=" container ">
-        <Link href="/blog/category/application-process">
-          <h1 className=" text-h3-md mb-0 hover:underline">
-            Application Process
-          </h1>
-        </Link>
-        {loading ? (
-          <div className="grid xs:grid-cols-1 md:grid-cols-2 lg:grid-cols-12 grid-rows-2 gap-5 lg:gap-x-[30px] lg:gap-y-[30px] pt-[32px] ">
-            {new Array(9).fill(1).map((_, i) => {
-              const isFeature = i == 0;
-
-              return (
-                <Skeleton
-                  key={i}
-                  className={` ${`self-start ${
-                    isFeature
-                      ? " col-span-8 row-span-2 !mb-0 !h-[360px] "
-                      : "col-span-4 !mb-0 !h-[171px]"
-                  }`} `}
-                />
-              );
-            })}
-          </div>
-        ) : (
-          <div className=" grid lg:grid-cols-[1fr_305px] gap-[30px]">
-            <div className=" grid xs:grid-cols-1 md:grid-cols-2 lg:grid-cols-12 grid-rows-2 gap-5 lg:gap-x-[30px] lg:gap-y-[30px] pt-[32px]">
-              {dataScholership?.map((item: any, i: any) => {
+    data && (
+      <section className="pt-[30px]">
+        <div className=" container ">
+          <Link href="/blog/category/application-process">
+            <h1 className=" text-h3-md mb-0 hover:underline">
+              Application Process
+            </h1>
+          </Link>
+          {loading ? (
+            <div className="grid xs:grid-cols-1 md:grid-cols-2 lg:grid-cols-12 grid-rows-2 gap-5 lg:gap-x-[30px] lg:gap-y-[30px] pt-[32px] ">
+              {new Array(9).fill(1).map((_, i) => {
                 const isFeature = i == 0;
-                const isSecond = i == 1;
-                return isSecond ? (
-                  <div className="lg:col-span-4 col-span-8 lg:row-span-2">
-                    <LatestNews data={ApplicationLatestData} />
-                  </div>
-                ) : (
-                  <BlogCardTwo
+
+                return (
+                  <Skeleton
                     key={i}
-                    data={item}
-                    classes={{
-                      root: `self-start ${
-                        isFeature ? " col-span-8 row-span-2 " : "col-span-4"
-                      }`,
-                      imageWrapper: isFeature
-                        ? "!mb-0 !h-[360px]"
-                        : "!mb-0 !h-[171px]",
-                      imageStyle: "!mb-0 !h-full object-cover",
-                      category: ` text-[#3378FE] font-medium  ${
-                        isFeature ? "text-c3" : "text-c5"
-                      }`,
-                      tag: "!hidden",
-                      title: `!line-clamp-2 leading-[1.3]    ${
-                        isFeature
-                          ? "lg:text-h2-sm text-c2 !mb-4 mt-2 "
-                          : " lg:text-c2 text-c3 mt-[8px] !mb-0"
-                      }`,
-                      description: isFeature
-                        ? " lg:text-p3 text-p4 mb-4 line-clamp-2"
-                        : "hidden",
-                      date: isFeature
-                        ? "text-p3"
-                        : "lg:text-p5 text-[8px] mt-2 ",
-                      cardBody: `bg-white  border-b-[1px] border-l-[1px] border-r-[1px] border-[#E7E7E7] p-4 rounded-b-[6px] ${
-                        isFeature ? "!p-6" : ""
-                      }`,
-                    }}
+                    className={` ${`self-start ${
+                      isFeature
+                        ? " col-span-8 row-span-2 !mb-0 !h-[360px] "
+                        : "col-span-4 !mb-0 !h-[171px]"
+                    }`} `}
                   />
                 );
               })}
             </div>
-            <div>
-              <AdvertisementSideSm className={`pt-[32px]`} />
+          ) : (
+            <div className=" grid lg:grid-cols-[1fr_305px] gap-[30px]">
+              <div className=" grid xs:grid-cols-1 md:grid-cols-2 lg:grid-cols-12 grid-rows-2 gap-5 lg:gap-x-[30px] lg:gap-y-[30px] pt-[32px]">
+                {dataScholership?.map((item: any, i: any) => {
+                  const isFeature = i == 0;
+                  const isSecond = i == 1;
+                  return isSecond ? (
+                    <div className="lg:col-span-4 col-span-8 lg:row-span-2">
+                      <LatestNews data={ApplicationLatestData} />
+                    </div>
+                  ) : (
+                    <BlogCardTwo
+                      key={i}
+                      data={item}
+                      classes={{
+                        root: `self-start ${
+                          isFeature ? " col-span-8 row-span-2 " : "col-span-4"
+                        }`,
+                        imageWrapper: isFeature
+                          ? "!mb-0 lg:!h-[360px] !h-[210px]"
+                          : "!mb-0 lg:!h-[171px] !h-[150px]",
+                        imageStyle: "!mb-0 !h-full object-cover",
+                        category: ` text-[#3378FE] font-medium  ${
+                          isFeature ? "text-c3" : "text-c5"
+                        }`,
+                        tag: "!hidden",
+                        title: `!line-clamp-2 leading-[1.3]    ${
+                          isFeature
+                            ? "lg:text-h2-sm text-c2 !mb-4 mt-2 "
+                            : " lg:text-c2 text-c3 mt-[8px] !mb-0"
+                        }`,
+                        description: isFeature
+                          ? " lg:text-p3 text-p4 mb-4 line-clamp-2"
+                          : "hidden",
+                        date: isFeature
+                          ? "text-p3"
+                          : "lg:text-p5 text-[8px] mt-2 ",
+                        cardBody: `bg-white  border-b-[1px] border-l-[1px] border-r-[1px] border-[#E7E7E7] p-4 rounded-b-[6px] ${
+                          isFeature ? "!p-6" : ""
+                        }`,
+                      }}
+                    />
+                  );
+                })}
+              </div>
+              <div>
+                <AdvertisementSideSm className={`pt-[32px]`} />
+              </div>
             </div>
-          </div>
-        )}
-      </div>
-    </section>
+          )}
+        </div>
+      </section>
+    )
   );
 };
 

@@ -47,7 +47,7 @@ interface propTypes {
 export const SocialLinks = ({ classes }: propTypes) => {
   return (
     <ul
-      className={`flex items-center gap-3 text-xl mb-3 ${
+      className={`flex items-center gap-5 text-xl mb-3 ${
         classes?.root ? classes.root : ""
       }`}
     >

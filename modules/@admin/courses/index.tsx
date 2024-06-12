@@ -13,6 +13,7 @@ interface AdminUniversitiesProps {
 }
 
 const AdminCourses: FC<AdminUniversitiesProps> = ({ dashboard }) => {
+  const dataCourseArrays: any = [];
   const {
     data: shortList,
     isError,
@@ -91,12 +92,12 @@ const AdminCourses: FC<AdminUniversitiesProps> = ({ dashboard }) => {
             </div>
           </div>
         </TabPane>
-        <TabPane tab="Recommended (9)" key="2">
+        <TabPane tab="Recommended" key="2">
           <div>
             <div
               className={`grid gap-2 lg:gap-[30px] ${maxWidth()} mx-auto py-5 pb-10`}
             >
-              {dataCourseArray?.map((uni: any, i: number) => {
+              {dataCourseArrays?.map((uni: any, i: number) => {
                 return (
                   <ViewCourseCard
                     key={i}

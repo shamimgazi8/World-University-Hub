@@ -17,7 +17,7 @@ const WUHSupport = () => {
           </p>
         </div>
         <div className="flex flex-col gap-[50px]">
-          <div className="grid grid-cols-1 lg:grid-cols-[1.565fr_1fr] items-center gap-[60px]">
+          <div className="grid grid-cols-1 lg:grid-cols-[1.565fr_1fr] items-center lg:gap-[60px] gap-[30px]">
             <div>
               <Image
                 src="/temp/right-destination.png"
@@ -45,7 +45,7 @@ const WUHSupport = () => {
               </div>
             </div>
           </div>
-          <div className="grid grid-cols-1 lg:grid-cols-[1.565fr_1fr] items-center gap-[60px]">
+          <div className="grid grid-cols-1 lg:grid-cols-[1.565fr_1fr] items-center lg:gap-[60px] gap-[30px]">
             <div>
               <Image
                 src="/temp/uni-ranking.png"
@@ -72,7 +72,7 @@ const WUHSupport = () => {
               </div>
             </div>
           </div>
-          <div className="grid grid-cols-1 lg:grid-cols-[1.565fr_1fr] items-center gap-[60px]">
+          <div className="grid grid-cols-1 lg:grid-cols-[1.565fr_1fr] items-center lg:gap-[60px] gap-[30px] ">
             <div>
               <Image
                 src="/temp/right-course.png"
@@ -92,14 +92,14 @@ const WUHSupport = () => {
               <div>
                 <Link
                   href="#"
-                  className="text-p1 text-gradient font-medium border-b border-b-[2px] border-primary pb-1"
+                  className="text-p1 text-gradient font-medium  border-b-[2px] border-primary pb-1"
                 >
                   Explore More
                 </Link>
               </div>
             </div>
           </div>
-          <div className="grid grid-cols-1 lg:grid-cols-[1.565fr_1fr] items-center gap-[60px]">
+          <div className="grid grid-cols-1 lg:grid-cols-[1.565fr_1fr] items-center lg:gap-[60px] gap-[30px]">
             <div>
               <Image
                 src="/temp/advice.png"

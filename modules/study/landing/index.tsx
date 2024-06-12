@@ -12,7 +12,7 @@ import CountryHero from "./country-hero";
 const StudyLanding = () => {
   const queryParams: any = {
     limit: 6,
-    topCountries: true,
+    // topCountries: true,
   };
   const queryString = generateQueryString(queryParams);
   const { data, isLoading, isError } = useGetCountriesQuery(queryString);

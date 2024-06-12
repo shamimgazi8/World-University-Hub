@@ -17,6 +17,11 @@ export const universityApi = apiSlice.injectEndpoints({
         return `/public/university/all${queryString}`;
       },
     }),
+    getAllUniversitiesBySearch: build.query({
+      query: (queryString) => {
+        return `/public/university/search${queryString}`;
+      },
+    }),
     getUniversityGallery: build.query({
       query: (queryString) => {
         return `/public/gallery${queryString}`;
@@ -42,6 +47,11 @@ export const universityApi = apiSlice.injectEndpoints({
         return `/public/course${queryString}`;
       },
     }),
+    getCourseDuration: build.query({
+      query: () => {
+        return `/public/course/durations`;
+      },
+    }),
     getProgramsByLevel: build.query({
       query: (queryString) => {
         return `/public/level${queryString}`;
@@ -50,6 +60,11 @@ export const universityApi = apiSlice.injectEndpoints({
     getLevelsData: build.query({
       query: () => {
         return `/public/level`;
+      },
+    }),
+    getLevelsOptionsData: build.query({
+      query: () => {
+        return `/public/level/all`;
       },
     }),
     getDeliveryMethod: build.query({
@@ -67,6 +82,29 @@ export const universityApi = apiSlice.injectEndpoints({
         return `/public/course${slug}`;
       },
     }),
+    getTestScore: build.query({
+      query: (UniId) => {
+        return `/test-score?universityId=${UniId}`;
+      },
+    }),
+    getspecialization: build.query({
+      query: () => {
+        return `/public/specialization
+        `;
+      },
+    }),
+    getBestCities: build.query({
+      query: () => {
+        return `/public/city/best-cities
+        `;
+      },
+    }),
+    getDeliveryMethods: build.query({
+      query: () => {
+        return `/public/deliveryMethod
+        `;
+      },
+    }),
     getRegionForUni: build.query({
       query: (queryString) => {
         return `/public/region${queryString}`;
@@ -76,8 +114,10 @@ export const universityApi = apiSlice.injectEndpoints({
 });
 
 export const {
+  useGetBestCitiesQuery,
   useGetUniversitiesQuery,
   useGetUniversityCourseQuery,
+  useGetTestScoreQuery,
   useGetUniversitiesByCountryQuery,
   useGetAllUniversitiesQuery,
   useGetUniversityGalleryQuery,
@@ -90,4 +130,9 @@ export const {
   useGetRegionForUniQuery,
   useGetRankingCompanyQuery,
   useUseGetCoursesQuery,
+  useGetspecializationQuery,
+  useGetAllUniversitiesBySearchQuery,
+  useGetLevelsOptionsDataQuery,
+  useGetCourseDurationQuery,
+  useGetDeliveryMethodsQuery,
 } = universityApi;

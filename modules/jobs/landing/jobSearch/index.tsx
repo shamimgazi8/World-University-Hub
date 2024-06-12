@@ -36,7 +36,7 @@ const SearchJob = () => {
 
       <Link
         href={`jobs/search${queryString}`}
-        className="btn rounded-full btn-primary w-full  py-1 px-5 "
+        className="btn rounded-full btn-primary w-full  lg:py-1 p-2 px-5 "
       >
         Search
       </Link>

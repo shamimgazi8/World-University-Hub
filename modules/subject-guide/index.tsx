@@ -1,8 +1,8 @@
+"use client";
 import Image from "next/image";
 import Link from "next/link";
-import React from "react";
+import React, { useState } from "react";
 import { HiArrowRight } from "react-icons/hi";
-import UniCoursesHero from "../uni-courses-with-filter/@components/hero";
 import Breadcrumbs from "../@common/breadcrumbs";
 import sg1 from "../../public/icons/sg1.png";
 import sg2 from "../../public/icons/sg2.png";
@@ -13,7 +13,23 @@ import sg6 from "../../public/icons/sg6.png";
 import FeatureArticle from "./@components";
 import SubjectGuidHero from "./@components/Hero";
 
+import { generateQueryString } from "@/helpers/utils";
+import { useGetAllSpecializationQuery } from "@/appstore/user/utility/utility-api";
+
 const SubjectGuidePage = () => {
+  const [bulk, setbulk] = useState(0);
+  const queryParams: any = {
+    withChild: true,
+    limit: 6,
+  };
+  const queryString = generateQueryString(queryParams);
+  const { data, isLoading, isError } =
+    useGetAllSpecializationQuery(queryString);
+
+  console.log(data);
+
+  console.log(bulk, "bulkSSS");
+
   const heroDescription =
     "Find your perfect university program with our course guides – covering entry requirements, specializations, career prospects and more.";
   const dataBreadcrumbs = [
@@ -35,336 +51,48 @@ const SubjectGuidePage = () => {
         breadcrumb={<Breadcrumbs data={dataBreadcrumbs} />}
       />
 
-      <div className="container my-[60px]">
+      <div className="container my-[60px] ">
         <div className=" grid lg:grid-cols-3 gap-[30px]">
-          <div className="flex flex-col gap-[20px] border-[1px] border-[#E7E7E7] p-[30px] group hover:shadow-[0_1px_3px_0px_rgba(0,0,0,0.10)] transition-all rounded-md">
-            <Image height={80} width={80} src={sg3} alt="art" />
-            <>
-              <div>
-                <h5 className="mb-1">Arts and Humanities</h5>
-                <p className="text-[#7A868B] mb-[10px]">200 Courses</p>
-                <Link
-                  href={"/"}
-                  className=" flex gap-[10px] mb-2  items-center "
+          {data?.map((item: any, i: any) => {
+            return (
+              item?.children?.length > 0 && (
+                <div
+                  key={i}
+                  className="group  flex flex-col gap-[20px] border-[1px] border-[#E7E7E7] p-[30px] group hover:shadow-[0_1px_3px_0px_rgba(0,0,0,0.10)] transition-all rounded-md"
                 >
-                  <HiArrowRight className="text-lg text-secondary transition-all" />
-                  <span className=" leading-[1.6]">
-                    Architecture and Built Environment
-                  </span>
-                </Link>
-                <Link
-                  href={"/"}
-                  className=" flex gap-[10px] mb-2  items-center "
-                >
-                  <HiArrowRight className="text-lg text-secondary transition-all" />
-                  <span className=" leading-[1.6]">
-                    Architecture and Built Environment
-                  </span>
-                </Link>
-                <Link
-                  href={"/"}
-                  className=" flex gap-[10px] mb-2  items-center "
-                >
-                  <HiArrowRight className="text-lg text-secondary transition-all" />
-                  <span className=" leading-[1.6]">
-                    Architecture and Built Environment
-                  </span>
-                </Link>
-                <Link
-                  href={"/"}
-                  className=" flex gap-[10px] mb-2  items-center "
-                >
-                  <HiArrowRight className="text-lg text-secondary transition-all" />
-                  <span className=" leading-[1.6]">
-                    Architecture and Built Environment
-                  </span>
-                </Link>
-                <Link
-                  href={"/"}
-                  className=" flex gap-[10px] mb-2  items-center "
-                >
-                  <HiArrowRight className="text-lg text-secondary transition-all" />
-                  <span className=" leading-[1.6]">
-                    Architecture and Built Environment
-                  </span>
-                </Link>
-              </div>
-            </>
-          </div>
-          <div className="flex flex-col gap-[20px] border-[1px] border-[#E7E7E7] p-[30px] group hover:shadow-[0_1px_3px_0px_rgba(0,0,0,0.10)] transition-all rounded-md">
-            <Image height={80} width={80} src={sg2} alt="art" />
-            <>
-              <div>
-                <h5 className="mb-1">Business and Management</h5>
-                <p className="text-[#7A868B] mb-[10px]">200 Courses</p>
-                <Link
-                  href={"/"}
-                  className=" flex gap-[10px] mb-2  items-center "
-                >
-                  <HiArrowRight className="text-lg text-secondary transition-all" />
-                  <span className=" leading-[1.6]">
-                    Architecture and Built Environment
-                  </span>
-                </Link>
-                <Link
-                  href={"/"}
-                  className=" flex gap-[10px] mb-2  items-center "
-                >
-                  <HiArrowRight className="text-lg text-secondary transition-all" />
-                  <span className=" leading-[1.6]">
-                    Architecture and Built Environment
-                  </span>
-                </Link>
-                <Link
-                  href={"/"}
-                  className=" flex gap-[10px] mb-2  items-center "
-                >
-                  <HiArrowRight className="text-lg text-secondary transition-all" />
-                  <span className=" leading-[1.6]">
-                    Architecture and Built Environment
-                  </span>
-                </Link>
-                <Link
-                  href={"/"}
-                  className=" flex gap-[10px] mb-2  items-center "
-                >
-                  <HiArrowRight className="text-lg text-secondary transition-all" />
-                  <span className=" leading-[1.6]">
-                    Architecture and Built Environment
-                  </span>
-                </Link>
-                <Link
-                  href={"/"}
-                  className=" flex gap-[10px] mb-2  items-center "
-                >
-                  <HiArrowRight className="text-lg text-secondary transition-all" />
-                  <span className=" leading-[1.6]">
-                    Architecture and Built Environment
-                  </span>
-                </Link>
-              </div>
-            </>
-          </div>
-          <div className="flex flex-col gap-[20px] border-[1px] border-[#E7E7E7] p-[30px] group hover:shadow-[0_1px_3px_0px_rgba(0,0,0,0.10)] transition-all rounded-md">
-            <Image height={80} width={80} src={sg1} alt="art" />
-            <>
-              <div>
-                <h5 className="mb-1">Engineering and Technology</h5>
-                <p className="text-[#7A868B] mb-[10px]">200 Courses</p>
-                <Link
-                  href={"/"}
-                  className=" flex gap-[10px] mb-2  items-center "
-                >
-                  <HiArrowRight className="text-lg text-secondary transition-all" />
-                  <span className=" leading-[1.6]">
-                    Architecture and Built Environment
-                  </span>
-                </Link>
-                <Link
-                  href={"/"}
-                  className=" flex gap-[10px] mb-2  items-center "
-                >
-                  <HiArrowRight className="text-lg text-secondary transition-all" />
-                  <span className=" leading-[1.6]">
-                    Architecture and Built Environment
-                  </span>
-                </Link>
-                <Link
-                  href={"/"}
-                  className=" flex gap-[10px] mb-2  items-center "
-                >
-                  <HiArrowRight className="text-lg text-secondary transition-all" />
-                  <span className=" leading-[1.6]">
-                    {" "}
-                    Architecture and Built Environment
-                  </span>
-                </Link>
-                <Link
-                  href={"/"}
-                  className=" flex gap-[10px] mb-2  items-center "
-                >
-                  <HiArrowRight className="text-lg text-secondary transition-all" />
-                  <span className=" leading-[1.6]">
-                    Architecture and Built Environment
-                  </span>
-                </Link>
-                <Link
-                  href={"/"}
-                  className=" flex gap-[10px] mb-2  items-center "
-                >
-                  <HiArrowRight className="text-lg text-secondary transition-all" />
-                  <span className=" leading-[1.6]">
-                    Architecture and Built Environment
-                  </span>
-                </Link>
-              </div>
-            </>
-          </div>
-          <div className="flex flex-col gap-[20px] border-[1px] border-[#E7E7E7] p-[30px] group hover:shadow-[0_1px_3px_0px_rgba(0,0,0,0.10)] transition-all rounded-md">
-            <Image height={80} width={80} src={sg4} alt="art" />
-            <>
-              <div>
-                <h5 className="mb-1">Life Sciences and Medicine</h5>
-                <p className="text-[#7A868B] mb-[10px]">200 Courses</p>
-                <Link
-                  href={"/"}
-                  className=" flex gap-[10px] mb-2  items-center "
-                >
-                  <HiArrowRight className="text-lg text-secondary transition-all" />
-                  <span className=" leading-[1.6]">
-                    Architecture and Built Environment
-                  </span>
-                </Link>
-                <Link
-                  href={"/"}
-                  className=" flex gap-[10px] mb-2  items-center "
-                >
-                  <HiArrowRight className="text-lg text-secondary transition-all" />
-                  <span className=" leading-[1.6]">
-                    Architecture and Built Environment
-                  </span>
-                </Link>
-                <Link
-                  href={"/"}
-                  className=" flex gap-[10px] mb-2  items-center "
-                >
-                  <HiArrowRight className="text-lg text-secondary transition-all" />
-                  <span className=" leading-[1.6]">
-                    Architecture and Built Environment
-                  </span>
-                </Link>
-                <Link
-                  href={"/"}
-                  className=" flex gap-[10px] mb-2  items-center "
-                >
-                  <HiArrowRight className="text-lg text-secondary transition-all" />
-                  <span className=" leading-[1.6]">
-                    Architecture and Built Environment
-                  </span>
-                </Link>
-                <Link
-                  href={"/"}
-                  className=" flex gap-[10px] mb-2  items-center "
-                >
-                  <HiArrowRight className="text-lg text-secondary transition-all" />
-                  <span className=" leading-[1.6]">
-                    {" "}
-                    Architecture and Built Environment
-                  </span>
-                </Link>
-              </div>
-            </>
-          </div>
-          <div className="flex flex-col gap-[20px] border-[1px] border-[#E7E7E7] p-[30px] group hover:shadow-[0_1px_3px_0px_rgba(0,0,0,0.10)] transition-all rounded-md">
-            <Image height={80} width={80} src={sg5} alt="art" />
-            <>
-              <div>
-                <h5 className="mb-1">Natural Sciences</h5>
-                <p className="text-[#7A868B] mb-[10px]">200 Courses</p>
-                <Link
-                  href={"/"}
-                  className=" flex gap-[10px] mb-2  items-center "
-                >
-                  <HiArrowRight className="text-lg text-secondary transition-all" />
-                  <span className=" leading-[1.6]">
-                    Architecture and Built Environment
-                  </span>
-                </Link>
-                <Link
-                  href={"/"}
-                  className=" flex gap-[10px] mb-2  items-center "
-                >
-                  <HiArrowRight className="text-lg text-secondary transition-all" />
-                  <span className=" leading-[1.6]">
-                    Architecture and Built Environment
-                  </span>
-                </Link>
-                <Link
-                  href={"/"}
-                  className=" flex gap-[10px] mb-2  items-center "
-                >
-                  <HiArrowRight className="text-lg text-secondary transition-all" />
-                  <span className=" leading-[1.6]">
-                    Architecture and Built Environment
-                  </span>
-                </Link>
-                <Link
-                  href={"/"}
-                  className=" flex gap-[10px] mb-2  items-center "
-                >
-                  <HiArrowRight className="text-lg text-secondary transition-all" />
-                  <span className=" leading-[1.6]">
-                    Architecture and Built Environment
-                  </span>
-                </Link>
-                <Link
-                  href={"/"}
-                  className=" flex gap-[10px] mb-2  items-center "
-                >
-                  <HiArrowRight className="text-lg text-secondary transition-all" />
-                  <span className=" leading-[1.6]">
-                    Architecture and Built Environment
-                  </span>
-                </Link>
-              </div>
-            </>
-          </div>
-          <div className="flex flex-col gap-[20px] border-[1px] border-[#E7E7E7] p-[30px] group hover:shadow-[0_1px_3px_0px_rgba(0,0,0,0.10)] transition-all rounded-md">
-            <Image height={80} width={80} src={sg6} alt="art" />
-            <>
-              <div>
-                <h5 className="mb-1">Social Sciences and Management</h5>
-                <p className="text-[#7A868B] mb-[10px]">200 Courses</p>
-                <Link
-                  href={"/"}
-                  className=" flex gap-[10px] mb-2  items-center "
-                >
-                  <HiArrowRight className="text-lg text-secondary transition-all" />
-                  <span className=" leading-[1.6]">
-                    Architecture and Built Environment
-                  </span>
-                </Link>
-                <Link
-                  href={"/"}
-                  className=" flex gap-[10px] mb-2  items-center "
-                >
-                  <HiArrowRight className="text-lg text-secondary transition-all" />
-                  <span className=" leading-[1.6]">
-                    {" "}
-                    Architecture and Built Environment
-                  </span>
-                </Link>
-                <Link
-                  href={"/"}
-                  className=" flex gap-[10px] mb-2  items-center "
-                >
-                  <HiArrowRight className="text-lg text-secondary transition-all" />
-                  <span className=" leading-[1.6]">
-                    Architecture and Built Environment
-                  </span>
-                </Link>
-                <Link
-                  href={"/"}
-                  className=" flex gap-[10px] mb-2  items-center "
-                >
-                  <HiArrowRight className="text-lg text-secondary transition-all" />
-                  <span className=" leading-[1.6]">
-                    {" "}
-                    Architecture and Built Environment
-                  </span>
-                </Link>
-                <Link
-                  href={"/"}
-                  className=" flex gap-[10px] mb-2  items-center "
-                >
-                  <HiArrowRight className="text-lg text-secondary transition-all" />
-                  <span className=" leading-[1.6]">
-                    Architecture and Built Environment
-                  </span>
-                </Link>
-              </div>
-            </>
-          </div>
+                  <Image height={80} width={80} src={sg3} alt="art" />
+                  <>
+                    <div>
+                      <h5 className="mb-1 group-hover:text-gradient cursor-pointer  ">
+                        <Link
+                          href={`/programs/search?specialization=${item?.title}`}
+                        >
+                          {item?.title}
+                        </Link>
+                      </h5>
+                      <p className="text-[#7A868B] mb-[10px]">
+                        {item?.children?.length} Courses
+                      </p>
+                      {item?.children?.slice(0, 5).map((item: any, i: any) => {
+                        return (
+                          <Link
+                            key={i}
+                            href={`/programs/search?specialization=${item?.title}`}
+                            className=" flex gap-[10px] mb-2  items-center "
+                          >
+                            <HiArrowRight className="text-lg text-secondary transition-all" />
+                            <span className=" leading-[1.6]">
+                              {item?.title}
+                            </span>
+                          </Link>
+                        );
+                      })}
+                    </div>
+                  </>
+                </div>
+              )
+            );
+          })}
         </div>
         <div>
           <FeatureArticle classes={{ root: "pt-8 lg:pt-[70px]" }} />

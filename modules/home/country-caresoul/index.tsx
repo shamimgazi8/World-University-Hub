@@ -95,74 +95,76 @@ const CountryCarousel = () => {
   };
 
   return (
-    <>
-      {!isError && isLoading ? (
-        <>
-          <section className="mt-[100px]">
-            <div className="container ">
-              <div className="grid grid-cols-4 gap-[30px] mt-10">
-                {new Array(4).fill(1).map((_, i) => {
-                  return <Skeleton key={i} className={"h-[380px]"} />;
-                })}
+    data && (
+      <>
+        {!isError && isLoading ? (
+          <>
+            <section className="mt-[100px]">
+              <div className="container ">
+                <div className="grid grid-cols-4 gap-[30px] mt-10">
+                  {new Array(4).fill(1).map((_, i) => {
+                    return <Skeleton key={i} className={"h-[380px]"} />;
+                  })}
+                </div>
               </div>
-            </div>
-          </section>
-        </>
-      ) : (
-        <>
-          <section className="overflow-hidden">
-            <div className="container ">
-              <div
-                className={`max-w-[810px] mb-[-48px] lg:mb-[-70px] ${
-                  len < 5 ? "flex justify-center mx-auto" : ""
-                }`}
-              >
-                <h2 className={`text-[32px] pl-3`}>
-                  Top Study Abroad Countries
-                </h2>
-              </div>
-              <div
-                className={`${
-                  len > 5 ? "lg:mr-[-26vw]" : ""
-                } overflow-hidden lg:pt-[60px] pt-[20px] mt-10  mx-auto`}
-              >
-                {len > 5 ? (
-                  <>
-                    <Slider {...settings}>
+            </section>
+          </>
+        ) : (
+          <>
+            <section className="overflow-hidden">
+              <div className="container ">
+                <div
+                  className={`max-w-[810px] mb-[-48px] lg:mb-[-70px] ${
+                    len < 5 ? "flex justify-center mx-auto" : ""
+                  }`}
+                >
+                  <h2 className={`text-[32px] pl-3`}>
+                    Top Study Abroad Countries
+                  </h2>
+                </div>
+                <div
+                  className={`${
+                    len > 5 ? "lg:mr-[-26vw]" : ""
+                  } overflow-hidden lg:pt-[60px] pt-[20px] mt-10  mx-auto`}
+                >
+                  {len > 5 ? (
+                    <>
+                      <Slider {...settings}>
+                        {dataArr?.map((item: any, i: any) => {
+                          const itemFormatted = {
+                            ...item,
+                            hoverBackground: bgColor[i],
+                          };
+                          return (
+                            <CountryCard
+                              data={itemFormatted}
+                              key={i}
+                              classes={{ root: "mx-2 lg:m-4" }}
+                            />
+                          );
+                        })}
+                      </Slider>
+                    </>
+                  ) : (
+                    <div
+                      className={`grid gap-5 lg:gap-[30px] ${maxWidth()} mx-auto`}
+                    >
                       {dataArr?.map((item: any, i: any) => {
                         const itemFormatted = {
                           ...item,
                           hoverBackground: bgColor[i],
                         };
-                        return (
-                          <CountryCard
-                            data={itemFormatted}
-                            key={i}
-                            classes={{ root: "mx-2 lg:m-4" }}
-                          />
-                        );
+                        return <CountryCard data={itemFormatted} key={i} />;
                       })}
-                    </Slider>
-                  </>
-                ) : (
-                  <div
-                    className={`grid gap-5 lg:gap-[30px] ${maxWidth()} mx-auto`}
-                  >
-                    {dataArr?.map((item: any, i: any) => {
-                      const itemFormatted = {
-                        ...item,
-                        hoverBackground: bgColor[i],
-                      };
-                      return <CountryCard data={itemFormatted} key={i} />;
-                    })}
-                  </div>
-                )}
+                    </div>
+                  )}
+                </div>
               </div>
-            </div>
-          </section>
-        </>
-      )}
-    </>
+            </section>
+          </>
+        )}
+      </>
+    )
   );
 };
 

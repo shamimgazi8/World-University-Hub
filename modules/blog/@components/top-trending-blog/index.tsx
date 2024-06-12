@@ -9,10 +9,6 @@ const TopTrendingBlog = () => {
   const { data, isLoading, isError } = useGetBlogByTrendingQuery({ limit: 10 });
   const len = data && data?.length;
 
-  // const currentDate = moment();
-  // const futureDate = currentDate.add(30, "days");
-  // console.log("data 30", futureDate.format("YYYY-MM-DD"));
-
   return (
     <>
       {!isError && isLoading ? (

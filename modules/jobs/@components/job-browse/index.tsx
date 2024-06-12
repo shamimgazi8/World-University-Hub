@@ -11,9 +11,9 @@ const JobsBrowse = () => {
   return (
     <section>
       <div className="container">
-        <div className="max-w-[1050px] mx-auto bg-white px-[40px] py-[30px] mt-[-200px] shadow-[0_1px_3px_0px_rgba(0,0,0,0.1)] rounded-md">
+        <div className="max-w-[1050px] max-h-[434px] mx-auto bg-white px-[40px] py-[30px] mt-[-200px] shadow-[0_1px_3px_0px_rgba(0,0,0,0.1)] rounded-md">
           <div>
-            <div className="flex items-center  smd:gap-5 gap-5">
+            <div className="flex items-center   gap-[32px]">
               <div
                 className={`  py-2 px-0 cursor-pointer btn  ${
                   browseJob === "Job Type"

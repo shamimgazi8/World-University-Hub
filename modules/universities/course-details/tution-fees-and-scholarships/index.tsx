@@ -11,7 +11,7 @@ const TutionFeesAndScholarships = ({ id, data }: propTypes) => {
       <div className="from_texteditor_wrapper ">
         <div className="mb-8">
           <h5 className="border-b pb-4">Scholarship & Funding</h5>
-          {data?.hasScholarship ? (
+          {data?.scholarship ? (
             <p className="">
               Several scholarship options are available. Please check the{" "}
               <a

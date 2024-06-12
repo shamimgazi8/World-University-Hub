@@ -16,6 +16,8 @@ import { useRouter, useSearchParams } from "next/navigation";
 import { useGetRankingCompanyQuery } from "@/appstore/university/university-api";
 import UniCoursesSearchByNameTwo from "../@components/search-by-name/indexTwo";
 import { FiSliders } from "react-icons/fi";
+import DataNotFound from "@/modules/@common/loading/dataNotFound";
+import NoDataFound from "@/modules/@common/no-data-found-page";
 
 const heroDescription =
   "Below you will find top university by ranking. Narrow your search further by selecting a specific year, region and location.";
@@ -196,28 +198,7 @@ const TopUniversities = () => {
                   options={YearOption}
                 />
               </div>
-              {/* <div>
-                              <Select
-                                allowClear
-                                placeholder={"Region"}
-                                loading={isCountryLoading}
-                                className="custom_country"
-                                style={{ width: `100%` }}
-                                size="large"
-                                value={
-                                  queryParams?.countrySlug
-                                    ? queryParams?.countrySlug
-                                    : null
-                                }
-                                onChange={(val) =>
-                                  setQueryParams((prev: any) => ({
-                                    ...prev,
-                                    countrySlug: val,
-                                  }))
-                                }
-                                options={countryOption}
-                              />
-                            </div> */}
+
               <div>
                 <Select
                   size="large"
@@ -326,28 +307,7 @@ const TopUniversities = () => {
                     options={YearOption}
                   />
                 </div>
-                {/* <div>
-                              <Select
-                                allowClear
-                                placeholder={"Region"}
-                                loading={isCountryLoading}
-                                className="custom_country"
-                                style={{ width: `100%` }}
-                                size="large"
-                                value={
-                                  queryParams?.countrySlug
-                                    ? queryParams?.countrySlug
-                                    : null
-                                }
-                                onChange={(val) =>
-                                  setQueryParams((prev: any) => ({
-                                    ...prev,
-                                    countrySlug: val,
-                                  }))
-                                }
-                                options={countryOption}
-                              />
-                            </div> */}
+
                 <div>
                   <Select
                     size="large"
@@ -404,39 +364,34 @@ const TopUniversities = () => {
                 />
               </div>
               <div className="mb-0 flex justify-center items-center gap-2 ">
-                We found <span className="font-bold">{total}</span> results for
-                you
+                We found <span className="font-bold">{total | 0}</span> results
+                for you
               </div>
             </div>
             {total === 0 ? (
-              <div> No Data Found</div>
+              <div className=" row-span-2">
+                <DataNotFound />
+              </div>
             ) : isLoading ? (
-              <div className="flex flex-col gap-2 mt-4">
+              <div className="flex flex-col gap-2 mt-4 row-span-2">
                 {new Array(6).fill(1).map((_, i) => {
                   return <Skeleton key={i} className={"h-[180px]"} />;
                 })}
               </div>
             ) : (
-              <div className="flex flex-col gap-4  ">
-                {dataArr?.map((item: any, i: any) => {
-                  return (
-                    <UniCourseCard showCourse={false} data={item} key={i} />
-                  );
-                })}
+              <div className="flex flex-col gap-4 row-span-2 ">
+                {dataArr ? (
+                  dataArr?.map((item: any, i: any) => {
+                    return (
+                      <UniCourseCard showCourse={false} data={item} key={i} />
+                    );
+                  })
+                ) : (
+                  <DataNotFound />
+                )}
               </div>
             )}
           </div>
-          {/* {total > limit ? (
-                        <div className="mt-6 lg:mt-10">
-                          <PaginationComponent
-                            onChange={onChange}
-                            total={total}
-                            page={page}
-                            limit={limit}
-                          />
-                        </div>
-                      ) : null} */}
-
           {total > queryParams.limit ? (
             <div className="mt-6 lg:mt-10">
               <PaginationComponent

@@ -32,7 +32,7 @@ const ShortListButton = ({
       shortList.data.some((item: any) => {
         const referenceValue = item[reference.toLowerCase()];
         if (reference === "UNIVERSITY") {
-          return referenceValue.slug === universitySlug;
+          return referenceValue?.slug === universitySlug;
         }
 
         if (

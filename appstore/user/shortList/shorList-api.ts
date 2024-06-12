@@ -1,7 +1,7 @@
 import { apiSlice } from "@/appstore/api-slice";
 
 import Cookies from "js-cookie";
-import { useDispatch, useSelector } from "react-redux";
+
 import { shortListData } from "./shortList-slice";
 export const shortListApi = apiSlice.injectEndpoints({
   endpoints: (build) => ({

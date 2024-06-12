@@ -1,27 +1,17 @@
 "use client";
-import { RxDoubleArrowRight } from "react-icons/rx";
 import AdvertisementSideSm from "@/modules/@common/advertisement/side_sm";
-import React, { Fragment } from "react";
-import BlogCard from "../blog-card";
+import React, { Fragment, useState } from "react";
 import { useGetBlogQuery, useGetCategoryQuery } from "@/appstore/blog/blog-api";
 import Skeleton from "@/modules/@common/skeleton";
 import SearchBar from "../search-bar";
-import SocialLinks from "@/modules/@common/social-links";
 import BlogCardTwo from "../blog-card-two";
-import { CiSearch } from "react-icons/ci";
 import Link from "next/link";
-const categories = [
-  { name: "Study in Canada", count: 12 },
-  { name: "Canadian Work Permit", count: 12 },
-  { name: "Express Entry Representation", count: 12 },
-  { name: "Refugee Claim Assistance", count: 12 },
-  { name: "Start-Up Visa", count: 12 },
-  { name: "Immigration to Canada", count: 12 },
-  { name: "LMIA Application", count: 12 },
-  { name: "Study in Canada", count: 12 },
-];
+import { Drawer } from "antd";
+
 interface propTypes {
   id?: any;
+  openCat?: any;
+  setOpenCat?: any;
 }
 const CategoryItem = ({ name, count, slug }: any) => {
   return (
@@ -34,7 +24,7 @@ const CategoryItem = ({ name, count, slug }: any) => {
   );
 };
 
-const BlogRightSideTwo = ({ id }: propTypes) => {
+const BlogRightSideTwo = ({ id, openCat, setOpenCat }: propTypes) => {
   const {
     data: latestData,
     isLoading,
@@ -52,22 +42,16 @@ const BlogRightSideTwo = ({ id }: propTypes) => {
   const data = latestData?.data;
   const len = latestData?.data && latestData?.data?.length;
 
+  const onCloseCat = () => {
+    setOpenCat(false);
+  };
   return (
     <>
       <div>
-        {/* <div className="rounded-md  mb-[30px] flex flex-col gap-[26px]">
-          <span className="h5 mb-0">Search Here</span>
-          <div className="relative">
-            <input
-              type="text"
-              placeholder="Search Here"
-              className="w-full rounded py-3 px-4 border-[1px] border-gray-300 focus:outline-gray-300 "
-            />
-            <CiSearch className="text-lg absolute right-[10px] top-[50%] translate-y-[-50%]" />
-          </div>
-        </div> */}
-        <SearchBar />
-        <div>
+        <div className=" lg:block hidden">
+          <SearchBar />
+        </div>
+        <div className=" lg:block hidden">
           <div className="max-w-lg mx-auto mt-8 p-6 border-[1px] border-[#DADADA] rounded-md mb-[30px]">
             <h1 className="text-lg font-bold mb-4">Categories</h1>
             <div className="space-y-2">
@@ -86,6 +70,34 @@ const BlogRightSideTwo = ({ id }: propTypes) => {
               ))}
             </div>
           </div>
+        </div>
+        <div className=" lg:hidden flex justify-end items-center">
+          <Drawer
+            title="Categories Drawer"
+            onClose={onCloseCat}
+            open={openCat}
+            contentWrapperStyle={{ width: "100%", maxWidth: "300px" }}
+          >
+            <div className=" ">
+              <div className="max-w-lg mx-autorounded-md mb-[30px]">
+                <div className="space-y-2">
+                  {categoryData?.map((category: any, index: number) => (
+                    <>
+                      <CategoryItem
+                        key={index}
+                        name={category.name}
+                        slug={category.slug}
+                        count={category.postCount}
+                      />
+                      {categoryData?.length > index + 1 && (
+                        <div className=" !mb-[8px] w-full h-[1px] bg-[#DADADA]"></div>
+                      )}
+                    </>
+                  ))}
+                </div>
+              </div>
+            </div>
+          </Drawer>
         </div>
       </div>
       <div className="lg:sticky lg:top-[72px] lg:self-start overflow-auto scrollbar show_hide lg:max-h-[calc(100vh-72px)]">

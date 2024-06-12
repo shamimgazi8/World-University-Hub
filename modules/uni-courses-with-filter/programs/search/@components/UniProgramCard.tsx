@@ -9,6 +9,9 @@ import { IoIosArrowRoundForward } from "react-icons/io";
 import { useUseGetCoursesQuery } from "@/appstore/university/university-api";
 import { useSearchParams } from "next/navigation";
 import { useState } from "react";
+import { useCreateShortListMutation } from "@/appstore/user/shortList/shorList-api";
+import { Spin, message } from "antd";
+import { FaHeart } from "react-icons/fa";
 interface propTypes {
   data?: any;
   showCourse?: boolean;
@@ -30,6 +33,21 @@ const UniProgramCard = ({
     uniSlug: data?.slug,
     limit: 4,
   });
+  const [short, setshort] = useState(false);
+
+  const [createShortList, { isLoading: shortLoading }] =
+    useCreateShortListMutation();
+  const uniqueNamess: any = {};
+  const uniqueArrays: any = [];
+  if (data && data?.uni_rankings?.length > 0) {
+    for (const obj of data?.uni_rankings) {
+      const name = obj.companySlug;
+      if (!uniqueNamess[name]) {
+        uniqueNamess[name] = true;
+        uniqueArrays.push(obj);
+      }
+    }
+  }
 
   const countryQueryString = generateQueryString(QueryParams);
   const { data: courseData, isLoading: courseLoading } =
@@ -48,7 +66,33 @@ const UniProgramCard = ({
       }
     }
   }
+  const shortListHandler = async () => {
+    try {
+      const response: any = await createShortList({
+        reference: "UNIVERSITY",
+        universitySlug: data?.slug,
+      });
 
+      if (response.error) {
+        if (response.error.status === 400) {
+          message.error(response.error.data.message);
+        } else {
+          if (response.error.data.message === "Token not found") {
+            message.error("You must login before perform this action.");
+            window.location.href = "/login";
+          } else {
+            message.error(
+              response.error.data.message
+                ? response.error.data.message
+                : "Something went wront. Please try again!"
+            );
+          }
+        }
+      } else {
+        message.success(response?.data?.message);
+      }
+    } catch (error) {}
+  };
   return (
     <div className="border p-3 lg:p-6  rounded lg:rounded-none">
       <div>
@@ -69,7 +113,7 @@ const UniProgramCard = ({
             <div className="grid gap-2">
               <div
                 className={`${
-                  uniqueArray?.length === 0 ? "hidden" : ""
+                  uniqueArray?.length === 0 ? "" : ""
                 } grid lg:grid-cols-[1fr_auto] gap-3 lg:gap-0  items-center order-last lg:order-first`}
               >
                 <div className="grid grid-cols-2 lg:grid-cols-4 gap-2 lg:gap-4 lg:max-w-[90%] w-full mb-[6px] ">
@@ -112,7 +156,34 @@ const UniProgramCard = ({
                     </div>
                   </button>
                   <button className="hover:text-primary">
-                    <FiHeart className="lg:text-xl text-lg" />
+                    {!short &&
+                      (shortLoading ? (
+                        <div className=" h-5 w-5">
+                          <Spin />
+                        </div>
+                      ) : (
+                        <FiHeart
+                          onClick={() => {
+                            shortListHandler();
+                            setshort(true);
+                          }}
+                          className="lg:text-xl text-lg "
+                        />
+                      ))}
+                    {short &&
+                      (shortLoading ? (
+                        <div className=" h-5 w-5">
+                          <Spin />
+                        </div>
+                      ) : (
+                        <FaHeart
+                          onClick={() => {
+                            shortListHandler();
+                            setshort(false);
+                          }}
+                          className="lg:text-xl text-lg text-red-500"
+                        />
+                      ))}
                   </button>
                 </div>
               </div>

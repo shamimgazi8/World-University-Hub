@@ -75,9 +75,9 @@ const UniversityHero = ({ data, isFeaturedImage = false }: propTypes) => {
               <button className=" bg-white  font-medium  px-[20px] py-[10px] rounded flex items-center gap-1 hover:bg-purple-500 hover:text-white transition-all">
                 <IoMdHeartEmpty /> Shortlist
               </button>
-              <button className="bg-white  font-medium px-[20px] py-[10px] rounded  flex items-center gap-1 hover:bg-purple-500 hover:text-white transition-all">
+              {/* <button className="bg-white  font-medium px-[20px] py-[10px] rounded  flex items-center gap-1 hover:bg-purple-500 hover:text-white transition-all">
                 <MdOutlineCompareArrows /> Compare
-              </button>
+              </button> */}
             </div>
           </div>
         </div>

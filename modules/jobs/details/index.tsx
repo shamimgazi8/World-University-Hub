@@ -7,7 +7,6 @@ import AdvertisementSideSm from "@/modules/@common/advertisement/side_sm";
 import moment from "moment";
 import Link from "next/link";
 import { FaExternalLinkAlt } from "react-icons/fa";
-import LoadingScreen from "@/modules/@common/loading";
 
 interface propTypes {
   data?: any;
@@ -36,13 +35,36 @@ const JobDetails = ({ data, serverData }: propTypes) => {
   return (
     <>
       <div className=" container">
-        <Image
-          className=" mb-4"
-          height={275}
-          width={1310}
-          src={data?.featureIamge}
-          alt="job details Feature Image"
-        />
+        {data?.featureIamge ? (
+          <>
+            <Image
+              className=" mb-4 !h-[275px] object-cover"
+              height={275}
+              width={1310}
+              src={
+                data?.featureIamge
+                  ? data?.featureIamge
+                  : "https://ritecareer.ca/wp-content/uploads/2021/10/jobsearchinfographics-scaled.jpeg"
+              }
+              alt="job details Feature Image"
+            />
+          </>
+        ) : (
+          <>
+            <Image
+              className=" mb-4 !h-[275px] object-cover"
+              height={275}
+              width={1310}
+              src={
+                data?.recruiter
+                  ? data?.recruiter?.bannerImage
+                  : "https://ritecareer.ca/wp-content/uploads/2021/10/jobsearchinfographics-scaled.jpeg"
+              }
+              alt="job details Feature Image"
+            />
+          </>
+        )}
+
         <Breadcrumbs data={breadCrumbsData} />
       </div>
       <section className="pt-6 lg:pt-[44px] pb-0 ">
@@ -63,11 +85,11 @@ const JobDetails = ({ data, serverData }: propTypes) => {
                   Contractual hours: {data?.jobHours}
                 </div>
 
-                <div className="font-medium">Basis: {data?.jobHours}</div>
+                {/* <div className="font-medium">Basis: {data?.jobHours}</div> */}
 
                 <div className="font-medium">
                   <p className=" mb-0 line-clamp-1">
-                    Package: Full details can be found here-
+                    Package: Full details can be found here:
                     {<Link href={data?.jobSource}>{data?.jobSource}</Link>} 
                   </p>
                 </div>
@@ -87,13 +109,13 @@ const JobDetails = ({ data, serverData }: propTypes) => {
                 <div className=" h-[1px] w-full bg-[#EEEEEE] my-4"></div>
               </div>
               <div>{htmlParse(data?.jobDescription)}</div>
-              <div className=" flex justify-between mt-[32px]">
+              <div className=" lg:flex justify-between mt-[32px]">
                 <a target="_blank" href={`${data?.jobSource}`}>
                   <button className=" btn btn-primary rounded py-[12px] px-[24px]">
                     Apply on website
                   </button>
                 </a>
-                <div className=" flex sm:items-center">
+                <div className=" flex sm:items-center lg:mt-0 mt-5">
                   <SocialLinks classes={{ root: "mb-0 justify-center" }} />
                 </div>
               </div>
@@ -101,21 +123,42 @@ const JobDetails = ({ data, serverData }: propTypes) => {
             <div className="">
               <div className=" border-[1px] border-t-[4px] rounded-md border-t-[#A965E9] shadow ">
                 <div className=" py-[40px] px-[30px] grid gap-6">
-                  <div>
-                    <Image
-                      height={110}
-                      width={267}
-                      className=" border-[1px] p-[30px] rounded"
-                      alt="university Logo"
-                      src={data?.universityLogo}
-                    />
-                  </div>
+                  {data?.universityLogo ? (
+                    <>
+                      <Image
+                        height={110}
+                        width={267}
+                        className=" border-[1px] p-[30px] rounded"
+                        alt="university Logo"
+                        src={
+                          data?.universityLogo ||
+                          "/misc/placeholder-uni-logo2.webp"
+                        }
+                      />
+                    </>
+                  ) : (
+                    <>
+                      <Image
+                        height={110}
+                        width={267}
+                        className=" border-[1px] p-[30px] rounded"
+                        alt="university Logo"
+                        src={
+                          data?.recruiter?.logo ||
+                          "/misc/placeholder-uni-logo2.webp"
+                        }
+                      />
+                    </>
+                  )}
+
                   <div className=" grid gap-[6px]">
                     <span className=" text-p4 text-[#4E4E4E] leading-[1.7]">
                       Employer
                     </span>
                     <span className=" font-medium text-[#22343C]">
-                      {data?.universityName}
+                      {data?.recruiter
+                        ? data?.recruiter?.name
+                        : data?.universityName}
                     </span>
                   </div>
                   <div className=" grid gap-[6px]">

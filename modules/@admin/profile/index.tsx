@@ -45,39 +45,6 @@ const AccountPageCards = () => {
       </div>
 
       <div className="max-w-sm p-6 bg-white border border-gray-200 rounded-lg shadow">
-        <Link href="/user/profile/study-preference">
-          <h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-900">
-            Study Preferences
-          </h5>
-        </Link>
-        <p className="mb-3 font-normal text-gray-700">
-          Study Level, Destination, Subject, Start Date and Funding
-        </p>
-        <Link
-          href="/user/profile/study-preference"
-          className="btn btn-primary rounded"
-        >
-          Edit
-        </Link>
-      </div>
-      <div className="max-w-sm p-6 bg-white border border-gray-200 rounded-lg shadow">
-        <Link href="/user/profile/college-preference">
-          <h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-900">
-            College Preferences
-          </h5>
-        </Link>
-        <p className="mb-3 font-normal text-gray-700">
-          Reputation, Quality of Teaching, Employability, Diversity and
-          Affordability
-        </p>
-        <Link
-          href="/user/profile/college-preference"
-          className="btn btn-primary rounded"
-        >
-          Edit
-        </Link>
-      </div>
-      <div className="max-w-sm p-6 bg-white border border-gray-200 rounded-lg shadow">
         <Link href="/user/profile/account-settings">
           <h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-900">
             Account Settings

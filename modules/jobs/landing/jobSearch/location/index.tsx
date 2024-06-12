@@ -10,9 +10,7 @@ interface PropTypes {
 
 const SearchLocationJob = ({ queryParams, setQueryParams }: PropTypes) => {
   const [countryName, setCountryName] = useState("");
-  const { data, isLoading, isError } = useGetCountriesDataQuery(
-    "?limit=100&hasUniversity=true"
-  );
+  const { data, isLoading, isError } = useGetCountriesDataQuery("?limit=100&");
   const dataArr = data && data?.data;
 
   const [open, setOpen] = useState(false);
@@ -30,10 +28,10 @@ const SearchLocationJob = ({ queryParams, setQueryParams }: PropTypes) => {
         placement="bottomRight"
         arrow={false}
         trigger="click"
-        rootClassName="max-w-[1000px] mx-auto w-full "
+        rootClassName=" mx-auto  "
         content={
           <div className=" ">
-            <ul className="grid grid-cols-4 gap-x-4 ">
+            <ul className="grid lg:grid-cols-4 grid-cols-2   gap-x-4 ">
               {dataArr?.map((item: any, i: number) => {
                 return (
                   <li

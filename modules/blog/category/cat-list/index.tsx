@@ -82,8 +82,8 @@ const BlogCatList = ({
                       data={correctFormat}
                       classes={{
                         root: "grid grid-cols-1 lg:grid-cols-[230px_1fr] gap-[15px] items-center self-start",
-                        imageWrapper: "!mb-0 !h-[130px] !w-[230px]",
-                        imageStyle: "object-cover",
+                        imageWrapper: "!mb-0 lg:!h-[130px] h-[210px]",
+                        imageStyle: "object-cover !h-full !w-full",
                         category:
                           "text-c5 text-[#3378FE]    hover:underline hover:underline-offset-2 hover:text-tertiary",
                         tag: "hidden",

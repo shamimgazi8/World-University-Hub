@@ -35,8 +35,6 @@ const UniCoursesSearchByLocation = ({ setQueryParams, queryParams }: any) => {
         placeholder="Search by Location"
         options={filteredOptions}
         onChange={(val) => {
-          console.log({ val });
-
           setQueryParams((prev: any) => ({ ...prev, countrySlugs: val }));
         }}
         value={

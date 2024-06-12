@@ -10,6 +10,7 @@ import { MdModeComment } from "react-icons/md";
 import { IoTimeSharp } from "react-icons/io5";
 import { IoMdEye } from "react-icons/io";
 import { BsFillCalendarDateFill } from "react-icons/bs";
+import { useState } from "react";
 
 const BlogDetails = ({ data }: any) => {
   const catName =
@@ -48,7 +49,7 @@ const BlogDetails = ({ data }: any) => {
       ) : (
         <>
           {/* hero */}
-          <section className={`py-[80px]  bg-grey`}>
+          <section className={`lg:py-[80px] py-[40px]  bg-grey`}>
             <div className="container">
               <div className="wrapper-small">
                 <div className="max-w-[860px] w-full mx-auto text-center ">
@@ -63,7 +64,7 @@ const BlogDetails = ({ data }: any) => {
                     {data?.title}
                   </h1>
 
-                  <div className="flex flex-col sm:flex-row items-center justify-center gap-[16px] sm:gap-[15px] ">
+                  <div className="flex items-center flex-wrap  justify-center gap-[16px] sm:gap-[15px] ">
                     <div className="flex items-center justify-center gap-[10px]">
                       <BsFillCalendarDateFill className=" text-gradiant  text-primary" />
                       {data?.publishedAt && (

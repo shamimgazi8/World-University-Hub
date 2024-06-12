@@ -1,11 +1,9 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import PaginationComponent from "@/modules/@common/pagination";
 import Skeleton from "@/modules/@common/skeleton";
 import { useRouter, useSearchParams } from "next/navigation";
 import Link from "next/link";
-import UniversityCard from "../@components/university-card";
 import {
   useGetRegionForUniQuery,
   useGetUniversitiesQuery,
@@ -55,11 +53,6 @@ const UniversityLanding = () => {
   } = useGetRegionForUniQuery(regionQueryString);
 
   const dataArr = regionData?.data;
-
-  // useEffect(() => {
-  //   router.push(`/universities${queryString}`, { scroll: false });
-  // }, [queryParams]);
-
   return (
     <>
       <section className="bg-gradient-to-b from-primary-light to-secondary-light pt-8 pb-8 lg:pt-[60px] lg:pb-[70px]">
@@ -142,17 +135,6 @@ const UniversityLanding = () => {
               )}
             </>
           )}
-          {/* 
-          {total > limit ? (
-            <div className="mt-6 lg:mt-10">
-              <PaginationComponent
-                onChange={onChange}
-                total={total}
-                page={page}
-                limit={limit}
-              />
-            </div>
-          ) : null} */}
         </div>
       </section>
     </>

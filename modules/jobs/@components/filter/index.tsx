@@ -56,16 +56,7 @@ const SaleryOption = [
   { label: "Daily Rate", value: "Daily_Rate" },
   { label: "Hourly Rate", value: "Hourly_Rate" },
 ];
-// const dataArrSalery: any = [];
-// function MultiselectSalery(event: any, data: any) {
-//   const index = dataArrSalery?.indexOf(data);
-//   event.target.checked
-//     ? dataArrSalery.push(data)
-//     : dataArrSalery.splice(index, 1);
 
-//   const selectedString = dataArrSalery.toString();
-//   return selectedString;
-// }
 const JobFilter = ({
   setQueryParams,
   limit,
@@ -139,7 +130,7 @@ const JobFilter = ({
   const onChange4 = (checkedValues: any) => {
     setQueryParams((prev: any) => ({
       ...prev,
-      ContactType: checkedValues,
+      contractType: checkedValues,
     }));
   };
   return (
@@ -322,11 +313,11 @@ const JobFilter = ({
               label: "Contact Type",
               children: (
                 <Checkbox.Group
-                  name={`ContactType`}
+                  name={`contractType`}
                   options={ContactType}
                   value={
-                    jobQueryParams?.ContactType
-                      ? jobQueryParams?.ContactType
+                    jobQueryParams?.contractType
+                      ? jobQueryParams?.contractType
                       : []
                   }
                   onChange={onChange4}

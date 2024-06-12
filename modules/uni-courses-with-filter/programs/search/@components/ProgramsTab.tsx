@@ -122,9 +122,13 @@ const CourseInfo = ({ data }: any) => {
                 {data?.courseLevel.name === "undergraduation" ? "UG" : "UG"}
               </td>
               <td className=" px-4 py-2">
-                {data?.importantDates?.startingMonth[0]}
+                {data?.importantDates?.startingMonth
+                  ? data?.importantDates?.startingMonth[0]
+                  : "N/A"}
               </td>
-              <td className=" px-4 py-2">{data?.ranks[0].displayRank}</td>
+              <td className=" px-4 py-2">
+                {data?.ranks ? data?.ranks[0].displayRank : "N/A"}
+              </td>
               <td className=" px-4 py-2">
                 {data?.duration ? `${data?.duration} Month` : "N/A"}{" "}
               </td>
@@ -134,10 +138,10 @@ const CourseInfo = ({ data }: any) => {
                 ${data?.tuitionFees?.currencyCode}`
                   : "N/A"}
               </td>
-              <td className=" px-4 py-2">{data?.examScores[0]?.exam}</td>
               <td className=" px-4 py-2">
-                {data?.hasScholarship ? "YES" : "NO"}
+                {data?.examScores ? data?.examScores[0]?.exam : "N/A"}
               </td>
+              <td className=" px-4 py-2">{data?.scholarship ? "YES" : "NO"}</td>
             </tr>
           ))}
         </tbody>

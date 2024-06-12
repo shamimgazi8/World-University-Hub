@@ -10,24 +10,31 @@ import Skeleton from "@/modules/@common/skeleton";
 import { useGetCountriesQuery } from "@/appstore/global/global-api";
 import JobCardtwo from "../@components/@common/job-card";
 import EmployeeSliderTwo from "../@components/employee-carousel/indexTwo";
+import { Drawer } from "antd";
 
 const JobSearch = () => {
+  const [Filteropen, setFilterOpen] = useState(false);
+  const showDrawer = () => {
+    setFilterOpen(true);
+  };
+
+  const onClose = () => {
+    setFilterOpen(false);
+  };
   const limit = 10;
   const router = useRouter();
   const searchParams = useSearchParams();
   const pageFromRoute = searchParams.get("page");
   const keywordFromRoute = searchParams.get("keyword");
   const countryNameFromRoute = searchParams.get("countryName");
-  const specializationSlug = searchParams.get("specializationSlug");
+  const specialization = searchParams.get("specialization");
   const jobTypeSlug = searchParams.get("jobTypeSlug");
   const salaryBand = searchParams.get("salaryBand");
-  const contactTyp = searchParams.get("ContactType");
+  const contactTyp = searchParams.get("contractType");
   const Hour = searchParams.get("jobHours");
   const recruiter = searchParams.get("recruiterSlug");
 
-  const specializationArr = specializationSlug
-    ? specializationSlug.split(",")
-    : [];
+  const specializationArr = specialization ? specialization.split(",") : [];
   const jobTypeSlugArr = jobTypeSlug ? jobTypeSlug.split(",") : [];
   const contactTypArr = contactTyp ? contactTyp.split(",") : [];
   const salaryBandArr = salaryBand ? salaryBand.split(",") : [];
@@ -45,8 +52,8 @@ const JobSearch = () => {
     salaryBand: salaryBandArr,
     jobHours: hourArr,
     recruiterSlug: recruiterArr,
-    ContactType: contactTypArr,
-    specializationSlug: specializationArr,
+    contractType: contactTypArr,
+    specialization: specializationArr,
     countryName: countryNameFromRoute,
   });
   const countryParams = generateQueryString({
@@ -78,14 +85,13 @@ const JobSearch = () => {
 
   useEffect(() => {
     const specializationstring =
-      queryParams.specializationSlug &&
-      queryParams.specializationSlug.join(",");
+      queryParams.specialization && queryParams.specialization.join(",");
     const jobTypeString =
       queryParams.jobTypeSlug && queryParams.jobTypeSlug.join(",");
     const salaryBandString =
       queryParams.salaryBand && queryParams.salaryBand.join(",");
     const ContactTypestring =
-      queryParams.ContactType && queryParams.ContactType.join(",");
+      queryParams.contractType && queryParams.contractType.join(",");
     const jobHoursString =
       queryParams.jobHours && queryParams.jobHours.join(",");
     const RecuiterString =
@@ -95,7 +101,7 @@ const JobSearch = () => {
       specializationSlug: specializationstring,
       jobTypeSlug: jobTypeString,
       salaryBand: salaryBandString,
-      ContactType: ContactTypestring,
+      contractType: ContactTypestring,
       jobHours: jobHoursString,
       recruiterSlug: RecuiterString,
       limit: "",
@@ -109,13 +115,33 @@ const JobSearch = () => {
     <>
       {/* <LoadingScreen /> */}
       <JobHero total={data?.totalCount} />
-      <div className=" container my-[60px]">
+      <div className=" container lg:my-[60px] my-[20px]">
         <div className="grid lg:grid-cols-[305px_975px] gap-[30px]">
-          <JobFilter
-            setQueryParams={setQueryParams}
-            jobQueryParams={queryParams}
-            limit={limit}
-          />
+          <div className=" lg:hidden block">
+            <button className=" btn btn-primary-outline" onClick={showDrawer}>
+              Filter
+            </button>
+            <Drawer
+              title="Job Search Filter"
+              onClose={onClose}
+              placement={"left"}
+              open={Filteropen}
+            >
+              <JobFilter
+                setQueryParams={setQueryParams}
+                jobQueryParams={queryParams}
+                limit={limit}
+              />
+            </Drawer>
+          </div>
+          <div className=" lg:block hidden">
+            <JobFilter
+              setQueryParams={setQueryParams}
+              jobQueryParams={queryParams}
+              limit={limit}
+            />
+          </div>
+
           <div>
             <div>
               {isLoading && !isError ? (

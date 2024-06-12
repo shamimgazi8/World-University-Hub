@@ -1,6 +1,8 @@
 "use client";
+
 import { useProfileQuery } from "@/appstore/user/auth/auth-api";
-import { useCreatestudyPreferenceMutation } from "@/appstore/user/studyPreference/studyPreference-api";
+import { useCreateAcademyPreferenceMutation } from "@/appstore/user/studyPreference/studyPreference-api";
+
 import {
   useGetAllCountryQuery,
   useGetAllDeliveryMethodQuery,
@@ -15,7 +17,7 @@ import "react-phone-input-2/lib/style.css";
 const StudyPreferencePage = () => {
   const [parent] = useAutoAnimate();
   const [createstudyPreference, { isLoading }] =
-    useCreatestudyPreferenceMutation();
+    useCreateAcademyPreferenceMutation();
   const { data: profileInfo, isLoading: profileLoading } = useProfileQuery({});
   const queryParams: any = {
     limit: 300,
@@ -132,24 +134,30 @@ const StudyPreferencePage = () => {
         {({ values, errors, touched, setFieldValue }) => (
           <Form className="w-full">
             <div className=" gap-x-4 gap-y-10">
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+              <div className="">
                 <div ref={parent} className="form_group relative mt-3">
                   <label htmlFor="email" className="font-medium">
                     Prefered Countries {countryLoading && <Spin />}
                   </label>
-                  <div>
-                    <Select
-                      mode="multiple"
-                      className="w-full rounded-none mt-1"
-                      allowClear
-                      optionFilterProp="label"
-                      placeholder="Countries"
-                      size="large"
-                      onChange={(val: any) => setFieldValue("countryIds", val)}
-                      options={countryOptions}
-                      value={values.countryIds ?? []}
-                    />
-                  </div>
+                  <Select
+                    mode="tags"
+                    style={{ width: "100%" }}
+                    placeholder="Tags Mode"
+                    onChange={(val: any) => setFieldValue("countryIds", val)}
+                    options={countryOptions}
+                    value={values.countryIds ?? []}
+                  />
+                  {/* <Select
+                    mode="multiple"
+                    className="w-full rounded-none "
+                    allowClear
+                    optionFilterProp="label"
+                    placeholder="Countries"
+                    size="large"
+                    onChange={(val: any) => setFieldValue("countryIds", val)}
+                    options={countryOptions}
+                    value={values.countryIds ?? []}
+                  /> */}
                 </div>
                 <div ref={parent} className="form_group relative mt-3">
                   <label htmlFor="email" className="font-medium">

@@ -19,10 +19,7 @@ const ProfileSidebar = () => {
       title: "Study Preference",
       link: "/user/profile/study-preference",
     },
-    {
-      title: "College Preference",
-      link: "/user/profile/college-preference",
-    },
+
     {
       title: "Account Settings",
       link: "/user/profile/account-settings",

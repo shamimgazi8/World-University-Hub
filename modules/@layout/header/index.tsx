@@ -26,8 +26,6 @@ const Header = () => {
 
   useEffect(() => {
     const handleScroll = () => {
-      //   console.log("window.scrollY", window.scrollY);
-
       if (window.scrollY > 40) {
         setScroll(true);
       } else {
@@ -225,21 +223,21 @@ const Header = () => {
               </ul>
             </nav>
             <div className="flex items-center gap-2 lg:gap-4 rounded">
-              {!hasCookie && (
+              {!hasCookie ? (
                 <Fragment>
                   <div className="flex items-center gap-3">
                     <Link
                       href="/login"
-                      className="btn btn-primary-outline  hover:text-white text-gradient rounded"
+                      className="btn btn-primary-outline  hover:text-white text-gradient "
                     >
                       <span className="">Login</span>
                     </Link>
                   </div>
                 </Fragment>
-              )}
-              {hasCookie && (
+              ) : (
                 <Fragment>
-                  <div className="cursor-pointer hover:text-hover">
+                  {/* Compare */}
+                  {/* <div className="cursor-pointer hover:text-hover">
                     <Popover
                       placement="bottomRight"
                       content={compareContent}
@@ -257,7 +255,7 @@ const Header = () => {
                         )}
                       </span>
                     </Popover>
-                  </div>
+                  </div> */}
                   <div className="cursor-pointer hover:text-hover">
                     <Popover
                       placement="bottomRight"

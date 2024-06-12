@@ -17,11 +17,11 @@ const CountryCard2 = ({ data, regionSlug }: propTypes) => {
     },
     {
       title: "Top Universities",
-      link: `/${countrySlug}-top-universities`,
+      link: `/top-universities?countrySlug=${countrySlug}`,
     },
     {
       title: "Top Courses",
-      link: `/${countrySlug}-top-courses`,
+      link: `/programs/search?countrySlug=${countrySlug}`,
     },
   ];
 

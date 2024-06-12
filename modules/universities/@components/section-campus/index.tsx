@@ -47,35 +47,21 @@ const SectionUniversityCampus = ({
                 <h3 className="h5">Campus Locations</h3>
               </div>
               <div className="contact-collapse flex flex-col gap-4">
-                {dataArr?.map((cmp: any, i: any) => {
-                  const firstItem = i == 0 ? "1" : "0";
+                <div className=" flex gap-3 flex-wrap">
+                  {dataArr?.map((item: any, i: any) => {
+                    return (
+                      <button className=" btn btn-primary-outline rounded">
+                        {item?.title}
+                      </button>
+                    );
+                  })}
+                </div>
+                {dataArr?.slice(1, 2)?.map((cmp: any, i: any) => {
                   const map = `https://maps.google.com/maps?q=${universityName},${cmp?.description}&t=&z=15&ie=UTF8&iwloc=&output=embed`;
                   return (
-                    <Collapse
-                      key={i}
-                      defaultActiveKey={[`${firstItem}`]}
-                      expandIcon={({ isActive }) =>
-                        isActive ? <FiMinus size={20} /> : <FiPlus size={20} />
-                      }
-                      expandIconPosition={"end"}
-                      items={[
-                        {
-                          key: "1",
-                          label: (
-                            <div className="mb-0 font-medium text-base text-black">
-                              {cmp?.title}
-                            </div>
-                          ),
-                          children: (
-                            <div>
-                              <iframe
-                                className="w-full h-[250px] lg:h-[450px]"
-                                src={map}
-                              />
-                            </div>
-                          ),
-                        },
-                      ]}
+                    <iframe
+                      className="w-full h-[250px] lg:h-[450px]"
+                      src={map}
                     />
                   );
                 })}

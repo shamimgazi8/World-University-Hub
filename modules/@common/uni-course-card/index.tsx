@@ -6,15 +6,23 @@ import UniCourseCardCourses from "./courses";
 import { excerpt, generateQueryString, htmlParse } from "@/helpers/utils";
 import { IoIosArrowRoundForward } from "react-icons/io";
 import { useGetCoursesQuery } from "@/appstore/university/university-api";
+import { useCreateShortListMutation } from "@/appstore/user/shortList/shorList-api";
+import { Spin, message } from "antd";
+import { useEffect, useState } from "react";
+import { FaHeart } from "react-icons/fa";
 
 interface propTypes {
   data?: any;
   showCourse?: boolean;
+  shortList?: any;
 }
 
-const UniCourseCard = ({ data, showCourse = true }: propTypes) => {
+const UniCourseCard = ({ data, showCourse = true, shortList }: propTypes) => {
   const link = `/universities/${data?.slug}`;
+  const [short, setshort] = useState(false);
 
+  const [createShortList, { isLoading: shortLoading }] =
+    useCreateShortListMutation();
   const uniqueNames: any = {};
   const uniqueArray: any = [];
   if (data && data?.uni_rankings?.length > 0) {
@@ -34,6 +42,46 @@ const UniCourseCard = ({ data, showCourse = true }: propTypes) => {
     isError,
   } = useGetCoursesQuery(queryString);
 
+  useEffect(() => {
+    let isShortlisted = false;
+
+    shortList?.data?.forEach((item: any) => {
+      if (item?.university?.slug === data?.slug) {
+        isShortlisted = true;
+      }
+    });
+
+    if (isShortlisted !== short) {
+      setshort(isShortlisted);
+    }
+  }, [shortList, data, short]);
+  const shortListHandler = async () => {
+    try {
+      const response: any = await createShortList({
+        reference: "UNIVERSITY",
+        universitySlug: data?.slug,
+      });
+
+      if (response.error) {
+        if (response.error.status === 400) {
+          message.error(response.error.data.message);
+        } else {
+          if (response.error.data.message === "Token not found") {
+            message.error("You must login before perform this action.");
+            window.location.href = "/login";
+          } else {
+            message.error(
+              response.error.data.message
+                ? response.error.data.message
+                : "Something went wront. Please try again!"
+            );
+          }
+        }
+      } else {
+        message.success(response?.data?.message);
+      }
+    } catch (error) {}
+  };
   return (
     <div className="border p-3 lg:p-6  rounded lg:rounded-none">
       <div>
@@ -51,30 +99,10 @@ const UniCourseCard = ({ data, showCourse = true }: propTypes) => {
             />
           </Link>
           <div className="">
-            {/* <div className="mb-5">
-              {data?.name ? (
-                <Link href={link} className="group/uni block">
-                  <h3 className="text-[22px] mb-[2px]">
-                    <span className="group-hover/uni:text-gradient transition-all">
-                      {data?.name}
-                    </span>
-                  </h3>
-                </Link>
-              ) : null}
-              {data?.countryName ? (
-                <div className="flex items-center gap-2">
-                  <FiMapPin />
-                  <span>
-                    {data?.cityName + ", "} {data?.countryName}
-                  </span>
-                </div>
-              ) : null}
-            </div> */}
-
             <div className="grid gap-2">
               <div
                 className={`${
-                  uniqueArray?.length === 0 ? "hidden" : ""
+                  uniqueArray?.length === 0 ? "" : ""
                 } grid lg:grid-cols-[1fr_auto] gap-3 lg:gap-0  items-center order-last lg:order-first`}
               >
                 <div className="grid grid-cols-2 lg:grid-cols-4 gap-2 lg:gap-4 lg:max-w-[90%] w-full mb-[6px] ">
@@ -103,7 +131,7 @@ const UniCourseCard = ({ data, showCourse = true }: propTypes) => {
                     );
                   })}
                 </div>
-                <div className="flex gap-3 lg:mt-3">
+                <div className="flex gap-3 lg:mt-1">
                   <button className="hover:text-primary">
                     <div className="relative ">
                       <MdOutlineSwapCalls className="lg:text-xl text-lg" />
@@ -113,7 +141,34 @@ const UniCourseCard = ({ data, showCourse = true }: propTypes) => {
                     </div>
                   </button>
                   <button className="hover:text-primary">
-                    <FiHeart className="lg:text-xl text-lg" />
+                    {!short &&
+                      (shortLoading ? (
+                        <div className=" h-5 w-5">
+                          <Spin />
+                        </div>
+                      ) : (
+                        <FiHeart
+                          onClick={() => {
+                            shortListHandler();
+                            setshort(true);
+                          }}
+                          className="lg:text-xl text-lg "
+                        />
+                      ))}
+                    {short &&
+                      (shortLoading ? (
+                        <div className=" h-5 w-5">
+                          <Spin />
+                        </div>
+                      ) : (
+                        <FaHeart
+                          onClick={() => {
+                            shortListHandler();
+                            setshort(false);
+                          }}
+                          className="lg:text-xl text-lg text-red-500"
+                        />
+                      ))}
                   </button>
                 </div>
               </div>
@@ -131,7 +186,7 @@ const UniCourseCard = ({ data, showCourse = true }: propTypes) => {
                   <div className="flex items-center gap-2 text-c5 lg:text-c4">
                     <FiMapPin />
                     <span className=" ">
-                      {data?.city + ", "} {data?.country}
+                      {data?.city?.name + ", "} {data?.country?.name}
                     </span>
                   </div>
                 ) : null}

@@ -24,29 +24,29 @@ const HomeHeroTwo = () => {
                 that are Right for You
               </h1>
               <Search />
-              <div className="mt-[26px] flex lg:flex-row flex-col justify-center gap-4">
-                <div className="flex items-center gap-3">
-                  <div className="lg:font-medium text-heading">
+              <div className="lg:mt-[26px]  flex justify-center gap-4">
+                <div className="flex items- justify-end items-center gap-3 lg:w-auto w-[160px]">
+                  <div className="lg:font-medium lg:text-[16px] text-[12px]  lg:text-heading">
                     Set Insight into
                   </div>
                   <FiChevronsRight className="text-primary text-xl mt-[2px]" />
                 </div>
-                <div className="flex items-center gap-[26px]">
+                <div className="flex items-center lg:gap-[26px] gap-3">
                   <Link
                     href="/study-abroad"
-                    className="lg:font-medium text-heading"
+                    className="lg:font-medium lg:text-[16px] text-[12px]  lg:text-heading"
                   >
                     100+ Country
                   </Link>
                   <Link
                     href="/universities"
-                    className="lg:font-medium text-heading"
+                    className="lg:font-medium lg:text-[16px] text-[12px] lg:text-heading"
                   >
                     10K+ University
                   </Link>
                   <Link
                     href="/top-courses"
-                    className="font-medium text-heading"
+                    className="lg:font-medium lg:text-[16px] text-[12px] lg:text-heading"
                   >
                     15K+ Course
                   </Link>

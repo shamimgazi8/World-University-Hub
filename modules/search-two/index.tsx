@@ -14,14 +14,13 @@ const SearchTwo = () => {
     countrySlug: "",
   });
   const queryString = generateQueryString(queryParams);
-  console.log({ queryString });
 
   return (
     <div className="grid lg:grid-cols-[2fr_1fr_1fr_1fr_auto] gap-[15px]">
       <div>
         <input
           type="text"
-          placeholder="Enter Course, University or Exam"
+          placeholder="Where do you want to study?"
           className="w-full rounded py-3 px-4  focus:outline-none"
         />
       </div>

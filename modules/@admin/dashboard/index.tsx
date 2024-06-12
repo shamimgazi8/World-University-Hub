@@ -1,15 +1,12 @@
 "use client";
 import Image from "next/image";
 import Link from "next/link";
-import { GrEdit } from "react-icons/gr";
-
 import { useProfileQuery } from "@/appstore/user/auth/auth-api";
 import AdminCourses from "../courses";
 import AdminUniversities from "../universities";
 
 const Dashboard = () => {
   const { data: profileInfo } = useProfileQuery({});
-
   return (
     <div>
       <div className="bg-gradient-to-b from-[#EEFEFF] via-[#EEFEFF] to-[#F4F1FF] flex  justify-center">

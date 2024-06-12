@@ -1,20 +1,19 @@
+import { useGetExamQuery } from "@/appstore/exam/exam-api";
 import { useGetCountriesQuery } from "@/appstore/global/global-api";
-import { useGetRegionQuery } from "@/appstore/country/country-api";
+import {
+  useGetCourseDurationQuery,
+  useGetDeliveryMethodsQuery,
+  useGetLevelsOptionsDataQuery,
+} from "@/appstore/university/university-api";
+import { generateQueryString } from "@/helpers/utils";
 import { CaretRightOutlined } from "@ant-design/icons";
-import {
-  useGetJobRecruitersQuery,
-  useGetJobTypeQuery,
-} from "@/appstore/job/job-api";
-import {
-  flattenArrayWithLabelValue,
-  generateQueryString,
-} from "@/helpers/utils";
-import { Checkbox, Collapse, Select, Slider, theme } from "antd";
+import { Checkbox, Collapse, Radio, Slider, theme } from "antd";
 import { useState } from "react";
 import { IoSearchOutline } from "react-icons/io5";
 import { MdCancel } from "react-icons/md";
-import { useParams, useSearchParams } from "next/navigation";
 import HandleRemoveFilter from "./SelectiveFilterTop";
+import { useGetAllSpecializationQuery } from "@/appstore/user/utility/utility-api";
+import { useGetSpecializationQuery } from "@/appstore/specialization/specialization-api";
 
 interface propTypes {
   selectedSearch?: any;
@@ -38,104 +37,79 @@ const filterInpDefaultVal = {
   IsSpecialization: true,
 };
 
-const ContactType = [
-  { label: "Permanent", value: "PERMANENT" },
-  { label: "Temporary", value: "TEMPORARY" },
-  { label: "Fixed Team", value: "FIXED_TERM" },
-];
-const Joboption = [
-  { label: "Full Time", value: "FULL_TIME" },
-  { label: "Part Time", value: "PART_TIME" },
-  { label: "Sessional", value: "SESSIONAL" },
-];
-const AcademicOption = [
-  { label: "Master (73)", value: "master" },
-  { label: "Bachelors (41)s", value: "bacholor" },
-  { label: "MSc (92)", value: "msc" },
-  { label: "BSc (92)", value: "bsc" },
-];
-const admissionOption = [
-  { label: "March", value: "March" },
-  { label: "June", value: "June" },
-  { label: "MSc (92)", value: "MSc" },
-  { label: "BSc (92)", value: "BSc" },
-];
-const durationOption = [
-  { label: "3 Years (124)", value: "3" },
-  { label: "1 Year (47)", value: "1" },
-  { label: "2 Year (47)", value: "2" },
-];
-const englishTestOption = [
-  { label: "IELTS", value: "IELTS" },
-  { label: "TOFEL", value: "TOFEL" },
-  { label: "PTE", value: "PTE" },
-];
-const attandanceOption = [
-  { label: "On-Campus", value: "On-Campus" },
-  { label: "Online", value: "Online" },
-  { label: "Both", value: "both" },
-];
-
-const SubjectOption = [
-  {
-    label: "Allied Healthcare (494)",
-    value: "Allied Healthcare",
-    sub: [
-      { label: "Dermatological Medicine (10)", value: "TOFEL" },
-      { label: "Blended (19)", value: "Dermatological Medicine" },
-    ],
-  },
-  { label: "Dermatological Medicine (10)", value: "TOFEL" },
-  { label: "Blended (19)", value: "Dermatological Medicine" },
-];
-const childoption = SubjectOption?.map((item: any) => {
-  return {
-    label: item?.name,
-    value: item?.slug,
-  };
-});
-
 const ProgramsFilter = ({
   setQueryParams,
   limit,
   jobQueryParams,
-  initParams,
   filterInput = filterInpDefaultVal,
   selectedSearch,
 }: propTypes) => {
-  const [slidervalue, setsliderValues] = useState([300, 1000]);
+  const [slidervalue, setsliderValues] = useState([0, 20000]);
   const [countryName, setCountryName] = useState("");
-  const [recruiterName, setRecruiterName] = useState("");
-  const queryParams = { keyword: "", page: 1, limit: 50 };
-  const queryString = generateQueryString(queryParams);
+  const [SpecializationName, setSpecialization] = useState("");
   const countryParams = generateQueryString({
     name: countryName,
     page: 1,
-    limit: 50,
+    limit: 500,
   });
-  const recruiterParams = generateQueryString({
-    keyword: recruiterName,
-    status: ["ACTIVE", "INACTIVE"],
+  const SpecializationParams = generateQueryString({
+    name: SpecializationName,
     page: 1,
-    limit: 50,
+    limit: 5,
   });
-  const { data: regionList } = useGetRegionQuery("");
-  const { data: jobTypeData } = useGetJobTypeQuery(queryString);
-  const { data: countryData } = useGetCountriesQuery(countryParams);
-  const { data: recruiterData } = useGetJobRecruitersQuery(recruiterParams);
-  const jobTypeArr = jobTypeData?.data;
-  const recDataarr = recruiterData?.data;
-  const jobTypeOption = jobTypeArr && flattenArrayWithLabelValue(jobTypeArr);
 
-  const JobRecuiterOption =
-    recDataarr && flattenArrayWithLabelValue(recDataarr);
-  const regionoption = regionList?.data?.map((item: any) => {
+  const { data: countryData } = useGetCountriesQuery(countryParams);
+  const { data: levelData } = useGetLevelsOptionsDataQuery("");
+  const { data: durationData } = useGetCourseDurationQuery("");
+  const { data: specializationData } =
+    useGetSpecializationQuery(SpecializationParams);
+  const { data: deliveryMethodsData } = useGetDeliveryMethodsQuery("");
+
+  const { data: ExamData } = useGetExamQuery("?examType=ENGLISH");
+  const { data: ExamDataAcademic } = useGetExamQuery("?examType=ACADEMIC");
+
+  const leveloptions = levelData?.map((item: any) => {
     return {
       label: item?.name,
       value: item?.slug,
     };
   });
+
+  const specializationOptions = specializationData?.data?.map((item: any) => {
+    return {
+      label: item?.name,
+      value: item?.slug,
+    };
+  });
+
+  const durationOptions = durationData?.map((item: any) => {
+    return {
+      label: `${item?.duration} Months`,
+      value: item?.duration,
+    };
+  });
+
+  const deliverMethodsData = deliveryMethodsData?.data?.map((item: any) => {
+    return {
+      label: item?.name,
+      value: item?.slug,
+    };
+  });
+
   const countryOptions = countryData?.data?.map((item: any) => {
+    return {
+      label: item?.name,
+      value: item?.slug,
+    };
+  });
+
+  const EnglishTestExamOption = ExamData?.map((item: any) => {
+    return {
+      label: item?.name,
+      value: item?.slug,
+    };
+  });
+  const AcademicTestExamDataOption = ExamDataAcademic?.map((item: any) => {
     return {
       label: item?.name,
       value: item?.slug,
@@ -151,25 +125,13 @@ const ProgramsFilter = ({
       studyLevel: checkedValues,
     }));
   };
-  const onChangeseasson = (checkedValues: any) => {
+  const onChangeSpecialization = (checkedValues: any) => {
     setQueryParams((prev: any) => ({
       ...prev,
-      intake: checkedValues,
-    }));
-  };
-  const onChangeSubject = (checkedValues: any) => {
-    setQueryParams((prev: any) => ({
-      ...prev,
-      subject: checkedValues,
+      specialization: checkedValues,
     }));
   };
 
-  const onChange3 = (checkedValues: any) => {
-    setQueryParams((prev: any) => ({
-      ...prev,
-      salaryBand: checkedValues,
-    }));
-  };
   const onchangeduration = (checkedValues: any) => {
     setQueryParams((prev: any) => ({
       ...prev,
@@ -182,24 +144,25 @@ const ProgramsFilter = ({
       englishTest: checkedValues,
     }));
   };
+  const onChangeAcademicTest = (checkedValues: any) => {
+    setQueryParams((prev: any) => ({
+      ...prev,
+      academyTest: checkedValues,
+    }));
+  };
   const onChangeAttendance = (checkedValues: any) => {
     setQueryParams((prev: any) => ({
       ...prev,
-      Attendance: checkedValues,
+      attendance: checkedValues,
     }));
   };
   const onChangeScholership = (checkedValues: any) => {
     setQueryParams((prev: any) => ({
       ...prev,
-      Scholarship: checkedValues,
+      scholarship: checkedValues,
     }));
   };
-  const onChangeAcademicTest = (checkedValues: any) => {
-    setQueryParams((prev: any) => ({
-      ...prev,
-      academicTest: checkedValues,
-    }));
-  };
+
   const onChangeCountrySlug = (checkedValues: any) => {
     setQueryParams((prev: any) => ({
       ...prev,
@@ -208,7 +171,7 @@ const ProgramsFilter = ({
   };
 
   return (
-    <div className=" flex flex-col gap-4">
+    <div className=" flex flex-col gap-4 p-2">
       <div className=" flex mb-2 justify-between">
         <span className=" text-[#22343C] text-h5 font-semibold">Filter</span>
         <button
@@ -263,7 +226,6 @@ const ProgramsFilter = ({
           );
         })}
       </div>
-
       <div>
         <Collapse
           bordered={false}
@@ -320,20 +282,12 @@ const ProgramsFilter = ({
           name=""
           id="location"
           placeholder="Find more location"
-          onChange={(e) =>
-            setQueryParams((prev: any) => ({
-              ...prev,
-              countrySlugs: e.target.value,
-            }))
-          }
-          value={
-            jobQueryParams?.countrySlugs ? jobQueryParams?.countrySlugs : ""
-          }
+          onChange={(e) => setCountryName(e.target.value)}
+          value={countryName ?? ""}
           className="border-none focus:outline-none w-full py-[10px] px-[15px]  bg-[#EFEFEF] placeholder:text-[#4E4E4E] rounded-full"
         />
         <IoSearchOutline className=" cursor-pointer absolute right-[20px] top-[50%] -translate-y-1/2" />
       </div>
-
       <div>
         <Collapse
           bordered={false}
@@ -350,7 +304,7 @@ const ProgramsFilter = ({
               children: (
                 <Checkbox.Group
                   name={`Study`}
-                  options={AcademicOption}
+                  options={leveloptions}
                   value={
                     jobQueryParams?.studyLevel ? jobQueryParams?.studyLevel : []
                   }
@@ -374,99 +328,17 @@ const ProgramsFilter = ({
           items={[
             {
               key: "1",
-              label: "Subject",
+              label: "Specialization",
               children: (
                 <Checkbox.Group
-                  name={`specializationArr`}
-                  options={SubjectOption}
-                  value={jobQueryParams?.subject ? jobQueryParams?.subject : []}
-                  onChange={onChangeSubject}
-                  className="flex flex-col gap-[10px]"
-                />
-              ),
-            },
-          ]}
-        />
-      </div>
-      <div>
-        <Collapse
-          bordered={false}
-          expandIconPosition={"end"}
-          defaultActiveKey={["1"]}
-          style={{ background: token.colorBgContainer }}
-          expandIcon={({ isActive }) => (
-            <CaretRightOutlined rotate={isActive ? 90 : 0} />
-          )}
-          items={[
-            {
-              key: "1",
-              label: "Intake",
-              children: (
-                <Checkbox.Group
-                  name={`season`}
-                  options={admissionOption}
-                  value={jobQueryParams?.intake ? jobQueryParams?.intake : []}
-                  onChange={onChangeseasson}
-                  className="flex flex-col gap-[10px]"
-                />
-              ),
-            },
-          ]}
-        />
-      </div>
-
-      <div>
-        <Collapse
-          bordered={false}
-          expandIconPosition={"end"}
-          defaultActiveKey={["1"]}
-          style={{ background: token.colorBgContainer }}
-          expandIcon={({ isActive }) => (
-            <CaretRightOutlined rotate={isActive ? 90 : 0} />
-          )}
-          items={[
-            {
-              key: "1",
-              label: "Duration",
-              children: (
-                <Checkbox.Group
-                  name={`salaryBand`}
-                  options={durationOption}
+                  name={`Study`}
+                  options={specializationOptions}
                   value={
-                    jobQueryParams?.duration ? jobQueryParams?.duration : []
-                  }
-                  onChange={onchangeduration}
-                  className="flex flex-col gap-[10px]"
-                />
-              ),
-            },
-          ]}
-        />
-      </div>
-
-      <div>
-        <Collapse
-          bordered={false}
-          expandIconPosition={"end"}
-          defaultActiveKey={["1"]}
-          style={{ background: token.colorBgContainer }}
-          expandIcon={({ isActive }) => (
-            <CaretRightOutlined rotate={isActive ? 90 : 0} />
-          )}
-          items={[
-            {
-              key: "1",
-              label: "English Test",
-              children: (
-                <Checkbox.Group
-                  name={`english Test`}
-                  options={englishTestOption}
-                  value={
-                    jobQueryParams?.englishTest
-                      ? jobQueryParams?.englishTest
+                    jobQueryParams?.specialization
+                      ? jobQueryParams?.specialization
                       : []
                   }
-                  onChange={onChangeEnglishTest}
+                  onChange={onChangeSpecialization}
                   className="flex flex-col gap-[10px]"
                 />
               ),
@@ -474,36 +346,112 @@ const ProgramsFilter = ({
           ]}
         />
       </div>
-      <div>
-        <Collapse
-          bordered={false}
-          expandIconPosition={"end"}
-          defaultActiveKey={["1"]}
-          style={{ background: token.colorBgContainer }}
-          expandIcon={({ isActive }) => (
-            <CaretRightOutlined rotate={isActive ? 90 : 0} />
-          )}
-          items={[
-            {
-              key: "1",
-              label: "Academic Test",
-              children: (
-                <Checkbox.Group
-                  name={`ContactType`}
-                  options={englishTestOption}
-                  value={
-                    jobQueryParams?.academicTest
-                      ? jobQueryParams?.academicTest
-                      : []
-                  }
-                  onChange={onChangeAcademicTest}
-                  className="flex flex-col gap-[10px]"
-                />
-              ),
-            },
-          ]}
+      <div className=" relative">
+        <input
+          type="text"
+          name=""
+          id="location"
+          placeholder="Find more Specialization"
+          onChange={(e) => setSpecialization(e.target.value)}
+          value={SpecializationName ?? ""}
+          className="border-none focus:outline-none w-full py-[10px] px-[15px]  bg-[#EFEFEF] placeholder:text-[#4E4E4E] rounded-full"
         />
+        <IoSearchOutline className=" cursor-pointer absolute right-[20px] top-[50%] -translate-y-1/2" />
       </div>
+      {durationData?.length > 0 && (
+        <div>
+          <Collapse
+            bordered={false}
+            expandIconPosition={"end"}
+            defaultActiveKey={["1"]}
+            style={{ background: token.colorBgContainer }}
+            expandIcon={({ isActive }) => (
+              <CaretRightOutlined rotate={isActive ? 90 : 0} />
+            )}
+            items={[
+              {
+                key: "1",
+                label: "Duration",
+                children: (
+                  <Checkbox.Group
+                    name={`salaryBand`}
+                    options={durationOptions}
+                    value={
+                      jobQueryParams?.duration ? jobQueryParams?.duration : []
+                    }
+                    onChange={onchangeduration}
+                    className="flex flex-col gap-[10px]"
+                  />
+                ),
+              },
+            ]}
+          />
+        </div>
+      )}
+      {EnglishTestExamOption?.length > 0 && (
+        <div>
+          <Collapse
+            bordered={false}
+            expandIconPosition={"end"}
+            defaultActiveKey={["1"]}
+            style={{ background: token.colorBgContainer }}
+            expandIcon={({ isActive }) => (
+              <CaretRightOutlined rotate={isActive ? 90 : 0} />
+            )}
+            items={[
+              {
+                key: "1",
+                label: "English Test",
+                children: (
+                  <Checkbox.Group
+                    name={`english Test`}
+                    options={EnglishTestExamOption}
+                    value={
+                      jobQueryParams?.englishTest
+                        ? jobQueryParams?.englishTest
+                        : []
+                    }
+                    onChange={onChangeEnglishTest}
+                    className="flex flex-col gap-[10px]"
+                  />
+                ),
+              },
+            ]}
+          />
+        </div>
+      )}
+      {AcademicTestExamDataOption?.length > 0 && (
+        <div>
+          <Collapse
+            bordered={false}
+            expandIconPosition={"end"}
+            defaultActiveKey={["1"]}
+            style={{ background: token.colorBgContainer }}
+            expandIcon={({ isActive }) => (
+              <CaretRightOutlined rotate={isActive ? 90 : 0} />
+            )}
+            items={[
+              {
+                key: "1",
+                label: "Academic Test",
+                children: (
+                  <Checkbox.Group
+                    name={`english Test`}
+                    options={AcademicTestExamDataOption}
+                    value={
+                      jobQueryParams?.academyTest
+                        ? jobQueryParams?.academyTest
+                        : []
+                    }
+                    onChange={onChangeAcademicTest}
+                    className="flex flex-col gap-[10px]"
+                  />
+                ),
+              },
+            ]}
+          />
+        </div>
+      )}
       <div>
         <Collapse
           bordered={false}
@@ -521,15 +469,20 @@ const ProgramsFilter = ({
                 <div>
                   <Slider
                     range={{ draggableTrack: true }}
-                    defaultValue={[300, 1000]}
-                    max={1500}
+                    defaultValue={[0, 20000]}
+                    max={20000}
                     onChange={(val: any) => {
                       setsliderValues(val);
+                      setQueryParams((prev: any) => ({
+                        ...prev,
+                        tuitionFrom: val[0],
+                        tuitionTo: val[1],
+                      }));
                     }}
                   />
                   <div className=" flex justify-between items-center">
-                    <span>{slidervalue[0]} AUD</span>
-                    <span>{slidervalue[1]} AUD</span>
+                    <span>{slidervalue[0]} USD</span>
+                    <span>{slidervalue[1]} USD</span>
                   </div>
                 </div>
               ),
@@ -537,7 +490,6 @@ const ProgramsFilter = ({
           ]}
         />
       </div>
-
       <div>
         <Collapse
           bordered={false}
@@ -555,12 +507,12 @@ const ProgramsFilter = ({
                 <Checkbox.Group
                   name={`Scholarship`}
                   options={[
-                    { label: "Yes", value: "Yes" },
-                    { label: "No", value: "No" },
+                    { label: "Yes", value: "true" },
+                    { label: "No", value: "false" },
                   ]}
                   value={
-                    jobQueryParams?.Scholarship
-                      ? jobQueryParams?.Scholarship
+                    jobQueryParams?.scholarship
+                      ? jobQueryParams?.scholarship
                       : []
                   }
                   onChange={onChangeScholership}
@@ -572,34 +524,38 @@ const ProgramsFilter = ({
         />
       </div>
 
-      <div>
-        <Collapse
-          bordered={false}
-          expandIconPosition={"end"}
-          defaultActiveKey={["1"]}
-          style={{ background: token.colorBgContainer }}
-          expandIcon={({ isActive }) => (
-            <CaretRightOutlined rotate={isActive ? 90 : 0} />
-          )}
-          items={[
-            {
-              key: "1",
-              label: "Attendance",
-              children: (
-                <Checkbox.Group
-                  name={`Attendance`}
-                  options={attandanceOption}
-                  value={
-                    jobQueryParams?.Attendance ? jobQueryParams?.Attendance : []
-                  }
-                  onChange={onChangeAttendance}
-                  className="flex flex-col gap-[10px]"
-                />
-              ),
-            },
-          ]}
-        />
-      </div>
+      {deliverMethodsData?.length > 0 && (
+        <div>
+          <Collapse
+            bordered={false}
+            expandIconPosition={"end"}
+            defaultActiveKey={["1"]}
+            style={{ background: token.colorBgContainer }}
+            expandIcon={({ isActive }) => (
+              <CaretRightOutlined rotate={isActive ? 90 : 0} />
+            )}
+            items={[
+              {
+                key: "1",
+                label: "Attendance",
+                children: (
+                  <Checkbox.Group
+                    name={`Attendance`}
+                    options={deliverMethodsData}
+                    value={
+                      jobQueryParams?.attendance
+                        ? jobQueryParams?.attendance
+                        : []
+                    }
+                    onChange={onChangeAttendance}
+                    className="flex flex-col gap-[10px]"
+                  />
+                ),
+              },
+            ]}
+          />
+        </div>
+      )}
     </div>
   );
 };

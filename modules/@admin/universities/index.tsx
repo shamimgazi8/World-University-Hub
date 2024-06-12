@@ -13,6 +13,7 @@ interface AdminUniversitiesProps {
 }
 
 const AdminUniversities: FC<AdminUniversitiesProps> = ({ dashboard }) => {
+  const dataArrays: any = [];
   const queryParams: any = {
     reference: "UNIVERSITY",
   };
@@ -62,12 +63,12 @@ const AdminUniversities: FC<AdminUniversitiesProps> = ({ dashboard }) => {
             </div>
           </div>
         </TabPane>
-        <TabPane tab="Recommended (8)" key="2">
+        <TabPane tab="Recommended" key="2">
           <div className="flex flex-col gap-7 lg:gap-[50px] py-5">
             <div>
               <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
                 {dashboard
-                  ? dataArray?.slice(0, 4).map((uni: any, i: number) => {
+                  ? dataArrays?.slice(0, 4).map((uni: any, i: number) => {
                       const formatedData = {
                         ...uni,
                         country: {

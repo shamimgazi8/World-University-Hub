@@ -1,52 +1,56 @@
 "use client";
-import { useGetAllUniversitiesQuery } from "@/appstore/university/university-api";
+import { useGetAllUniversitiesBySearchQuery } from "@/appstore/university/university-api";
 import { generateQueryString } from "@/helpers/utils";
 import PaginationComponent from "@/modules/@common/pagination";
 import Skeleton from "@/modules/@common/skeleton";
 import UniCourseCard from "@/modules/@common/uni-course-card";
 import { useEffect, useState } from "react";
 
+import { useAllShortListQuery } from "@/appstore/user/shortList/shorList-api";
 import Breadcrumbs from "@/modules/@common/breadcrumbs";
-import { Select } from "antd";
-import {
-  useGetCountriesDataQuery,
-  useGetRegionQuery,
-} from "@/appstore/country/country-api";
-import { useRouter, useSearchParams } from "next/navigation";
-import UniCoursesSearchByNameTwo from "@/modules/uni-courses-with-filter/@components/search-by-name/indexTwo";
+import DataNotFound from "@/modules/@common/loading/dataNotFound";
 import UniCoursesHero from "@/modules/uni-courses-with-filter/@components/hero";
-import UniversitySearchFilter from "./@components";
+import UniCoursesSearchByNameTwo from "@/modules/uni-courses-with-filter/@components/search-by-name/indexTwo";
 import ProgramsFilter from "@/modules/uni-courses-with-filter/programs/search/@components/Filter";
-
+import { Drawer } from "antd";
+import { useRouter, useSearchParams } from "next/navigation";
 const heroDescription =
   "Below you will find top university by ranking. Narrow your search further by selecting a specific year, region and location.";
 
 const UniversitySearchPage = () => {
+  const [Filteropen, setFilterOpen] = useState(false);
+  const showDrawer = () => {
+    setFilterOpen(true);
+  };
+
+  const onClose = () => {
+    setFilterOpen(false);
+  };
+
   const limit = 15;
   const router = useRouter();
   const searchParams = useSearchParams();
   const countrySlug = searchParams.get("countrySlug");
-  const regionSlug = searchParams.get("regionSlug");
   const pageFromRoute = searchParams.get("page");
-  const country = searchParams.get("countrySlug");
   const studyLevel = searchParams.get("studyLevel");
   const subjectlvl = searchParams.get("subject");
+  const specializaion = searchParams.get("specialization");
   const season = searchParams.get("intake");
   const duration = searchParams.get("duration");
   const englishTest = searchParams.get("englishTest");
   const academicTest = searchParams.get("academicTest");
-  const Scholarship = searchParams.get("Scholarship");
-  const Attendance = searchParams.get("Attendance");
+  const scholarship = searchParams.get("scholarship");
+  const attendance = searchParams.get("attendance");
 
-  const CountryStr = country ? country.split(",") : [];
-  const academicTeststr = academicTest ? academicTest.split(",") : [];
-  const englishTestStr = englishTest ? englishTest.split(",") : [];
-  const durationStr = duration ? duration.split(",") : [];
-  const seasonStr = season ? season.split(",") : [];
-  const studyLevelStr = studyLevel ? studyLevel.split(",") : [];
-  const subjectStr = subjectlvl ? subjectlvl.split(",") : [];
-  const ScholarshipStr = Scholarship ? Scholarship.split(",") : [];
-  const AttendanceStr = Attendance ? Attendance.split(",") : [];
+  const countrySlugArr = countrySlug ? countrySlug.split(",") : [];
+  const studyLevelArr = studyLevel ? studyLevel.split(",") : [];
+  const durationArr = duration ? duration.split(",") : [];
+  const seasonArr = season ? season.split(",") : [];
+  const englishTestArr = englishTest ? englishTest.split(",") : [];
+  const academicTestArr = academicTest ? academicTest.split(",") : [];
+  const scholarshipArr = scholarship ? scholarship.split(",") : [];
+  const specializationSlug = specializaion ? specializaion.split(",") : [];
+
   const AllSearch = [
     countrySlug,
     studyLevel,
@@ -55,42 +59,32 @@ const UniversitySearchPage = () => {
     duration,
     englishTest,
     academicTest,
-    Attendance,
-    Scholarship,
+    attendance,
+    scholarship,
+    specializaion,
   ];
+
   const [queryParams, setQueryParams] = useState<any>({
     page: pageFromRoute || 1,
     limit: 10,
-    regionSlug: regionSlug,
-    countrySlug: CountryStr,
-    studyLevel: studyLevelStr,
-    subject: subjectStr,
-    intake: seasonStr,
-    duration: durationStr,
-    englishTest: englishTestStr,
-    academicTest: academicTeststr,
-    Scholarship: ScholarshipStr,
-    Attendance: AttendanceStr,
+    countrySlug: countrySlugArr,
+    studyLevel: studyLevelArr,
+    specialization: specializationSlug,
+    duration: durationArr,
+    season: seasonArr,
+    englishTest: englishTestArr,
+    academicTest: academicTestArr,
+    scholarship: scholarshipArr,
   });
-
-  const handleReset = () => {
-    setQueryParams({
-      page: 1,
-      courseSlug: "",
-      limit: 10,
-    });
-  };
 
   const queryString = generateQueryString(queryParams);
 
-  const {
-    data,
-    isError,
-    isFetching: isLoading,
-  } = useGetAllUniversitiesQuery(queryString);
+  const { data, isFetching: isLoading } =
+    useGetAllUniversitiesBySearchQuery(queryString);
+  const { data: shortList } = useAllShortListQuery("?reference=UNIVERSITY");
 
-  const dataArr = data?.universities;
-  const total = data && data?.count;
+  const dataArr = data?.results;
+  const total = data && data?.total;
 
   const onChange = (pageNumber: any) => {
     setQueryParams((prev: any) => ({ ...prev, page: pageNumber }));
@@ -106,59 +100,31 @@ const UniversitySearchPage = () => {
     const subjectStr = queryParams.subject && queryParams.subject.join(",");
     const studyLevelStr =
       queryParams.studyLevel && queryParams.studyLevel.join(",");
+    const specializaionStr =
+      queryParams.specialization && queryParams.specialization.join(",");
     const countrySTR =
       queryParams.countrySlug && queryParams.countrySlug.join(",");
-    const ScholarshipSTR =
-      queryParams.Scholarship && queryParams.Scholarship.join(",");
-    const AttendanceSTR =
-      queryParams.Attendance && queryParams.Attendance.join(",");
-    const queryString = generateQueryString({
+    const scholarshipSTR =
+      queryParams.scholarship && queryParams.scholarship.join(",");
+    const attendanceSTR =
+      queryParams.attendance && queryParams.attendance.join(",");
+    const queryStringSearch = generateQueryString({
       totalUniversity: total,
       ...queryParams,
       limit: "",
       countrySlug: countrySTR,
       studyLevel: studyLevelStr,
       subject: subjectStr,
+      specialization: specializaionStr,
       intake: seasonStr,
       duration: durationStr,
       englishTest: englishTestStr,
       academicTest: academicTestStr,
-      Scholarship: ScholarshipSTR,
-      Attendance: AttendanceSTR,
+      scholarship: scholarshipSTR,
+      attendance: attendanceSTR,
     });
-
-    router.push(`/universities/search/${queryString}`, { scroll: false });
+    router.push(`/universities/search/${queryStringSearch}`, { scroll: false });
   }, [queryString, total]);
-
-  const countryQueryParams = {
-    page: 1,
-    limit: 500,
-    hasUniversity: "true",
-  };
-
-  const countryQueryString = generateQueryString(countryQueryParams);
-
-  const { data: countryData, isLoading: isCountryLoading } =
-    useGetCountriesDataQuery(countryQueryString);
-
-  const countryOption = countryData?.data?.map((item: any, i: any) => {
-    return {
-      value: item?.slug,
-      label: item?.name,
-    };
-  });
-
-  // Region
-
-  const { data: regionData, isLoading: isRegionLoading } =
-    useGetRegionQuery("?page=1&limit=50");
-
-  const regionOptions = regionData?.data?.map((item: any) => {
-    return {
-      label: item?.name,
-      value: item?.slug,
-    };
-  });
 
   const dataBreadcrumbs = [
     {
@@ -179,11 +145,29 @@ const UniversitySearchPage = () => {
         breadcrumb={<Breadcrumbs data={dataBreadcrumbs} />}
       />
 
-      <section className=" pt-[60px]">
+      <section className=" lg:pt-[60px] pt-[20px]">
         <div className="container">
           <div className="grid lg:grid-cols-[305px_1fr] gap-[30px]">
-            <div className="p-6  self-start row-span-2">
-              <div>
+            <div className="p-2  self-start row-span-2">
+              <div className=" lg:hidden block">
+                <button className=" btn btn-primary" onClick={showDrawer}>
+                  Filter
+                </button>
+                <Drawer
+                  title="University Search Filter"
+                  onClose={onClose}
+                  placement={"left"}
+                  open={Filteropen}
+                >
+                  <ProgramsFilter
+                    selectedSearch={AllSearch}
+                    setQueryParams={setQueryParams}
+                    jobQueryParams={queryParams}
+                    limit={limit}
+                  />
+                </Drawer>
+              </div>
+              <div className=" lg:block hidden">
                 <ProgramsFilter
                   selectedSearch={AllSearch}
                   setQueryParams={setQueryParams}
@@ -202,12 +186,14 @@ const UniversitySearchPage = () => {
                 />
               </div>
               <div className="mb-0 flex  gap-2 ">
-                We found <span className="font-bold">{total}</span> results for
-                you
+                We found <span className="font-bold">{total | 0}</span> results
+                for you
               </div>
             </div>
             {total === 0 ? (
-              <div> No Data Found</div>
+              <div className=" row-span-2">
+                <DataNotFound />
+              </div>
             ) : isLoading ? (
               <div className="flex flex-col gap-2 mt-4 self-start row-span-2  ">
                 {new Array(6).fill(1).map((_, i) => {
@@ -216,11 +202,20 @@ const UniversitySearchPage = () => {
               </div>
             ) : (
               <div className="flex flex-col gap-4 row-span-2  ">
-                {dataArr?.map((item: any, i: any) => {
-                  return (
-                    <UniCourseCard showCourse={false} data={item} key={i} />
-                  );
-                })}
+                {dataArr ? (
+                  dataArr?.map((item: any, i: any) => {
+                    return (
+                      <UniCourseCard
+                        showCourse={false}
+                        data={item}
+                        key={i}
+                        shortList={shortList}
+                      />
+                    );
+                  })
+                ) : (
+                  <DataNotFound />
+                )}
               </div>
             )}
           </div>

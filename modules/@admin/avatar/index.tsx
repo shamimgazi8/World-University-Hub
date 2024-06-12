@@ -27,7 +27,7 @@ export const ProfileDropdown = ({ profileData }: any) => {
   const items: MenuProps["items"] = [
     {
       label: (
-        <Link href="/settings/profile">
+        <Link href="/user/profile/personal-information">
           <div className="flex items-center gap-3 bg-[f5f6fa]">
             <div className="flex justify-center items-center font-bold w-[40px] h-[40px] rounded-full">
               <Image

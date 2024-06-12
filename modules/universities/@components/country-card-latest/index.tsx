@@ -24,17 +24,17 @@ const CountryCardLatest = ({ data, classes }: propTypes) => {
   const handleSubmit = () => {
     window.location.replace(`/universities?countryName=${value}`);
   };
-  const link = data?.slug ? `/universities/${data?.slug}` : "#";
+  const link = data?.slug ? `/top-universities?countrySlug=${data?.slug}` : "#";
   const numOfCampus = data && data?._count?.campus + 1;
 
   return (
     <div
-      className={`flex flex-col gap-4 ${classes?.root ? classes?.root : ""}`}
+      className={`flex flex-col gap-4 justify-center items-center ${
+        classes?.root ? classes?.root : ""
+      }`}
     >
       <Link
         href={`${`/top-universities?countrySlug=${data?.slug}`}`}
-        // onClick={handleSubmit}
-        // () => setValue(`${data?.name}`)
         className="text-p1  text-body font-semibold hover:text-gradient inline-block"
       >
         {data?.name}

@@ -6,6 +6,7 @@ import Image from "next/image";
 interface propTypes {
   universitySlug: string;
   isDetail?: boolean;
+  dataArr?: any;
   id?: string;
   className?: {
     root?: string;
@@ -19,29 +20,14 @@ const ShowRanking = ({
   id,
   className,
   universitySlug,
+  dataArr,
   isDetail = false,
 }: propTypes) => {
-  const queryString = generateQueryString({
-    uniSlug: universitySlug,
-  });
-  const { data, isLoading, isError } =
-    useGetUniversityRankingQuery(queryString);
-  const dataArr = data && data?.data;
-  const len = data && dataArr?.length;
-
   let rnk: any = [];
   dataArr?.map((d: any) => rnk.push(d.uniRanking));
   const sortData = rnk.flat().sort((a: any, b: any) => b.year - a.year);
   const bigYear = sortData[0]?.year;
   const smallYear = sortData[sortData.length - 1]?.year;
-
-  // console.log({ bigYear });
-  // console.log({ smallYear });
-
-  // const uniRankData = [];
-  // for (let index = bi; index <= sma; index++) {
-  //   uniRankData.push({ year: bigYear - index });
-  // }
 
   const Detail = ({ data }: any) => {
     return (
@@ -116,7 +102,6 @@ const ShowRanking = ({
             >
               {dataArr?.map((item: any, i: number) => {
                 const uniRank = item && item?.uniRanking[0];
-                console.log(item, "item tooltip");
 
                 return (
                   <Tooltip

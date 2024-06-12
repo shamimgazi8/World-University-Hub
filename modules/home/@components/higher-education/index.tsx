@@ -7,9 +7,9 @@ import { HiArrowRight } from "react-icons/hi";
 const HigherEducation = () => {
   return (
     <section className="">
-      <div className="container pt-[50px] z-20 relative">
-        <div className="max-w-[1045px] mb-[30px]">
-          <h3>
+      <div className="container lg:pt-[50px] pt-[20px] z-20 relative">
+        <div className="max-w-[1045px] mb-[30px] ">
+          <h3 className=" lg:leading-[1.2]  leading-[1.4]">
             <span className="text-gradient block">Strengthening</span> Worldwide
             Higher Education
           </h3>

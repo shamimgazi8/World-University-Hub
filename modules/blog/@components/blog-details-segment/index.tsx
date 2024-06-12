@@ -14,6 +14,8 @@ import BlogRightSideTwo from "../right-side-two";
 import { FaTwitter } from "react-icons/fa";
 import { IoIosLink } from "react-icons/io";
 import SocialLinks from "@/modules/@common/social-links";
+import { Drawer } from "antd";
+import SearchBar from "../search-bar";
 
 const SocialShare = dynamic(() => import("@/modules/@common/social-share"), {
   ssr: false,
@@ -45,6 +47,20 @@ const commentsData = [
 ];
 
 const BlogDetailsSegment = ({ data }: any) => {
+  const [open, setOpen] = useState(false);
+  const [openCat, setOpenCat] = useState(false);
+
+  const showDrawer = () => {
+    setOpen(true);
+  };
+
+  const onClose = () => {
+    setOpen(false);
+  };
+  const showDrawerCat = () => {
+    setOpenCat(true);
+  };
+
   // const catSlug = data && data?.categories[0].slug;
   const id = data && data?.id;
   const [state, setState] = useState<any>([]);
@@ -83,42 +99,97 @@ const BlogDetailsSegment = ({ data }: any) => {
   }, []);
 
   return (
-    <section className="pt-[60px]">
+    <section className="lg:pt-[60px] pt-[20px]">
       <div className="container">
         <div className="grid grid-cols-1 lg:grid-cols-[190px_1fr_386px] gap-6 lg:gap-[86px]">
           {/* left */}
 
           <div className="lg:sticky lg:top-[72px] lg:self-start overflow-auto scrollbar show_hide max-h-[calc(100vh-72px)]">
             <div className="pr-1">
-              {state?.length > 0 && (
-                <div className="from_texteditor_wrapper mb-6">
-                  <div className="blog-table-content">
+              <div className=" lg:hidden block mb-5">
+                <SearchBar />
+                <div className=" flex justify-between items-center mb-4 ">
+                  <button
+                    className="  btn btn-primary-outline  hover:text-white text-gradient "
+                    onClick={showDrawer}
+                  >
+                    Content
+                  </button>
+                  <button
+                    className="btn btn-primary-outline  hover:text-white text-gradient "
+                    onClick={showDrawerCat}
+                  >
+                    Categories
+                  </button>
+                </div>
+
+                <Drawer
+                  placement="left"
+                  title=<>
                     <div className="text-p1 font-semibold text-black mb-[10px]">
                       Table of contents
                     </div>
                     <div className="w-full h-[2px] bg-black mb-[15px]"></div>
-                    <ul>
-                      {state?.map((item: any, i: any) => {
-                        return (
-                          <li key={i}>
-                            <a
-                              href={`#content${i}`}
-                              className="text-p4 leading-6"
-                            >
-                              {item}
-                            </a>
-                          </li>
-                        );
-                      })}
-                    </ul>
+                  </>
+                  contentWrapperStyle={{ width: "100%", maxWidth: "280px" }}
+                  onClose={onClose}
+                  open={open}
+                >
+                  {state?.length > 0 && (
+                    <div className="from_texteditor_wrapper mb-6">
+                      <div className="blog-table-content">
+                        <ul>
+                          {state?.map((item: any, i: any) => {
+                            return (
+                              <li key={i} onClick={onClose}>
+                                <a
+                                  href={`#content${i}`}
+                                  className="text-p4 leading-6"
+                                >
+                                  {item}
+                                </a>
+                              </li>
+                            );
+                          })}
+                        </ul>
+                      </div>
+                    </div>
+                  )}
+                </Drawer>
+              </div>
+              <div className=" lg:block hidden">
+                {state?.length > 0 && (
+                  <div className="from_texteditor_wrapper mb-6">
+                    <div className="blog-table-content">
+                      <div className="text-p1 font-semibold text-black mb-[10px]">
+                        Table of contents
+                      </div>
+                      <div className="w-full h-[2px] bg-black mb-[15px]"></div>
+                      <ul>
+                        {state?.map((item: any, i: any) => {
+                          return (
+                            <li key={i} onClick={onClose}>
+                              <a
+                                href={`#content${i}`}
+                                className="text-p4 leading-6"
+                              >
+                                {item}
+                              </a>
+                            </li>
+                          );
+                        })}
+                      </ul>
+                    </div>
                   </div>
-                </div>
-              )}
-              <AdvertisementLeftSide isSticky={false} />
+                )}
+              </div>
+              <div className=" ">
+                <AdvertisementLeftSide isSticky={false} />
+              </div>
             </div>
           </div>
 
-          <div>
+          <div className="">
             {/* blog details */}
             {data.description && (
               <div className="from_texteditor_wrapper mb-8">
@@ -229,8 +300,12 @@ const BlogDetailsSegment = ({ data }: any) => {
             </div>
           </div>
           {/* right */}
-          <div>
-            <BlogRightSideTwo id={id} />
+          <div className=" lg:order-3 order-1 ">
+            <BlogRightSideTwo
+              id={id}
+              openCat={openCat}
+              setOpenCat={setOpenCat}
+            />
           </div>
           {/* <BlogRightSideCategory catSlug={"/"} id={id} /> */}
         </div>

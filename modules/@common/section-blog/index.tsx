@@ -90,7 +90,7 @@ const SectionBlog = ({ classes, title = "Blogs" }: propTypes) => {
                 classes?.root ? classes.root : ""
               }`}
             >
-              <div className="px-5">
+              <div className="lg:px-5">
                 <h2
                   className={`text-center mb-5 lg:mb-10 ${
                     classes?.title ? classes?.title : ""

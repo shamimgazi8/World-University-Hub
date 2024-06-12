@@ -416,3 +416,38 @@ table:not(.ant-picker-content) tbody td {
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
+.animate-text-loader {
+  animation: text-load 1s ease-in-out infinite alternate;
+}
+
+@keyframes text-load {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+.custom-checkbox-button {
+  display: inline-block;
+  padding-left: 5px;
+  padding-right: 5px;
+  padding-bottom: 6px;
+  border: 1px solid #d9d9d9;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.custom-checkbox-button:hover {
+  border-color: #40a9ff;
+}
+
+.custom-checkbox-button .ant-checkbox-inner {
+  display: none;
+}
+
+.custom-checkbox-button.checked {
+  border-color: #7367f0;
+  color: #7367f0;
+}

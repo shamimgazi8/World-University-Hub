@@ -52,8 +52,6 @@ const CompareCourses = () => {
                         compare?.data &&
                         compare.data.length > 0 &&
                         compare.data.map((item: any) => {
-                          console.log({ item });
-
                           return (
                             <Fragment>
                               <td className="p-4 border w-3/12 align-top">
@@ -254,7 +252,7 @@ const CompareCourses = () => {
                                     <div className="text-sm">Scholarship</div>
                                     <div className="font-medium text-p1 col-span-2">
                                       <span className="text-gradient font-semibold">
-                                        {item?.course?.hasScholarship
+                                        {item?.course?.scholarship
                                           ? "Available"
                                           : "Not Available"}
                                       </span>

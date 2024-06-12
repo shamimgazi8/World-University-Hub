@@ -18,11 +18,11 @@ const PageLinksCard = ({ data, regionSlug, countrySlug }: propTypes) => {
             return (
               <div
                 key={i}
-                className="flex flex-col gap-4  border-[#E7E7E7] border-[1px] p-6 rounded"
+                className="flex flex-col gap-4  border-[#E7E7E7] border-[1px] p-6 rounded group transition-all"
               >
-                <Link href={pageLink} className="group/contrypage">
+                <Link href={pageLink} className=" contrypage">
                   <h5 className="mb-0">
-                    <span className="group-hover/contrypage:text-gradient transition-all text-gradient">
+                    <span className="group-hover:text-gradient transition-all ">
                       {item?.title}
                     </span>
                   </h5>
@@ -35,7 +35,7 @@ const PageLinksCard = ({ data, regionSlug, countrySlug }: propTypes) => {
 
                 <Link
                   href={pageLink}
-                  className="text-p4 mt-4 rounded text-gradient flex items-center gap-3"
+                  className="text-p4 mt-4 rounded group-hover:text-gradient flex items-center gap-3"
                 >
                   Learn More
                   <HiArrowRight className="text-primary" />

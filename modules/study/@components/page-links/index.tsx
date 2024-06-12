@@ -33,7 +33,7 @@ const PageLinks = ({
           {data?.length > 0 && (
             <div className="bg-grey">
               <div className="container">
-                <ul className="flex gap-x-8 snap-x overflow-auto">
+                <ul className="flex gap-x-8 snap-x lg:overflow-auto overflow-x-scroll  ">
                   <li>
                     <Link
                       href={`/study-abroad/${regionSlug}/${countrySlug}`}

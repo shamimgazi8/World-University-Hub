@@ -1,19 +1,25 @@
 "use client";
 import { Field, Form, Formik } from "formik";
 import Link from "next/link";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Image from "next/image";
+import Cookies from "js-cookie";
 import { AiOutlineEye, AiOutlineEyeInvisible } from "react-icons/ai";
 import img from "../../../public/images/miscellaneous/login.png";
 import * as Yup from "yup";
 import { useAutoAnimate } from "@formkit/auto-animate/react";
 import { useSignInMutation } from "@/appstore/user/auth/auth-api";
 import { Spin, message } from "antd";
+import { redirect } from "next/navigation";
 
 const LoginPage = () => {
+  const [hasCookie, setHasCookie] = useState<any>();
   const [passwordType, setPasswordType] = useState("password");
   const [login, { isLoading }] = useSignInMutation();
   const [parent] = useAutoAnimate();
+
+  const loginConfirm = Cookies.get("userToken");
+  console.log(loginConfirm, "loginConfirm");
 
   const signInInit = {
     username: "",
@@ -39,7 +45,8 @@ const LoginPage = () => {
           );
         }
       } else {
-        console.log(response.error);
+        message.success("Login Successfully!");
+        window.location.href = "/user/dashboard";
       }
     } catch (error) {}
   };
@@ -148,11 +155,18 @@ const LoginPage = () => {
 
                 <button
                   type="submit"
-                  className={`btn btn-primary w-full mt-5 mb-4 ${
-                    isLoading ? "disabled" : ""
+                  className={` w-full mt-5 mb-4 ${
+                    isLoading ? "disabled btn-secondary" : "btn btn-primary"
                   }`}
                 >
-                  {isLoading ? <Spin /> : "Log In"}
+                  {isLoading ? (
+                    <button className=" w-full mt-5 mb-4 p-2 border ">
+                      {" "}
+                      <Spin className=" text-white z-50" />{" "}
+                    </button>
+                  ) : (
+                    "Log In"
+                  )}
                 </button>
               </Form>
             )}

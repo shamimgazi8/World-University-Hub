@@ -17,6 +17,8 @@ async function getData(params: any) {
   }
 }
 async function getCourseData(params: any) {
+  console.log(params.university_slug, params.course_slug);
+
   try {
     const res = await fetch(
       `${apiUrl}/public/course/${params.university_slug}?titleSlug=${params.course_slug}`,

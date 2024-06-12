@@ -1,10 +1,10 @@
 import { apiSlice } from "@/appstore/api-slice";
 
-export const studyPreferenceApi = apiSlice.injectEndpoints({
+export const acedemypreferenceApi = apiSlice.injectEndpoints({
   endpoints: (build) => ({
-    createstudyPreference: build.mutation({
+    createAcademyPreference: build.mutation({
       query: (data) => ({
-        url: "/students/preferences/study-preferences",
+        url: "/students/preferences/college-preferences",
         method: "PATCH",
         body: data,
         keepUnusedDataFor: 0,
@@ -14,4 +14,4 @@ export const studyPreferenceApi = apiSlice.injectEndpoints({
   }),
 });
 
-export const { useCreatestudyPreferenceMutation } = studyPreferenceApi;
+export const { useCreateAcademyPreferenceMutation } = acedemypreferenceApi;

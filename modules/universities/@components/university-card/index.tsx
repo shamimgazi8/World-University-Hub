@@ -38,14 +38,14 @@ const UniversityCard = ({ data, classes }: propTypes) => {
         </Link>
         <div className="">
           <div className="flex datas-center justify-start gap-4">
-            <div className="cursor-pointer hover:text-primary">
+            {/* <div className="cursor-pointer hover:text-primary">
               <span className="block relative">
                 <CompareButton
                   reference={"UNIVERSITY"}
                   universitySlug={data?.slug}
                 />
               </span>
-            </div>
+            </div> */}
             <div className="cursor-pointer hover:text-primary">
               <span className="block relative">
                 <ShortListButton
@@ -75,7 +75,7 @@ const UniversityCard = ({ data, classes }: propTypes) => {
           </span>
         </div>
       )}
-      <div className="flex datas-center gap-3 pt-3">
+      {/* <div className="flex datas-center gap-3 pt-3">
         <div className="flex datas-center gap-1">
           <BsBuildings color="#FF6600" />
           <span className="text-sm">
@@ -90,7 +90,7 @@ const UniversityCard = ({ data, classes }: propTypes) => {
               : `${data?._count?.reviews} Review`}
           </span>
         </div>
-      </div>
+      </div> */}
 
       <div className="grid grid-cols-2 pt-5 mb-5">
         {data?.ranking?.slice(0, 4).map((rnk: any, i: number) => {

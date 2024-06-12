@@ -38,6 +38,7 @@ export const apiSlice = createApi({
     "shortListData",
     "studyPreferenceData",
     "collegePreferenceData",
+    "collegePreference",
   ],
   keepUnusedDataFor: 0,
   endpoints: () => ({}),

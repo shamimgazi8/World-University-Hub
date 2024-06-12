@@ -49,7 +49,7 @@ const BlogCardTwo = ({
       <>
         <div
           style={style}
-          className={`h-full group  ${classes?.root ? classes?.root : ""}`}
+          className={`h-full group    ${classes?.root ? classes?.root : ""}`}
         >
           <Link
             href={link}

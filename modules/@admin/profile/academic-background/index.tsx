@@ -64,9 +64,7 @@ const AcademicBackground = () => {
       .min(9, "Mobile number not valid"),
   });
 
-  const academicDataHandler = async (values: any) => {
-    console.log({ values });
-  };
+  const academicDataHandler = async (values: any) => {};
 
   const getYearsArray = () => {
     const currentYear = new Date().getFullYear();
@@ -252,7 +250,6 @@ const AcademicBackground = () => {
                     max={1000}
                     min={1}
                     type="number"
-                    onChange={(e: any) => console.log(e)}
                   />
                 </div>
               </div>

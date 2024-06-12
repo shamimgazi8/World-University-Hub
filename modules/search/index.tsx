@@ -1,43 +1,35 @@
 "use client";
-
 import { useState } from "react";
 import Link from "next/link";
-import SearchLevel from "./level";
-import SearchLocation from "./location";
-import SearchSubject from "./subject";
 import { generateQueryString } from "@/helpers/utils";
+import SearchSpecialization from "./location";
+import Searchloction from "./location/indexTwo";
 
 const Search = () => {
+  const [input, setinput] = useState("");
   const [queryParams, setQueryParams] = useState<any>({
     courseLevel: "",
     courseSpecialization: "",
     countrySlug: "",
   });
   const queryString = generateQueryString(queryParams);
-  console.log({ queryString });
 
   return (
-    <div className="grid lg:grid-cols-[1fr_1fr_auto] gap-[15px]  lg:bg-[#F2F3F4] bg-white py-[10px] px-4 rounded-full  w-full ">
-      {/* <SearchLevel queryParams={queryParams} setQueryParams={setQueryParams} /> */}
-      {/* <SearchSubject
-        queryParams={queryParams}
-        setQueryParams={setQueryParams}
-      /> */}
-      <SearchLocation
+    <div className="grid lg:grid-cols-[1fr_1fr_auto] gap-[15px]  lg:bg-[#F2F3F4] bg-[#ffffff05] py-[10px] px-4 rounded-full  w-full  border-[#ffffff92] border-[8px] ">
+      <SearchSpecialization
         queryParams={queryParams}
         setQueryParams={setQueryParams}
       />
       <div className=" rounded">
-        <input
-          type="text"
-          placeholder="Enter Course, University or Exam"
-          className="w-full rounded-[32px] py-3 px-4  focus:outline-none bg-[#F2F3F4] "
+        <Searchloction
+          queryParams={queryParams}
+          setQueryParams={setQueryParams}
         />
       </div>
 
       <Link
-        href={`/search${queryString}`}
-        className="btn rounded-full btn-primary w-full  py-1 px-5 "
+        href={`/programs/search${queryString}`}
+        className="btn rounded-full btn-primary w-full  lg:py-1 lg:px-5 p-2 "
       >
         Search
       </Link>

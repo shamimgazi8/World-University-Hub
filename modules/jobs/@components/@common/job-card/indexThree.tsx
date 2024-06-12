@@ -12,8 +12,6 @@ const JobCardthree = ({ classes, data }: propTypes) => {
   const hour = data?.jobHours && replaceUnderscore(data?.jobHours);
   const hourLower = hour && hour.toLocaleLowerCase();
 
-  console.log("data", data);
-
   return (
     <div
       className={`grid  gap-3 sm:gap-5 p-5 lg:p-[30px] rounded-lg border hover:shadow-one hover:border-transparent  ${
@@ -32,8 +30,8 @@ const JobCardthree = ({ classes, data }: propTypes) => {
             />
           ) : (
             <Image
-              src={data?.recruiter?.logo || "/misc/placeholder-uni-logo2.webp"}
-              alt={data?.recruiter?.name}
+              src={data?.universityLogo || "/misc/placeholder-uni-logo2.webp"}
+              alt={data?.universityName}
               width={122}
               height={40}
               className="rounded-lg object-cover"
@@ -102,7 +100,7 @@ const JobCardthree = ({ classes, data }: propTypes) => {
                 className="shrink-0"
               />
               <p className="text-c3 text-heading font-medium mb-0">
-                London (Greater) (GB), Hybrid
+                {data?.location}
               </p>
             </div>
           ) : null}
@@ -117,7 +115,7 @@ const JobCardthree = ({ classes, data }: propTypes) => {
                 className="shrink-0"
               />
               <p className="text-c3 text-heading font-medium mb-0">
-                £35,000 - £40,000
+                {data?.salary}
               </p>
               {/* <div>{data?.salary}</div> */}
             </div>

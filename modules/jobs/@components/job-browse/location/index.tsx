@@ -15,7 +15,7 @@ const JobLoaction = () => {
   const queryString = generateQueryString(queryParams);
   const { data, isLoading, isError } = useGetRegionQuery(queryString);
 
-  return (
+  return data?.length > 0 ? (
     <>
       {isLoading && !isError ? (
         <div className="bg-white">
@@ -75,6 +75,8 @@ const JobLoaction = () => {
         </div>
       )}
     </>
+  ) : (
+    <div className=" p-5">No Location Found</div>
   );
 };
 

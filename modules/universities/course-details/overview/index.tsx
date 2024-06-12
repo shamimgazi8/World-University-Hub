@@ -126,7 +126,7 @@ const ProgramOverview = ({ id, data, dataCourse }: propTypes) => {
             <span>Scholarship</span>
           </div>
           <span className="text-gradient text-[20px] font-semibold">
-            {dataCourse?.hasScholarship ? "Available" : "Not Available"}
+            {dataCourse?.scholarship ? "Available" : "Not Available"}
           </span>
         </div>
 

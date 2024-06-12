@@ -26,10 +26,6 @@ const MessageForm = ({ isTitle = true, path, className }: propTypes) => {
   const [cityName, setCityName] = useState("");
   const sourcePath = `${baseUrl}${path}`;
 
-  const [message, setMessage] = useState("");
-
-  const [country, setCountry] = useState("");
-
   const [createForm, { isLoading: createLoading }] =
     useCreateContactFormMutation();
 
@@ -62,23 +58,16 @@ const MessageForm = ({ isTitle = true, path, className }: propTypes) => {
   const { data: cityData, isFetching: isCityFetching } =
     useGetAllCityQuery(cityQueryString);
 
-  console.log("cityData", cityData);
-
   const createHandler = async (values: any, resetForm: any) => {
     try {
       const res: any = await createForm({
         firstName: values.firstName,
         lastName: values.lastName,
         email: values.email,
-        mobile: parseInt(values.mobile),
-        age: 0,
-        country: "bangladesh",
-        city: values.city,
-        intakeYear: 2024,
-        livingCountry: "string",
-        livingCity: values.livingCity,
-        sourceSlug: "string",
-        reference: "COUNTRY",
+        mobile: values.mobile,
+        livingCity: values.city,
+        livingCountry: values?.country,
+        gender: values?.gender,
         message: values.message,
         tAndC: values.tAndC,
       });
@@ -113,9 +102,6 @@ const MessageForm = ({ isTitle = true, path, className }: propTypes) => {
     mobile: "",
     country: "",
     city: "",
-    sourceSlug: sourcePath,
-    reference: ["COUNTRY"],
-
     message: "",
     tAndC: false,
   };
@@ -131,7 +117,6 @@ const MessageForm = ({ isTitle = true, path, className }: propTypes) => {
         validationSchema={validationSchema}
         onSubmit={(values: any, { resetForm }) => {
           createHandler(values, resetForm);
-          console.log("values", values);
         }}
       >
         {({ handleSubmit, setFieldValue, errors, values, touched }: any) => (
@@ -195,7 +180,7 @@ const MessageForm = ({ isTitle = true, path, className }: propTypes) => {
             <div className="mt-4">
               <Field
                 type="text"
-                name="Passport"
+                name="passportNumber"
                 placeholder="Passport"
                 className="w-full px-3 p-2 focus:outline-none placeholder:text-body rounded border focus:border-purple-300"
               />
@@ -203,32 +188,32 @@ const MessageForm = ({ isTitle = true, path, className }: propTypes) => {
             <div className="mt-4">
               <Field
                 type="text"
-                name="town"
-                placeholder="Town"
+                name="city"
+                placeholder="city"
                 className="w-full px-3 p-2 focus:outline-none placeholder:text-body rounded border focus:border-purple-300"
               />
             </div>
             <div className="my-4">
               <Select
                 allowClear
-                placeholder={"Country"}
+                placeholder={"gender"}
                 className={`  w-full outline-none focus:outline-none border-none  ${
-                  errors.country && touched.country
+                  errors.gender && touched.gender
                     ? "border-red-500"
                     : "focus:border-blue-500"
                 }`}
                 onChange={(val) => {
-                  setFieldValue("country", val);
+                  setFieldValue("gender", val);
                 }}
-                value={values?.country ? values?.country : undefined}
+                value={values?.gender ? values?.gender : undefined}
                 options={[
                   {
                     label: "Male",
-                    value: "male",
+                    value: "MALE",
                   },
                   {
                     label: "Female",
-                    value: "female",
+                    value: "FEMALE",
                   },
                 ]}
               />
@@ -280,7 +265,6 @@ const MessageForm = ({ isTitle = true, path, className }: propTypes) => {
                 placeholder="Gender"
                 size={"large"}
                 className="w-full !border-0"
-                onChange={(val) => console.log(val)}
                 options={[{ label: "Australia", value: "test" }]}
               />
             </div> */}
